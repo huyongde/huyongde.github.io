@@ -9,10 +9,10 @@ title: jekyll 和 markdown 入门
 <h1> {{ page.title }} </h1>
 
 -----
-
-##内容列表
+TOC
+##Table of Content
 * [主题](#主题)
-* [参考](#ck)
+* [参考](#参考)
 
 ##段落
 通过空行来形成不同的段落
@@ -82,11 +82,9 @@ xxxxx|yyyyy
 ##链接图片
 \![]()
 
-![网球](https://github.com/huyongde/huyongde.github.io/blob/master/image/IMG_1979.JPG)
+![网球](../image/IMG_1979.JPG)
 
-<div id ="ck" > 
-##参考 
-</div>
+##参考
 
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
