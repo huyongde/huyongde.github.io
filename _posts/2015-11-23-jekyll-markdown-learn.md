@@ -8,6 +8,8 @@ title: jekyll 和 markdown 入门
 
 <h1> {{ page.title }} </h1>
 
+-----
+
 ##内容列表
 * [主题](#主题)
 * [参考](#ck)
@@ -16,6 +18,8 @@ title: jekyll 和 markdown 入门
 通过空行来形成不同的段落
 
 ##标题
+
+###atx标题
 \# The largest heading (an <h1> tag)
 
 \#\# The second largest heading (an <h2> tag)
@@ -23,6 +27,12 @@ title: jekyll 和 markdown 入门
 .....
 
 \#\#\#\#\#\# The 6th largest heading (an <h6> tag)
+
+###setext标题
+
+\=\=\= 一级标题
+
+\-\-\-二级标题
 
 ##引用(blockquotes)
 文字前面加上\>，
@@ -63,7 +73,15 @@ title: jekyll 和 markdown 入门
 1. item1
 2. item2
 
-##<div id ="ck" > 参考 </div>
+##表格
+
+表头1|表头2
+-----------
+xxxxx|yyyyy
+
+<div id ="ck" > 
+##参考 
+</div>
 
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
