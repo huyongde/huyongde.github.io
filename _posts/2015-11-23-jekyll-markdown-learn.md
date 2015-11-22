@@ -4,7 +4,7 @@ title: jekyll 和 markdown 入门
 ---
 
 主题
-===
+======
 
 <h1> {{ page.title }} </h1>
 
@@ -64,7 +64,7 @@ title: jekyll 和 markdown 入门
 2. item2
 
 参考
-===
+======
 
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
