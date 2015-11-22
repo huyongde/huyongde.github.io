@@ -10,7 +10,7 @@ title: jekyll 和 markdown 入门
 
 ##内容列表
 * [主题](#主题)
-* [参考](#参考)
+* [参考](#ck)
 
 ##段落
 通过空行来形成不同的段落
@@ -63,7 +63,7 @@ title: jekyll 和 markdown 入门
 1. item1
 2. item2
 
-参考
+<div id ="ck" > 参考 </div>
 ======
 
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
