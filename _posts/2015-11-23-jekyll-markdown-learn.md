@@ -84,6 +84,21 @@ xxxxx|yyyyy
 
 ![网球](../image/IMG_1979.JPG)
 
+##代码块
+行内代码用\`\` 把代码包起来
+
+代码块用\`\`\`代码\`\`\`
+
+c的`printf()`函数
+
+下面是一段代码
+
+```
+local a = xxxx
+ngx.say(a)
+ngx.print(a)
+```
+
 ##参考
 
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
