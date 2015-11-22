@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: jekyll 和 markdown 入门
+title: markdown 学习 
 ---
 
 主题
