@@ -26,6 +26,52 @@ sudo gem install jekyll
 mdkir jekyll_site
 jekyll new jekyll_site
 ```
+执行完 jekyll new jekyll_site
+
+执行`cd jekyll_site; tree`可以看到站点的目录结构,如下:
+
+```
+.
+├── _config.yml
+├── _includes
+│   ├── footer.html
+│   ├── head.html
+│   ├── header.html
+│   ├── icon-github.html
+│   ├── icon-github.svg
+│   ├── icon-twitter.html
+│   └── icon-twitter.svg
+├── _layouts
+│   ├── default.html
+│   ├── page.html
+│   └── post.html
+├── _posts
+│   └── 2015-11-22-welcome-to-jekyll.markdown
+├── _sass
+│   ├── _base.scss
+│   ├── _layout.scss
+│   └── _syntax-highlighting.scss
+├── _site
+│   ├── about
+│   │   └── index.html
+│   ├── css
+│   │   └── main.css
+│   ├── feed.xml
+│   ├── index.html
+│   └── jekyll
+│       └── update
+│           └── 2015
+│               └── 11
+│                   └── 22
+│                       └── welcome-to-jekyll.html
+├── about.md
+├── css
+│   └── main.scss
+├── feed.xml
+└── index.html
+
+13 directories, 24 files
+```
 
 通过`jekyll server` 就可以启动本地服务查看站点
 
@@ -43,6 +89,7 @@ Configuration file: /Users/huyongde/tmp/jekyll_site/_config.yml
     Server address: http://127.0.0.1:4000/
   Server running... press ctrl-c to stop.
 ```
+
 
 ##参考
 
