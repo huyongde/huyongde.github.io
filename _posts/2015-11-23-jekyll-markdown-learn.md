@@ -81,7 +81,7 @@ xxxxx|yyyyy
 
 ##链接图片
 \![]()
-![网球](./image/IMG_1979.JPG)
+![网球](https://github.com/huyongde/huyongde.github.io/blob/master/image/IMG_1979.JPG)
 
 <div id ="ck" > 
 ##参考 
