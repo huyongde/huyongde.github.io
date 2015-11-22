@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post 
 title: jekyll 和 markdown 入门
 ---
 
