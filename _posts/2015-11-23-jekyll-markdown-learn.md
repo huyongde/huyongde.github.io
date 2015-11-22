@@ -37,6 +37,7 @@ title: jekyll 和 markdown 入门
 \* item 
 
 效果如下:
+
 * item 
 * item
 * item 
@@ -50,6 +51,7 @@ title: jekyll 和 markdown 入门
 \2.item2
 
 效果如下:
+
 1. \1.item1
 2. \2.item2
 
