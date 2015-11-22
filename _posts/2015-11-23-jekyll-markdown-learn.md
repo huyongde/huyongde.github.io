@@ -8,12 +8,17 @@ title: jekyll 和 markdown 入门
 通过空行来形成不同的段落
 
 ##标题
-```
 # The largest heading (an <h1> tag)
+
 ## The second largest heading (an <h2> tag)
-…
+
+.....
+
 ###### The 6th largest heading (an <h6> tag)
-```
+
+##引用(blockquotes)
+>这里是个引用
+
 
 *参考*
 
