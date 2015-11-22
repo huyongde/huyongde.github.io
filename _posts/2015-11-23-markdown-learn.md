@@ -115,6 +115,5 @@ ngx.print(a)
 
 [***markdown 编辑器 mou***](http://25.io/mou/)
 
-[jekyll 入门](http://trefoil.github.io/2013/10/05/jekyll.html)
 
 *{{ page.date | date_to_string }}*
