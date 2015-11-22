@@ -2,7 +2,9 @@
 layout: default
 title: jekyll 和 markdown 入门
 ---
-##主题
+主题
+===
+
 <h1> {{ page.title }} </h1>
 
 ##内容列表
@@ -60,8 +62,9 @@ title: jekyll 和 markdown 入门
 1. item1
 2. item2
 
-#参考
+参考
 ====
+
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
 [*markdown master*](https://guides.github.com/features/mastering-markdown/)
