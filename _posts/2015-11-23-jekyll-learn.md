@@ -30,7 +30,7 @@ jekyll new jekyll_site
 
 执行`cd jekyll_site; tree`可以看到站点的目录结构,如下:
 
-![jekyll站点目录](../image/tree_re.png)
+![jekyll站点目录](/image/tree_re.png)
 
 通过`jekyll server` 就可以启动本地服务查看站点
 
