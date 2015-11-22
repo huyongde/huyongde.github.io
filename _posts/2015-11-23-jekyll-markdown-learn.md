@@ -9,17 +9,21 @@ title: jekyll 和 markdown 入门
 
 ##标题
 ```
-# The largest heading (an <h1> tag)
+># The largest heading (an <h1> tag)
 
-## The second largest heading (an <h2> tag)
+>## The second largest heading (an <h2> tag)
 
-.....
+>.....
 
-###### The 6th largest heading (an <h6> tag)
+>###### The 6th largest heading (an <h6> tag)
 ```
 
 ##引用(blockquotes)
 >这里是个引用
+
+##文字加粗&&斜体
+*这里是加粗* (文字前后都加上*,可以加粗文字）
+**这里是斜体** （文字前后都加2个*,可以是文字变成斜体）
 
 
 #参考
