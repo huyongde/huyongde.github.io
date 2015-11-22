@@ -74,6 +74,10 @@ title: jekyll 和 markdown 入门
 
 [**markdown 入门精选**](http://ibruce.info/2013/11/26/markdown/)
 
+[**markdown 简体中文教程**](http://wowubuntu.com/markdown/)
+
+[***markdown 编辑器 mou***](http://25.io/mou/)
+
 [jekyll 入门](http://trefoil.github.io/2013/10/05/jekyll.html)
 
 *{{ page.date | date_to_string }}*
