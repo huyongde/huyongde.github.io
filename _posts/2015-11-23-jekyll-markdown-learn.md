@@ -3,7 +3,7 @@ layout: default
 title: jekyll 和 markdown 入门
 ---
 主题
-===
+====
 
 <h1> {{ page.title }} </h1>
 
@@ -70,6 +70,7 @@ title: jekyll 和 markdown 入门
 [*markdown master*](https://guides.github.com/features/mastering-markdown/)
 
 [markdown 入门2](http://www.jianshu.com/p/q81RER)
+[*markdown 入门精选*](http://ibruce.info/2013/11/26/markdown/)
 
 [jekyll 入门](http://trefoil.github.io/2013/10/05/jekyll.html)
 
