@@ -76,8 +76,12 @@ title: jekyll 和 markdown 入门
 ##表格
 
 表头1|表头2
------------
+-----|------
 xxxxx|yyyyy
+
+##链接图片
+\![]()
+![网球](./image/IMG_1979.JPG)
 
 <div id ="ck" > 
 ##参考 
