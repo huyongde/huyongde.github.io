@@ -8,6 +8,7 @@ title: jekyll 和 markdown 入门
 通过空行来形成不同的段落
 
 ##标题
+```
 # The largest heading (an <h1> tag)
 
 ## The second largest heading (an <h2> tag)
@@ -15,16 +16,17 @@ title: jekyll 和 markdown 入门
 .....
 
 ###### The 6th largest heading (an <h6> tag)
+```
 
 ##引用(blockquotes)
 >这里是个引用
 
 
-*参考*
+#参考
 
-[markdown basic](https://help.github.com/articles/markdown-basics/)
+[*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
-[markdown master](https://guides.github.com/features/mastering-markdown/)
+[*markdown master*](https://guides.github.com/features/mastering-markdown/)
 
 [markdown 入门2](http://www.jianshu.com/p/q81RER)
 
