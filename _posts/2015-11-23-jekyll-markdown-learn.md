@@ -61,6 +61,7 @@ title: jekyll 和 markdown 入门
 2. item2
 
 #参考
+====
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
 [*markdown master*](https://guides.github.com/features/mastering-markdown/)
