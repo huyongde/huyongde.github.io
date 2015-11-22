@@ -30,28 +30,28 @@ title: jekyll 和 markdown 入门
 ###无序列表
 文字前面机上\*或者\-来表示无须列表
 
-\* item 
+\*item 
 
-\* item
+\*item
 
-\* item 
+\*item 
 
 效果如下:
-* item 
-* item
-* item 
+*item 
+*item
+*item 
 
 
 ###有序列表
 文字前面加上数字表示有序列表
 
-\1. item1
+\1.item1
 
-\2. item2
+\2.item2
 
 效果如下:
-1. \1.item1
-2. \2.item2
+1.\1.item1
+2.\2.item2
 
 #参考
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
