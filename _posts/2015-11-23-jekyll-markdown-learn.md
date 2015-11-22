@@ -63,8 +63,7 @@ title: jekyll 和 markdown 入门
 1. item1
 2. item2
 
-<div id ="ck" > 参考 </div>
-======
+##<div id ="ck" > 参考 </div>
 
 [*markdown basic*](https://help.github.com/articles/markdown-basics/)
 
