@@ -31,7 +31,6 @@ jekyll new jekyll_site
 执行`cd jekyll_site; tree`可以看到站点的目录结构,如下:
 
 ```
-.
 ├── _config.yml
 ├── _includes
 │   ├── footer.html
