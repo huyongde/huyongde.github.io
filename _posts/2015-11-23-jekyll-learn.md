@@ -49,6 +49,23 @@ Configuration file: /Users/huyongde/tmp/jekyll_site/_config.yml
   Server running... press ctrl-c to stop.
 ```
 
+##jekyll 配置
+
+###代码块的功能不能用解决办法(我这边是如下解决的，仅供参考（MAC OS))：
+
+_config.yml中的`markdown:cramdown` 配置改成`markdown:rdiscount`, 把markdown解释器改成rdiscount ,之后代码块就生效了,代码块示例：
+
+```
+$a = "php code";
+echo $a;
+```
+
+下面是通过highlight高亮的代码:
+
+{% highlight php%}
+$a = "php code";
+echo $a;
+{% endhighlight %}
 
 ##参考
 
