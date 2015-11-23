@@ -16,4 +16,4 @@ url: "https://yourdomain.com" # the base hostname & protocol for your site
 github_username: huyongde 
 
 # Build settings
-markdown: kramdown
+markdown: rdiscount 
