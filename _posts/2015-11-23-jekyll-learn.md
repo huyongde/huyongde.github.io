@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: jekyll 入门
+title: jekyll 入门 && jekyll 搭建github page的框架
 ---
 
 主题
@@ -48,6 +48,24 @@ Configuration file: /Users/huyongde/tmp/jekyll_site/_config.yml
     Server address: http://127.0.0.1:4000/
   Server running... press ctrl-c to stop.
 ```
+
+浏览器访问`127.0.0.1:4000` 就可以在本地看到jekyll生成的blog了，
+
+效果如下图
+
+![本机blog效果图](/image/jekyll_server.png)
+
+##博客迁移到github pages
+
+github中建立一个项目，项目名称叫 `你的github名字.github.io`,比如我的github账号名字是`huyongde`,
+
+我创建的项目名称就是`huyongde.github.io`, 然后把`jekyll new` 出来的`jekyll_site`文件夹中的文件加到项目中，
+
+过会访问`你的github名字.github.io`, 就可以看到你的github pages 上的blog了。
+
+下图是我的github pages效果图(改过博客主题，加了一些文章之后的)：
+
+![my github page blog](/image/huyongde_githubpages.png)
 
 ##jekyll 配置
 
