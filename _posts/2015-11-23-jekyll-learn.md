@@ -80,7 +80,7 @@ echo $a;
 
 下面是通过highlight高亮的代码:
 
-{% highlight php%}
+{% highlight php %}
 $a = "php code";
 echo $a;
 {% endhighlight %}

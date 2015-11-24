@@ -26,7 +26,7 @@ int main()
 
 ##第二种
 
-```
+{% highlight cplusplus %}
 #include<iostream>
 #include<windows.h>
 using namespace std;
@@ -38,7 +38,7 @@ int main()
     cout<< "filesize" << size <<endl;
     return 0;
 }
-```
+{% endhighlight %}
 
 ##第三种
 
@@ -49,7 +49,7 @@ int main()
     FILE * file = NULL;
     file = fopen("test.txt", 'rb");
     fseek(file, 0, SEEK_END);
-    int length = ftell(file);
+    long length = ftell(file);
     fclose(file);
     std::cout<< "filesize" << length << std::endl;
     return 0;
