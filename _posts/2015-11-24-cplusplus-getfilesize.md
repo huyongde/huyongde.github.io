@@ -8,7 +8,7 @@ title: c++获得文件大小
 
 ##第一种
     
-```
+{% highlight c++ %}
 #include<io.h>
 #include<iostream>
 using namespace std;
@@ -22,11 +22,9 @@ int main()
     close(handle);
     return 0;
 }
-```
+{% endhighlight %}
 
 ##第二种
-
-代码使用highlight加亮    
 
 {% highlight c++ %}
 #include<iostream>
@@ -50,7 +48,7 @@ int main()
 int main()
 {
     FILE * file = NULL;
-    file = fopen("test.txt", 'rb");
+    file = fopen("test.txt", "rb");
     fseek(file, 0, SEEK_END);
     long length = ftell(file);
     fclose(file);
