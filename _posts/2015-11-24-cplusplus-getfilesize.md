@@ -26,7 +26,7 @@ int main()
 
 ##第二种
 
-{% highlight cplusplus %}
+{% highlight c++ %}
 #include<iostream>
 #include<windows.h>
 using namespace std;
