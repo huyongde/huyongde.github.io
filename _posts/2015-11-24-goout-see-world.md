@@ -8,7 +8,7 @@ layout: post
   
 mac系统奥，
 
-***vpn推荐*** [jsqgreen](jsqgreen.net)
+***vpn推荐*** [jsqgreen](http://www.jsqgreen.net)
 
 设置访问国内网站不走vpn,的设置
 
