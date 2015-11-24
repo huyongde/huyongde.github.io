@@ -1,6 +1,6 @@
 ---
 title: c++获得文件大小
-layout:post
+layout: post
 ---
 
 # c++获得文件大小的几种方式
