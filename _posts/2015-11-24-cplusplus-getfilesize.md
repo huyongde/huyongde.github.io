@@ -26,6 +26,8 @@ int main()
 
 ##第二种
 
+代码使用highlight加亮    
+
 {% highlight c++ %}
 #include<iostream>
 #include<windows.h>
