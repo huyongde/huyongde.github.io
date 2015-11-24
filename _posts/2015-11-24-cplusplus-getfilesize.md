@@ -44,7 +44,8 @@ int main()
 
 ##第三种
 
-```
+{% highlight c++ %}
+
 #include<iostream>
 int main()
 {
@@ -56,4 +57,5 @@ int main()
     std::cout<< "filesize" << length << std::endl;
     return 0;
 }
-```
+
+{% endhighlight %}
