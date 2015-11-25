@@ -1,6 +1,7 @@
 ---
 layout: post
 title: linux 命令学习汇总
+tags: linux-cmds
 ---
 
 ## killall
