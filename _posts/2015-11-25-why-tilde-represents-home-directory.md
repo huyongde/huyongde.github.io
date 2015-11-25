@@ -21,4 +21,4 @@ title: 为什么~号代表home目录
 文章翻译自
 ------
 
-**[why tilde was chosen to represent-the-home-directory]**(http://unix.stackexchange.com/questions/34196/why-was-chosen-to-represent-the-home-directory)
+[**why tilde was chosen to represent-the-home-directory**](http://unix.stackexchange.com/questions/34196/why-was-chosen-to-represent-the-home-directory)
