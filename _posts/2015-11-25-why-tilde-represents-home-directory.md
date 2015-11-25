@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 为什么~号代表home目录
+tags: shell
 ---
 
 在`unix`类的系统（包括：`BSD`、`GUN/LIUNX` 以及 `Mac OS X`)中，波浪号(tilde)代表当前用户的home目录.
