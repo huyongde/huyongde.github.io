@@ -23,8 +23,8 @@
      */
 
     var disqus_config = function () {
-        this.page.url = {{ page.url | prepend: site.baseurl }};  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = {{ page.title }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = this.page.url; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
 
@@ -42,7 +42,7 @@
 
 <script type="text/javascript">
       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'huyongde'; // required: replace example with your forum shortname
+      var disqus_shortname = "huyongde"; // required: replace example with your forum shortname
       // var disqus_developer = 1; // Comment out when the site is live
 
       /* * * DON'T EDIT BELOW THIS LINE * * */
