@@ -17,6 +17,7 @@ github_username: huyongde
 
 # Build settings
 markdown: rdiscount 
-gems:
-  - jekyll-redirect-from
+
+#gems:
+#  - jekyll-redirect-from
 
