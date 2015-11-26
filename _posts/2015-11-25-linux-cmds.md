@@ -51,6 +51,30 @@ lsof -d 4 显示使用fd为4的进程
 lsof -i 显示所有打开的端口 
 lsof -i:6000 显示端口号是6000的进程
 ```
+##netstat
+
+###`netstat -alntp` 其中
+
+a是显示所有的连接， 
+
+l是显示监听的连接, 
+
+n是显示ip，不显示主机名
+
+p是显示连接相关的进程
+
+###`netstat -nr` 
+
+ip形式显示本机的路由表
+
+n是显示ip不显示主机名
+
+r是route路由表
+
+###`netstat -i` 
+
+显示网络接口（network interfaces)
+
 
 ##准备学习的命令 ltrace strace
 
