@@ -53,6 +53,8 @@ lsof -i:6000 显示端口号是6000的进程
 ```
 ##netstat
 
+参考[netstat commands samples](http://www.binarytides.com/linux-netstat-command-examples/)
+
 ###`netstat -alntp` 其中
 
 a是显示所有的连接， 
