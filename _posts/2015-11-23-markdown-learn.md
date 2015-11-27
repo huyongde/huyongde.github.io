@@ -115,5 +115,6 @@ ngx.print(a)
 
 [***markdown 编辑器 mou***](http://25.io/mou/)
 
+[markdown 设置图片大小](http://uliweb.clkg.org/wiki/Help/MarkdownSyntax)
 
 *{{ page.date | date_to_string }}*

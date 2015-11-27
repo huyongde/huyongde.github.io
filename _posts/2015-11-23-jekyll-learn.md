@@ -55,6 +55,9 @@ Configuration file: /Users/huyongde/tmp/jekyll_site/_config.yml
 
 ![本机blog效果图](/image/jekyll_server.png)
 
+[[效果图:/image/jekyll_server.png|center|100px|100px]]
+
+
 ##博客迁移到github pages
 
 github中建立一个项目，项目名称叫 `你的github名字.github.io`,比如我的github账号名字是`huyongde`,
@@ -90,5 +93,7 @@ echo $a;
 [jekyll 安装和初始化站点](http://jobinson.ga/%E5%BB%BA%E7%AB%99%E4%B9%8B%E8%B7%AF/2014/04/27/%E4%BD%BF%E7%94%A8jekyll%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E7%AB%99/)
 
 [jekyll 入门](http://trefoil.github.io/2013/10/05/jekyll.html)
+
+[markdown 设置图片大小](http://uliweb.clkg.org/wiki/Help/MarkdownSyntax)
 
 *{{ page.date | date_to_string }}*
