@@ -4,6 +4,13 @@ title: linux 命令学习汇总
 tags: shell
 ---
 
+##目录
+* [killall](#killall) 
+* [lsof](#lsof) 
+* [netstat](#netstat)  
+* [学习计划](#plan) 
+
+<a id="killall"></a>
 ## killall
 
 `killall(kill processes by nane)` 表示通过进程名字`kill`进程，可以一次`kill`多个进程
@@ -13,8 +20,7 @@ tags: shell
 
 `killall -9 nginx` 可以杀掉所有通过`nginx`命令启动的进程
 
-
-
+<a id="lsof"></a>
 ##lsof
 
 ###lsof简介
@@ -51,6 +57,7 @@ lsof -d 4 显示使用fd为4的进程
 lsof -i 显示所有打开的端口 
 lsof -i:6000 显示端口号是6000的进程
 ```
+<a id="netstat"></a>
 ##netstat
 
 参考[netstat commands samples](http://www.binarytides.com/linux-netstat-command-examples/)
@@ -77,7 +84,7 @@ r是route路由表
 
 显示网络接口（network interfaces)
 
-
+<a id="plan"></a>
 ##准备学习的命令 ltrace strace
 
 
