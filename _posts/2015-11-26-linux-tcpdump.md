@@ -57,6 +57,31 @@ E..j.o........./pP....  K..B.A.>...... r.Ar..e-g..3..bZ
 
 把抓到的包信息存储到filename.pcap文件中， 可以用[wireshark](https://www.wireshark.org/)分析
 
+####其他选项开关介绍
+
+**-C filesize** : 当用-w filename 把抓到的数据包写到filename文件时，检查文件大小，当文件大小达到filesize，新建文件filename_q继续写,直到tcpdump收到结束命令
+
+示例: tcpdump -vvv -C 1 -w filename
+
+运行一段时间后，当前文件夹下生成如下文件列表：
+
+```
+$ ls -lht
+total 22352
+-rw-r--r--  1 root  staff   396K 11 27 21:25 filename11
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename10
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename9
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename7
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename8
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename6
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename5
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename2
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename3
+-rw-r--r--  1 root  staff   978K 11 27 21:25 filename4
+-rw-r--r--  1 root  staff   978K 11 27 21:25 filename1
+-rw-r--r--  1 root  staff   977K 11 27 21:25 filename
+```
+
 <a id="参考"></a>
 ##参考
 
