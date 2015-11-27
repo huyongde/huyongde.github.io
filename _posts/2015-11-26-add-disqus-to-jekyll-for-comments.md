@@ -4,6 +4,13 @@ title:  整合disqus和jekyll，打造一个支持评论的blog
 
 ---
 
+##目录
+
+* [简介](#简介)
+* [教程](#教程)
+* [总结](#总结)
+
+<a id="简介"></a>
 ##一、[disqus](https://disqus.com/) 简介
 
 Millions of people are talking about what they love on Disqus. 
@@ -15,6 +22,7 @@ Everything from breaking news to science fiction.
 (自己领会这句话)
 
 
+<a id="教程"></a>
 ##二、主要参考教程
 
 [**adding disqus to jekyll**](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/)这个大概介绍了怎么添加`disqus`到`jekyll`
@@ -31,6 +39,7 @@ Everything from breaking news to science fiction.
 
 [**disqus configuration variables**](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables) 介绍如何设置相关的变量值，比如 `this.page.url`等。
 
+<a id="总结"></a>
 ##三、总结
 
 *一定要认真阅读教程，按照理解教程的每一步。*
