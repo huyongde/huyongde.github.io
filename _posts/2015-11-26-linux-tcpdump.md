@@ -4,7 +4,7 @@ title: tcpdump tutorial - sniffing and analysing packets from commandline
 tags: shell network
 ---
 
-##tcpdump 
+##[tcpdump](http://www.tcpdump.org/) 
 
 ###**目录**
 * [**参考**](#参考)
@@ -59,7 +59,7 @@ E..j.o........./pP....  K..B.A.>...... r.Ar..e-g..3..bZ
 
 ####其他选项开关介绍
 
-**-C filesize** : 当用-w filename 把抓到的数据包写到filename文件时，检查文件大小，当文件大小达到filesize，新建文件filename_q继续写,直到tcpdump收到结束命令
+**-C filesize** : 当用-w filename 把抓到的数据包写到filename文件时，检查文件大小，当文件大小达到filesize，新建文件filename1继续写,直到tcpdump收到结束命令
 
 示例: tcpdump -vvv -C 1 -w filename
 
