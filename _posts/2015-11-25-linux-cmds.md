@@ -10,7 +10,7 @@ tags: shell
 * [netstat](#netstat)  
 * [学习计划](#plan) 
 
-[**linux man**](linux.die.net/)
+[**linux man**](http://linux.die.net/)
 
 <a id="killall"></a>
 ## killall
