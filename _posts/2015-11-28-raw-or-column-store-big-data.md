@@ -3,6 +3,7 @@ layout: post
 title: 大数据按行存储和按列存储的优缺点比较
 tags：data
 ---
+
 介绍数据行存储和列存储的优缺点
 
 
