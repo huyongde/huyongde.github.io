@@ -12,7 +12,7 @@ tags: data shell
 
 **面向列**的数据存储架构更适用于[OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing#Overview_of_OLAP_systems)-(如数据仓库)这样在海量数据（(可能达到 terabyte规模)）中进行有限复杂查询的场景。
  
-###OLTP和OLAP介绍
+###[OLTP和OLAP介绍](http://blog.csdn.net/zhangzheng0413/article/details/8271322/)
 
 数据处理大致可以分成两大类：联机事务处理OLTP（on-line transaction processing）、联机分析处理OLAP（On-Line Analytical Processing）。
 
