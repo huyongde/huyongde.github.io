@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 小米大数据-技术小实践
+title: sf 小米大数据-技术小实践
 tags: data
 ---
 
@@ -13,4 +13,7 @@ tags: data
 * 扩容方便
 * 成本考虑
 * facebook 等公司做了很好的示范
+
+##小米对hbase的改进
+
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SF 大数据技术分享--druid
-tags: data shell
+tags: data
 ---
 
 ##[druid](http://druid.io/)

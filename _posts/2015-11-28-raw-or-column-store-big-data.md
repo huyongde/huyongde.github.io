@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 大数据行存储还是列存储？
-tags: data shell
+tags: data 
 ---
 
 ***介绍数据行存储和列存储的优缺点***
