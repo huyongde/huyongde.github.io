@@ -2,7 +2,7 @@
 layout: post
 title: 大数据按行存储和按列存储的优缺点比较
 tags： data
-----
+---
 
 
 
