@@ -16,4 +16,11 @@ tags: data
 
 ##小米对hbase的改进
 
+##mysql迁移hbase
+
+1. 双写
+2. 异步同步mysql老的数据到hbase
+3. 双读，并做数据校验
+4. 灰度返回hbase的结果
+5. 只写hbase
 
