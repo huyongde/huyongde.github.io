@@ -24,3 +24,6 @@ tags: data
 4. 灰度返回hbase的结果
 5. 只写hbase
 
+##[kafka](http://kafka.apache.org/) && [druid](http://huyongde.github.io/2015/11/28/segment-fault-big-data.html)
+
+
