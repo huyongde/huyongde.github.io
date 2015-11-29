@@ -6,7 +6,7 @@ tags: shell
 
 ###目录
 * [简介](#简介)
-* [chrome浏览器] (#chrome)
+* [chrome浏览器](#chrome)
 * [firefox浏览器](#firefox)
 
 <a id="简介"></a>
