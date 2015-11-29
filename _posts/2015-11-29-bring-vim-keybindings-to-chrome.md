@@ -28,10 +28,15 @@ tags: shell
 需要安装chrome的插件(需要翻墙奥)vrome，相关资料如下:
 
 [vrome主页](chrome-extension://godjoomfiimiddapohpmfklhgmbfffjj/background/html/options.html#dashboard)
+
 [vrome github](https://github.com/jinzhu/vrome)
+
 [vrome chrome插件安装](https://chrome.google.com/webstore/detail/vrome/godjoomfiimiddapohpmfklhgmbfffjj)
+
 [vrome rc配置](chrome-extension://godjoomfiimiddapohpmfklhgmbfffjj/background/html/options.html#setting) 和vimrc类似可以配置自己的快捷键
+
 [vromerc 示例](https://github.com/jinzhu/vrome/wiki/vromerc-example-file)
+
 [vrome wiki](https://github.com/jinzhu/vrome/wiki)
 
 ###简单的快捷键 
