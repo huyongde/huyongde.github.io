@@ -53,7 +53,7 @@ tags: shell
     * L 前进一个页面
     * 2 L 前进两个页面
 
-###[**所有快捷键**](https://github.com/jinzhu/vrome/blob/master/Features.mkd)
+###[**vrome所有快捷键**](https://github.com/jinzhu/vrome/blob/master/Features.mkd)
  
 
 <a id="firefox"></a>
