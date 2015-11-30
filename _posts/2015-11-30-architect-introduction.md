@@ -1,7 +1,7 @@
 ---
-layout:post
-title:架构师培训
-tags:work
+layout: post
+title: 架构师培训
+tags: work
 ---
 
 ##架构师的能力要求
