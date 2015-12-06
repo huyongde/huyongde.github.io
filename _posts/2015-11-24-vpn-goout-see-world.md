@@ -24,3 +24,10 @@ mac系统奥，
 有空再折腾下。
 
 ```
+
+##相关名词解释
+
+`vpn` : `virtual priavate network`  虚拟专用网络
+
+`vps` : `virtual private servers `   虚拟专用服务器
+
