@@ -25,9 +25,11 @@ tags: protocol
 
 ####例子
 
+**如下一个304请求的相关header**
+
 * Request Headers
+
 ```
-view source
 Accept:image/webp,image/*,*/*;q=0.8
 Accept-Encoding:gzip, deflate, sdch
 Accept-Language:zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4
@@ -39,7 +41,9 @@ If-None-Match:"2a497afdc1ce1:0"
 Referer:http://www.cnblogs.com/skylar/p/browser-http-caching.html
 User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
 ```
+
 * Response Headers
+
 ```
 Cache-Control:max-age=86400
 Connection:keep-alive
