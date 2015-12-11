@@ -143,6 +143,21 @@ __我是个粗体__
 ![this is a image](http://www.laruence.com/images/gavatar.png?orig=http://tp2.sinaimg.cn/1170999921/50/5606703689/1)
 
 
+##表格
+```
+You can create tables by assembling a list of words and dividing /də`vaɪd/ them
+ with hyphensi /`haɪfn/  - (for the first row), and then separating each column with a pipe |:
+```
+
+通过连字符-区分行，通过管道符|区分列
+
+###eg
+
+第一行/列|第二行|three
+--------|-------|-----|
+--------|xxxxx|xx|
+第三行|yyy|yyyyy|
+
 ##补充
 
 
