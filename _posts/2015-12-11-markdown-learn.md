@@ -155,7 +155,7 @@ You can create tables by assembling a list of words and dividing /də`vaɪd/ the
 
 第一行/列|第二行|three
 --------|-------|-----|
---------|xxxxx|xx|
+第二行|xxxxx|xx|
 第三行|yyy|yyyyy|
 
 ##补充
