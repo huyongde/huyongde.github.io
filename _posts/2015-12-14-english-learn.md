@@ -23,5 +23,11 @@ tags: english
 * straightforward  /ˌstreɪt'fɔːrwərd, ˌstreɪt'fɔːwəd/ 直截了当
 * augment  /ɔːɡ'ment/ 增加，补充，增补
 * specification 规范， language specification 语言规范 /ˌspesɪfɪ'keɪʃn/
-* 
+* grammar /'ɡræmər, 'ɡræmə(r)/ 语法
+* precedence /'presɪdəns/ 优先权
+* quote /kwoʊt, kwəʊt/  引号
+    * single quote 单引号
+    * double quotes 双引号
+    * back quote 反引号
+
  
