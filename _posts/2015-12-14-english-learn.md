@@ -17,3 +17,11 @@ tags: english
 * specify /spesɪfaɪ/ 指定
 * installation /ˌɪnstə`leɪʃn/ 安装  名词
 * collide /kə`laɪd/ 碰撞，冲突
+* convention /kən'venʃnz/  约定，公约，惯例
+* borrow /'bɑːroʊ, 'bɒrəʊ/ 借用，借力，从其他语言引入
+* satisfactory /ˌsætɪs'fæktəri/ 满意的
+* straightforward  /ˌstreɪt'fɔːrwərd, ˌstreɪt'fɔːwəd/ 直截了当
+* augment  /ɔːɡ'ment/ 增加，补充，增补
+* specification 规范， language specification 语言规范 /ˌspesɪfɪ'keɪʃn/
+* 
+ 
