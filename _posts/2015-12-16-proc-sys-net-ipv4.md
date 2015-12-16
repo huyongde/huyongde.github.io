@@ -1,8 +1,4 @@
----
-layout: post
-title: linux  目录/proc/sys/inet/ipv4下配置介绍
-tags: protocol shell
----
+
 
 在/proc/sys/net/ipv4/目录下，包含的是和tcp/ip协议相关的各种参数，下面我们就对这些网络参数加以详细的说明。
 
