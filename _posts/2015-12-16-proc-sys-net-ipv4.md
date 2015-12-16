@@ -182,20 +182,20 @@ high：允许所有tcp sockets用于排队缓冲数据报的页面量。(如果�
 默认值是0
 如果您想让应用程式能够捆绑到一个不属於该系统的位址?就需要设定这?。(当机器使
 用非固定/动态的网络连接的时候,或者离线调试程序的时候,当线路断掉之后?该服务仍可?动而且捆绑到特定的位址之上。)
-ip_dynaddr : BOOLEAN
+* ip_dynaddr : BOOLEAN
 默认值是0
 假如甚至为非0值,那么将支持动态地址.如果是设置为>1的值,将在动态地址改写的时候发一条内核消息。(如要用动态界面位址做 dail-on-demand ?那就设定它。一旦请求界面起来之
 后?所有看不到回应的本地 TCP socket 都会重新捆绑(rebound)?以获得正确的位址。
 假如遇到该网络界面的连线不工作?但重新再试一次却又可以的情形?设定这个可解决这
 个问题。)
-icmp_echo_ignore_all ： BOOLEAN
-icmp_echo_ignore_broadcasts ： BOOLEAN
+* icmp_echo_ignore_all ： BOOLEAN
+* icmp_echo_ignore_broadcasts ： BOOLEAN
 默认值是0
 如果任何一个设置为true(>0)则系统将忽略所有发送给自己的ICMP ECHO请求或那些广播地址的请求。(现在网络上很多病毒/木马自动发起感染攻击是先用icmp的echo方式判断对方是否存活，因此开启该值，会降低一些被骚扰的可能性。但由于禁止了 icmp，就无法ping到该机器了，因此网络管理员也没有办法判断机器是否存活了，所以可以考虑用netfilter/iptables来完成该工作会更有所选择针对性.icmp_echo_ignore_all 是禁止所有的icmp包,而icmp_echo_ignore_broadcasts是禁止了所有的广播包)
-icmp_ratelimit : INTEGER
+* icmp_ratelimit : INTEGER
 默认值是100 Jiffie
 限制发向特定目标的匹配icmp_ratemask的ICMP数据报的最大速率。0表示没有任何限制，否则表示jiffies数据单位中允许发送的个数。 (如果在icmp_ratemask进行相应的设置Echo Request的标志位掩码设置为1,那么就可以很容易地做到ping回应的速度限制了)
-icmp_ratemask : INTEGER
+* icmp_ratemask : INTEGER
 在这里匹配的ICMP被icmp_ratelimit参数限制速率.
 匹配的标志位: ＩＨＧＦＥＤＣＢＡ９８７６５４３２１０
 默认的掩码值: ００００００１１００００００１１０００ (6168)
@@ -218,50 +218,50 @@ I Address Mask Reply
 icmp_ignore_bogus_error_responses : BOOLEAN
 默认值是0
 某些路由器违背RFC1122标准，其对广播帧发送伪造的响应来应答。这种违背行为通常会被以告警的方式记录在系统日志中。如果该选项设置为True，内核不会记录这种警告信息。(我个人而言推荐设置为1)
-===========网络接口界面(比如lo,eth0,eth1)参数===========
-/proc/sys/net/ipv4/conf/{interface}/* :
+##网络接口界面(比如lo,eth0,eth1)参数
+* /proc/sys/net/ipv4/conf/{interface}/* :
 在/proc/sys/net/ipv4/conf/ 下可以发现类似 all,eth0,eth1,default,lo 等网络接口界面,每一个都是目录,他们下属的文件中,每个文件对应该界面下某些可以设置的选项设置.(all/是特定的，用来修改所有接口的设置, default/ 表示缺省设置,lo/表示本地接口设置,eth0/表示第一块网卡,eth1/表示第2块网卡.注意:下面有的参数,是需要all和该界面下同时为 ture才生效,而某些则是只需要该界面下为true即可,注意区别!!)
-log_martians : BOOLEAN
+* log_martians : BOOLEAN
 记录带有不允许的地址的数据报到内核日志中。all/ 或者{interface}/ 下至少有一个为True即可生效.
-accept_redirects : BOOLEAN
+* accept_redirects : BOOLEAN
 对于主机来说默认为True，对于用作路由器时默认值为False
 收发接收ICMP重定向消息。all/ 和{interface}/ 下两者同时为True方可生效.
 (如果不熟悉所在网络的结构.推荐不修改,因为在有多个出口的网络的时候,如果有2个出口路由器,由于作为主机的时候默认只指认一个网关,出口路由可能有策略设置转到另一个路由器上.)
-forwarding : BOOLEAN
+* forwarding : BOOLEAN
 在该接口打开转发功能 (在3块或以上的网卡的时候很实用,有时候只想让其中一外一内,另一块做服务,就可以让这块做服务的网卡不转发数据进出)
-mc_forwarding :BOOLEAN
+* mc_forwarding :BOOLEAN
 是否进行多播路由。只有内核编译有CONFIG_MROUTE并且有路由服务程序在运行该参数才有效。
-medium_id :INTEGER
+* medium_id :INTEGER
 默认值是0
 通常,这个参数用来区分不同媒介.两个网络设备可以使用不同的值,使他们只有其中之一接收到广播包.默认值为0表示各个网络介质接受他们自己介质上的媒介,值-1表示该媒介未知。通常,这个参数被用来配合proxy_arp实现roxy_arp的特性即是允许arp报文在两个不同的网络介质中转发.(第一段 Integer value used to differentiate the devices by the medium they
 are attached to. Two devices can have different id values when
 the broadcast packets are received only on one of them.
 The default value 0 means that the device is the only interface
 to its medium, value of -1 means that medium is not known.没读懂,去cu问人，以后更正)
-proxy_arp : BOOLEAN
+* proxy_arp : BOOLEAN
 打开arp代理功能。all/ 或者{interface}/ 下至少有一个为True即可生效
-shared_media : BOOLEAN
+* shared_media : BOOLEAN
 默认为True
 发送(路由器)或接收(主机) RFC1620 共享媒体重定向。覆盖ip_secure_redirects的值。all/ 或者{interface}/ 下至少有一个为True即可生效
-secure_redirects : BOOLEAN
+* secure_redirects : BOOLEAN
 默认为True
 仅仅接收发给默认网关列表中网关的ICMP重定向消息，默认值是TRUE。all/ 或者{interface}/ 下至少有一个为True即可生效。 (这个参数一般情形请不要修改，可以有效地防止来自同网段的非网关机器发出恶意ICMP重定向攻击行为)
 send_redirects : BOOLEAN
 默认为True
 如果是router，允许发送重定向消息.all/ 或者{interface}/ 下至少有一个为True即可生效。(根据网络而定，如果是做NAT,并且网内只有此一个网关的时候，其实是可以关闭掉它的,事实上目前而言,IP Redirects是TCP/IP协议产生早期为了解决网络持续性而提出的一种方法，后来事实证明这种措施不太实用而且具有很大的安全风险，可能引起各种可能的网络风险产生 - 拒绝服务攻击，中间人攻击，会话劫持等等,所以很多安全文档是推荐关闭它.)
-bootp_relay : BOOLEAN
+* bootp_relay : BOOLEAN
 默认为False
 接收源地址为0.b.c.d，目的地址不是本机的数据报。用来支持BOOTP转发服务进程，该进程将捕获并转发该包。目前还没有实现。
-accept_source_route : BOOLEAN
+* accept_source_route : BOOLEAN
 对于主机来说默认为False，对于用作路由器时默认值为True
 接收带有SRR选项的数据报。all/ 和{interface}/ 下两者同时为True方可生效.(IP 源路由选项，也是TCP/IP协议早期的一个实现缺陷，允许IP包自身携带路由选择选项，这将允许攻击者绕过某些安全检验的网关，或者被用来探测网络环境。在企业网关上强烈建议设置关闭或过绿丢弃IP源路由选项数据包。这个功能在调试网络的时候很有用,但是在真正的实际应用中,有可能造成一些麻烦和危险)
-rp_filter : BOOLEAN
+* rp_filter : BOOLEAN
 默认值为False
 1 - 通过反向路径回溯进行源地址验证(在RFC1812中定义)。对于单穴主机和stub网络路由器推荐使用该选项。
 0 - 不通过反向路径回溯进行源地址验证。
 默认值为0，但某些发布在启动时自动将其打开。 (router默认会路由所有东西?就算该封包'显然'不属於我们的网路的。常见的例子?莫过於将私有 IP 泄漏到 internet 上去。假如某个界面?其上设定的网络地址段?
 195.96.96.0/24? 那么理论上不会有212.64.94.1 这样的地址段封包会到达这个界面上。许多人都不想转发非本网段的数据包?因此核心设计者也打开了方便之门。在 /proc ?面有些档案?透过它们您可以让核心?您做到这点。此方法被称? "逆向路径过滤(Reverse Path Filtering)"。基本上?假如对此封包作出的回应?不是循其进入的界面送出去?那它就被置之不理。)
-arp_filter : BOOLEAN
+* arp_filter : BOOLEAN
 默认值为False
 1 -允许多个网络介质位于同一子网段内，每个网络界面依据是否内核指派路由该数据包经过此界面来确认是否回答ARP查询(这个实现是由来源地址确定路由的时候决定的),换句话说，允许控制使用某一块网卡（通常是第一块）回应arp询问。(做负载均衡的时候,可以考虑用
 echo 1 > /proc/sys/net/ipv4/conf/all/arp_filter
@@ -271,7 +271,7 @@ echo 1 > /proc/sys/net/ipv4/conf/all/arp_ignore
 两条命令配合使用更好,因为arp_announce 和arp_ignore 似乎是对arp_filter的更细节控制的实现。)
 0 -默认值，内核设置每个网络界面各自应答其地址上的arp询问。这项看似会错误的设置却经常能非常有效，因为它增加了成功通讯的机会。在Linux主机上，每个IP地址是网络界面独立的，而非一个复合的接口。只有在一些特殊的设置的时候，比如负载均衡的时候会带来麻烦。
 all/ 或者{interface}/ 下至少有一个为True即可生效。（简单来说，就是同一Linux上，如果有某些原因，有2块网卡必须设置为同一网段，那么默认情况下，会有一块工作，而另外一块不工作或者内核频繁报告错误，这个时候就需要打开这个选项了）
-arp_announce : INTEGER
+* arp_announce : INTEGER
 默认为0
 对网络接口上本地IP地址发出的ARP回应作出相应级别的限制:
 确定不同程度的限制,宣布对来自本地源IP地址发出Arp请求的接口
@@ -281,7 +281,7 @@ arp_announce : INTEGER
 2 - 对查询目标使用最适当的本地地址.在此模式下将忽略这个IP数据包的源地址并尝试选择与能与该地址通信的本地地址.首要是选择所有的网络接口的子网中外出访问子网中包含该目标IP地址的本地地址. 如果没有合适的地址被发现,将选择当前的发送网络接口或其他的有可能接受到该ARP回应的网络接口来进行发送
 all/ 和{interface}/ 下两者同时比较，取较大一个值生效.
 提高约束级别有益于从指定的目标接受应答,而降低级别可以给予更多的arp查询者以反馈信息(关于arp代理这一段我普遍翻译地不好，去啃一下tcp/ip bible的卷一，然后再翻译吧)
-arp_ignore : INTEGER
+* arp_ignore : INTEGER
 默认为0
 定义对目标地址为本地IP的ARP询问不同的应答模式
 0 - (默认值): 回应任何网络接口上对任何本地IP地址的arp查询请求（比如eth0=192.168.0.1/24,eth1=10.1.1.1/24,那么即使 eth0收到来自10.1.1.2这样地址发起的对10.1.1.1 的arp查询也会回应--而原本这个请求该是出现在eth1上，也该有eth1回应的）
@@ -291,5 +291,5 @@ arp_ignore : INTEGER
 4-7 - 保留未使用
 8 -不回应所有（本地地址）的arp查询
 all/ 和{interface}/ 下两者同时比较，取较大一个值生效.
-tag : INTEGER
+* tag : INTEGER
 默认为0
