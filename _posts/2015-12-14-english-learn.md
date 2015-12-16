@@ -29,5 +29,29 @@ tags: english
     * single quote 单引号
     * double quotes 双引号
     * back quote 反引号
+* syntax /'sɪntæks/ 语法
+* lexical /'leksɪkl/ 词法词汇  lexical token 词法标记
+* denote /dɪ'noʊt, dɪ'nəʊt/ 表示
+* enumeration /ɪˌnjuːmə'reɪʃn/  枚举
+* snippet /'snɪpɪt/  片段  code snippet代码片段
+* restriction /rɪ'strɪkʃn/  限制， implementation restriction 实现限制
+* implementation /ˌɪmplɪmen'teɪʃn/  实现，履行
+* decimal /'desɪml/  十进制
+* octal /'ɒktəl, 'ɒktl/  八进制
+* hex /heks/  十六进制 hexadecimal/ˌheksə'desɪml/ 
+* vocabulary /və'kæbjəleri, və'kæbjələri/   词汇
+* semicolon /'semikoʊlən, ˌsemi'kəʊlən/  分号
+* teminator /'tɜːməˌneɪtə, 'tɜːmɪneɪtə/终结者 终结  终结符
+* omit /ə'mɪt/ 忽略 
+* integer/'ɪntɪdʒər, 'ɪntɪdʒə(r)/ 整数
+* occupy/'ɑːkjupaɪ, 'ɒkjupaɪ/ 占据
+* idiomatic/ˌɪdiə'mætɪk/惯用的
+* reserve/rɪ'zɜːrv, rɪ'zɜːv/ 保留
+literal/'lɪtərəl/  文字
+
+
+
+
+
 
  
