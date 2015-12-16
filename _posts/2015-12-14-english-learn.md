@@ -47,9 +47,14 @@ tags: english
 * occupy/'ɑːkjupaɪ, 'ɒkjupaɪ/ 占据
 * idiomatic/ˌɪdiə'mætɪk/惯用的
 * reserve/rɪ'zɜːrv, rɪ'zɜːv/ 保留
-literal/'lɪtərəl/  文字
-
-
+* literal/'lɪtərəl/  文字
+* fractional/'frækʃənl/ 分数的，小数的
+* exponent/ɪk'spoʊnənt, ɪk'spəʊnənt/   指数
+* elide/i'laɪd/ 删掉，省略，取消 
+* complex number 复数
+* line feed 换行
+* backslash/'bækslæʃ/反斜线 
+:w
 
 
 
