@@ -1,7 +1,7 @@
 ---
 layout: post
 title: nginx 的 sendfile tcp_nodelay  tcp_nopush 配置详解
-tags: shell  nginx program
+tags: shell  nginx program protocol
 ---
 
 ##sendfile
