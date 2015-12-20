@@ -36,6 +36,7 @@ sendfile(socket,file, len);
 ```
 
 **硬盘 >> kernel buffer (快速拷贝到kernelsocket buffer) >>协议栈**
+
 1. 系统调用`sendfile()`通过 DMA把硬盘数据拷贝到 `kernel buffer`，然后数据被 `kernel`直接拷贝到另外一个与 `socket`相关的 `kernel buffer`。这里没有 `user mode`和 `kernel mode`之间的切换，在 `kernel`中直接完成了从一个`buffer`到另一个 `buffer`的拷贝。
 2. DMA 把数据从 `kernel buffer` 直接拷贝给协议栈，没有切换，也不需要数据从 `user mode` 拷贝到 `kernel mode`，因为数据就在 `kernel` 里。
 
@@ -63,7 +64,7 @@ You can read more about the TCP_NOPUSH and TCP_CORK socket options here.
 linux 下是tcp_cork, 上面的意思就是说，当使用sendfile函数时，tcp_nopush才起作用，它和指令tcp_nodelay是互斥的。
 
 tcp_cork是linux下tcp/ip传输的一个标准了，这个标准的大概的意思是，一般情况下，
-
+ 
 在tcp交互的过程中，当应用程序接收到数据包后马上传送出去，不等待，
 
 而tcp_cork选项是数据包不会马上传送出去，等到数据包最大时，一次性的传输出去，这样有助于解决网络堵塞，已经是默认了。
