@@ -4,7 +4,7 @@ title: nginx lua 学习
 tags: shell program nginx lua
 ---
 
-
+[**参考**](http://www.ttlsa.com/nginx/nginx-lua/)
 
 
 1.1. 介绍
