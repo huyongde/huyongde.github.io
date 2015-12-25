@@ -56,7 +56,8 @@ export LUAJIT_LIB=/usr/local/luajit/lib
 export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
 
 ```
-1.2.2. NDK与Lua_module
+####1.2.2. NDK与Lua_module
+
 NDK(Nginx Development Kit)模块是一个拓展Nginx服务器核心功能的模块
 第三方模块开发可以基于它来快速实现
 NDK提供函数和宏处理一些基本任务，减轻第三方模块开发的代码量。
