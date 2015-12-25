@@ -118,7 +118,7 @@ location = /test {
 }
 ```
 
-用户访问 http://localhost/test 将会打印出“Hello World”内容。
+用户访问 `http://localhost/test` 将会打印出“Hello World”内容。
 ngx.say 是 lua 显露給模块的接口。
 类似的有 ngx.log(ngx.DEBUG, “”),可以在error.log输出调试信息。
 另外也可以调用外部脚本，如同我们写php、jsp应用时,业务脚本单独组织在.php或.jsp文件中一样
