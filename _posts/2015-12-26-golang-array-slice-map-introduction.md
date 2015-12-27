@@ -57,5 +57,37 @@ m:=[]string{"s","s"} //这个是slice
 指针比值可就小多了，因此，我们将slice作为函数参数传递比将array作为函数参数传递会更有性能。
 slice是一个指针，它指向的是一个array结构，它有两个基本函数len和cap。
 
+slice是一个带有point（指向数组的指针），Len（数组中实际有值的个数），Cap（数组的容量）
 
+append函数就理解为往slice中加入一个值，如果未达到容量（len<cap）那么就直接往数组中加值，
+如果达到容量（len = cap）那么就新增一倍的新元素空间，再赋值。
+
+###3. map 结构
+
+map结构也经常常用，它和php中的`array（）`几乎一模一样，是一个`key-value`的hash结构。
+
+key可以是除了func类型，array,slice,map类型之外的类型。
+
+使用例子如下:
+
+```
+fmt.Println("learn map")
+m := map[string]string{}
+var m1 = map[int]string{}
+m["key1"] = "value1"
+fmt.Println(m)
+m1[1] = "int key , string value"
+fmt.Println(m1)
+var m2 = map[int]int{}
+m2[1] = 2
+fmt.Println(m2)
+```
+输出结果:
+
+```
+learn map
+map[key1:value1]
+map[1:int key , string value]
+map[1:2]
+```
 
