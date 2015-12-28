@@ -54,7 +54,8 @@ tags: english
 * complex number 复数
 * line feed 换行
 * backslash/'bækslæʃ/反斜线 
-:w
+* synchronization [,sɪŋkrənaɪ'zeɪʃən]  同步
+* asynchronization 异步
 
 
 
