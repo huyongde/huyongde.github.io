@@ -56,7 +56,7 @@ tags: english
 * backslash/'bækslæʃ/反斜线 
 * synchronization [,sɪŋkrənaɪ'zeɪʃən]  同步
 * asynchronization 异步
-
+* marshal ['mɑːʃ(ə)l]  整理排列
 
 
 
