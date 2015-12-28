@@ -49,6 +49,7 @@ var vname1, vname2, vname3 type= v1, v2, v3
 ```
 
 -------
+**********
 
 *你是不是觉得上面这样的定义有点繁琐？没关系，因为Go语言的设计者也发现了，有一种写法可以让它变得简单一点。我们可以直接忽略类型声明，那么上面的代码变成如下所示。*
 
@@ -70,8 +71,9 @@ vname1为v1，vname2为v2，vname3为v3
 
 编译器会根据初始化的值自动推导出相应的类型
 
-
+```
 vname1, vname2, vname3 := v1, v2, v3
+```
 
 现在是不是看上去非常简洁了
 
@@ -88,9 +90,7 @@ Go语言对于已声明但未使用的变量会在编译阶段报错，比如下
 package main
 
 func main() {
-
     var i int
-
 }
 ```
 
@@ -116,11 +116,8 @@ const Pi float32 =3.1415926
 
 ```
 const Pi = 3.1415926
-
 const i = 10000
-
 const MaxThread = 10
-
 const prefix ="astaxie_"
 ```
 
@@ -132,17 +129,12 @@ const prefix ="astaxie_"
 
 ```
 var isActivebool  // 全局变量声明
-
 var enabled, disabled= true, false  // 忽略类型的声明
 
 func test() {
-
     var available bool  // 一般声明
-
     valid := false      // 简短声明
-
     available = true    // 赋值操作
-
 }
 ```
 
@@ -163,9 +155,7 @@ Go语言里面也有直接定义好位数的类型：`rune，int8，int16，int3
 
 ```
 var a int8
-
 var b int32
-
 c:=a + b
 ```
 
@@ -181,9 +171,7 @@ c:=a + b
 
 ```
 var c complex64 = 5+5i
-
 //output: (5+5i)
-
 fmt.Printf("Value is: %v", c)
 ```
 
@@ -197,17 +185,11 @@ Go语言中的字符串都是采用UTF-8字符集编码。
 
 ```
 var frenchHello string  // 声明变量为字符串的一般方法
-
 var emptyString string = "" // 声明了一个字符串变量，初始化为空字符串
-
 func test() {
-
     no, yes, maybe :="no", "yes", "maybe"  // 简短声明，同时声明多个变量
-
     japaneseHello :="Ohaiou"  // 同上
-
     frenchHello ="Bonjour"  // 常规赋值
-
 }
 ```
 
@@ -215,7 +197,6 @@ func test() {
 
 ```
 var s string = "hello"
-
 s[0] = 'c'
 ```
 
@@ -223,13 +204,9 @@ s[0] = 'c'
 
 ```
 s := "hello"
-
 c := []byte(s)  // 将字符串 s 转换为 []byte 类型
-
 c[0] = 'c'
-
 s2 := string(c)  // 再转换回 string 类型
-
 fmt.Printf("%s\n", s2)
 ```
 
@@ -237,11 +214,8 @@ fmt.Printf("%s\n", s2)
 
 ```
 s := "hello,"
-
 m := " world"
-
 a := s + m
-
 fmt.Printf("%s\n", a)
 ```
 
@@ -249,9 +223,7 @@ fmt.Printf("%s\n", a)
 
 ```
 s := "hello"
-
 s = "c" + s[1:] // 字符串虽不能更改，但可进行切片操作
-
 fmt.Printf("%s\n", s)
 ```
 
@@ -271,11 +243,8 @@ Go语言内置有一个error类型，专门用来处理错误信息，Go语言�
 
 ```
 err :=errors.New("emit macho dwarf: elf header corrupted")
-
 if err != nil {
-
     fmt.Print(err)
-
 }
 ```
 
@@ -288,23 +257,14 @@ if err != nil {
 
 ```
 import"fmt"
-
 import "os"
 
- 
-
 const i = 100
-
 const pi = 3.1415
-
 const prefix ="Go_"
 
- 
-
 var i int
-
 var pi float32
-
 var prefix string
 ```
 
@@ -345,7 +305,6 @@ const(
     z = iota // z == 2
     w  //常量声明省略值时，默认和之前一个值的字面相同。这里隐式地说w = iota，因此w== 3。其实上面y和z可同样不用"= iota"
 )
-
 const v = iota // 每遇到一个const关键字，iota就会重置，此时v == 0 
 ```
 
