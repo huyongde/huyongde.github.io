@@ -57,6 +57,7 @@ tags: english
 * synchronization [,sɪŋkrənaɪ'zeɪʃən]  同步
 * asynchronization 异步
 * marshal ['mɑːʃ(ə)l]  整理排列
+* arbitrary/'ɑːrbətreri, 'ɑːbɪtrəri/随意的
 
 
 
