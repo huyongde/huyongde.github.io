@@ -58,6 +58,11 @@ tags: english
 * asynchronization 异步
 * marshal ['mɑːʃ(ə)l]  整理排列
 * arbitrary/'ɑːrbətreri, 'ɑːbɪtrəri/随意的
+* anonymous [ə'nɒnɪməs]  匿名的
+* synchronously ['siŋkrənəsli]  adv  同步地
+* interleave [ɪntə'liːv] vt, n  交错
+* clause [klɔːz]  从句,子句
+
 
 
 
