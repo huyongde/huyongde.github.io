@@ -31,9 +31,9 @@ layout: default
 {% comment %} 一致到获取postsAfterFilter以及tagCountEachPost的部分都没有变化{% endcomment %}
 {% comment %} 下面则使用了一个叠加for循环来逐次寻找最大的tagcount, 然后同步输出对应postsAfterFilter的值{% endcomment %}
 {% if postsAfterFilter.size > 0 %}
-<div class="relatedposts">
+<div >
   <h2>Related Posts:</h2>
-  <ul class="article-list">
+  <ul>
 {% assign j = tagCountEachPost | size | minus: 1 %}
 {% assign maxIndex = 0 %}
 {% assign getFirstNumber = true %}
