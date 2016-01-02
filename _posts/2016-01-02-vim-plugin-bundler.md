@@ -67,7 +67,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 ```
-* vim 任意打开文件， 运行 `:PluginInstall` 就会安装vim配置中配置Plugin配置的需要安装的插件
+* vim 任意打开文件， 运行 `:PluginInstall` 就会安装vimrc中Plugin配置的需要安装的插件
     * Plugin 'VundleVim/Vundle.vim' 配置vundle
     * 另外配置了其他一些vim 插件， 如L9等。
 
