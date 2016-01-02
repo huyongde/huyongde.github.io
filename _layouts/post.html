@@ -15,6 +15,7 @@ layout: default
 
 </article>
 
+<hr>
 <h3 class="page-heading">Related Posts:</h3>
 
 {% comment %} 利用split 来形成一个空数组, 这里主要是我不知道liquid如何直接写array... {% endcomment %} 
@@ -40,6 +41,8 @@ layout: default
 {% comment %} 一致到获取postsAfterFilter以及tagCountEachPost的部分都没有变化{% endcomment %}
 {% comment %} 下面则使用了一个叠加for循环来逐次寻找最大的tagcount, 然后同步输出对应postsAfterFilter的值{% endcomment %}
 {% if postsAfterFilter.size > 0 %}
+
+<hr>
 <div class="relatedposts">
   <h2>Related Posts:</h2>
   <ul class="article-list">
