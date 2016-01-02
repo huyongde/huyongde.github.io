@@ -70,6 +70,6 @@ tags: english
 * exec  [ɪg'zek; eg-]  执行程序，执行
 * execute ['eksɪkjuːt]  实行，执行
 * bundle plugin ['bʌnd(ə)l]  [plʌgɪn]  捆绑插件
- 
+* bundler 打包机  vim plugin bundler vim 插件打包机
 
  
