@@ -14,7 +14,7 @@ layout: default
 
 
 </article>
-  <h3 class="page-heading">最新文章推荐:</h3>
+  <h3 class="page-heading">Latest Posts:</h3>
 
     {% for post in site.related_posts limit:5 %}
       <li>
@@ -27,6 +27,7 @@ layout: default
     {% endfor %}
 
 
+<h3 class="page-heading">Related Posts:</h3>
 {% assign postsAfterFilter = '-' | split: "-" %}
 {% for post in site.related_posts %}
   {% assign commonTagCount = 0 %}
