@@ -1,7 +1,18 @@
 ---
 layout: post 
 title: jekyll 入门 && jekyll 搭建github page的框架
+tags: jekyll
 ---
+
+##参考
+
+* [jekyll语法介绍](http://github.tiankonguse.com/blog/2014/11/10/jekyll-study/)
+
+* [jekyll 安装和初始化站点](http://jobinson.ga/%E5%BB%BA%E7%AB%99%E4%B9%8B%E8%B7%AF/2014/04/27/%E4%BD%BF%E7%94%A8jekyll%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E7%AB%99/)
+
+* [jekyll 入门](http://trefoil.github.io/2013/10/05/jekyll.html)
+
+* [markdown 设置图片大小](http://uliweb.clkg.org/wiki/Help/MarkdownSyntax)
 
 主题
 ======
@@ -88,12 +99,5 @@ $a = "php code";
 echo $a;
 {% endhighlight %}
 
-##参考
-
-[jekyll 安装和初始化站点](http://jobinson.ga/%E5%BB%BA%E7%AB%99%E4%B9%8B%E8%B7%AF/2014/04/27/%E4%BD%BF%E7%94%A8jekyll%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E7%AB%99/)
-
-[jekyll 入门](http://trefoil.github.io/2013/10/05/jekyll.html)
-
-[markdown 设置图片大小](http://uliweb.clkg.org/wiki/Help/MarkdownSyntax)
 
 *{{ page.date | date_to_string }}*
