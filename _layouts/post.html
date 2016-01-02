@@ -28,36 +28,36 @@ layout: default
 
 
 {% raw %}
-{% comment %} 一致到获取postsAfterFilter以及tagCountEachPost的部分都没有变化{% endcomment %}
-{% comment %} 下面则使用了一个叠加for循环来逐次寻找最大的tagcount, 然后同步输出对应postsAfterFilter的值{% endcomment %}
-{% if postsAfterFilter.size > 0 %}
-<div >
-  <h2>Related Posts:</h2>
-  <ul>
-{% assign j = tagCountEachPost | size | minus: 1 %}
-{% assign maxIndex = 0 %}
-{% assign getFirstNumber = true %}
-{% assign selectedIndex = "-"|split: "-" %}
-{% for p in (0..j) %}
-  {% for i in (0..j) %}
-    {% unless selectedIndex contains i %}
-      {% if getFirstNumber %}
-        {% assign firstNumber = tagCountEachPost[i] %}
-        {% assign getFirstNumber = false %}
+
+{% comment %} 利用split 来形成一个空数组, 这里主要是我不知道liquid如何直接写array... {% endcomment %} 
+{% assign postsAfterFilter = '-' | split: "-" %}
+{% for post in site.related_posts %}
+  {% assign commonTagCount = 0 %}
+  {% if post.title != page.title and post.series != page.series %}
+    {% for tag in post.tags %} 
+      {% if page.tags contains tag %}
+
+        {% comment %} 统计共同的tag的数目, 用来后面的筛选以及排序用 {% endcomment %} 
+        {% assign commonTagCount = commonTagCount | plus: 1 %}
       {% endif %}
-      {% if tagCountEachPost[i] >= firstNumber %}
-        {% assign firstNumber = tagCountEachPost[i] %}
-        {% assign maxIndex = i %}
-      {% endif %}
-    {% endunless %}
-  {% endfor %}
-  {% assign getFirstNumber = true %}
-  {% assign selectedIndex = selectedIndex | push: maxIndex %}
-  {% if selectedIndex.size < 6 %}
-    <li><a href="{{ site.baseurl }}{{ postsAfterFilter[maxIndex]['url'] }}">{{ postsAfterFilter[maxIndex]['title'] }}</a></li>
+    {% endfor %}
+    {% if commonTagCount > 0 %}
+
+      {% comment %} 将符合条件的post放入一个新的数组之中 {% endcomment %} 
+      {% assign postsAfterFilter = postsAfterFilter | push: post %}
+    {% endif %}
   {% endif %}
 {% endfor %}
-</ul>
+
+{% comment %} 容错判断, 确保有相关文章的时候再展示相关文章 {% endcomment %} 
+{% if postsAfterFilter.size > 0 %}
+<div class="relatedposts">
+  <h2>Related Posts:</h2>
+  <ul class="article-list">
+  {% for post in postsAfterFilter limit: 5 %}
+    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
 </div>
 {% endif %}
 {% endraw %}
