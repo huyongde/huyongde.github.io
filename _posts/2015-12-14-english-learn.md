@@ -62,8 +62,13 @@ tags: english
 * synchronously ['siŋkrənəsli]  adv  同步地
 * interleave [ɪntə'liːv] vt, n  交错
 * clause [klɔːz]  从句,子句
-
-
+* nano ['nænəʊ] 纳，毫微， 纳米， 纳秒, 10的九次方
+* epoch ['iːpɒk; 'epɒk]  新时代；时间上的一点
+* respective [rɪ'spektɪv] 分别得，各自的
+* elapse [ɪ'læps] 流逝，时间过去。
+* compatible [kəm'pætɪb(ə)l] 兼容的，可共处的，可并立的
+* exec  [ɪg'zek; eg-]  执行程序，执行
+* execute ['eksɪkjuːt]  实行，执行
 
 
  
