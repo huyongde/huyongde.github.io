@@ -69,6 +69,7 @@ tags: english
 * compatible [kəm'pætɪb(ə)l] 兼容的，可共处的，可并立的
 * exec  [ɪg'zek; eg-]  执行程序，执行
 * execute ['eksɪkjuːt]  实行，执行
-
+* bundle plugin ['bʌnd(ə)l]  [plʌgɪn]  捆绑插件
+ 
 
  
