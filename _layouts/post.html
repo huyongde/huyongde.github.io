@@ -27,9 +27,6 @@ layout: default
     {% endfor %}
 
 
-{% raw %}
-
-{% comment %} 利用split 来形成一个空数组, 这里主要是我不知道liquid如何直接写array... {% endcomment %} 
 {% assign postsAfterFilter = '-' | split: "-" %}
 {% for post in site.related_posts %}
   {% assign commonTagCount = 0 %}
@@ -60,6 +57,5 @@ layout: default
   </ul>
 </div>
 {% endif %}
-{% endraw %}
 
 
