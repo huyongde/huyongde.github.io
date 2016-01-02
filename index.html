@@ -7,7 +7,9 @@ layout: default
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
+    {% i = 0 %}
     {% for post in site.posts %}
+    {% i++; if (i > 5)  break%}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
