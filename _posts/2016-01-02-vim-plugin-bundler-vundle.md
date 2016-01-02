@@ -117,6 +117,8 @@ set nocompatible               " be iMproved
  " NOTE: comments after Bundle command are not allowed..
 ```  
 
+* 使用vundle安装vim各种插件， needtree, taglist 等， 参考[**vundle配置vim使用的基本插件**](http://jasonding1354.github.io/2015/04/29/Developer%20Kits/%E3%80%90Vim%E3%80%91%E4%BD%BF%E7%94%A8Vundle%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AEVim%E5%9F%BA%E6%9C%AC%E6%8F%92%E4%BB%B6/)
+
 
 
 
