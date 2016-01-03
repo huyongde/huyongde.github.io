@@ -58,8 +58,8 @@ permalink: /tags/
 
 内容如下:
 
+{% highlight html %}
 {% raw %}
-```
 <div class="post-tags">
   Tags: 
   {% if post %}
@@ -71,9 +71,8 @@ permalink: /tags/
   <a href="/tags/#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
   {% endfor %}
 </div>
-
-```
 {% endraw %}
+{% endhighlight %}
 
 在_layout/post.html中想要添加相关tag链接的地方加入代码
 {% raw %}

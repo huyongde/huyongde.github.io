@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 写C++遇到的问题
+tags: c++
 ---
 
 **写C++测试程序遇到的问题**

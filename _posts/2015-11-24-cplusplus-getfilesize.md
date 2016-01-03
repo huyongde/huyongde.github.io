@@ -1,6 +1,7 @@
 ---
 layout: post
 title: c++获得文件大小
+tags: c++
 ---
 
 # c++获得文件大小的几种方式
