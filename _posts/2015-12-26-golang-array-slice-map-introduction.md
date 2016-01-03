@@ -1,7 +1,7 @@
 ---
 layout: post
 title: go语言 array, slice , map 简单介绍
-tags: program go golang
+tags: program go 
 ---
 
 
