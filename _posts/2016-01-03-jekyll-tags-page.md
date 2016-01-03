@@ -110,9 +110,9 @@ permalink: /tags/
 
 ##4. 效果
 
+* tags页效果: ![tags](/image/tags.png)
 
-
-
+* post页效果: ![post](/image/post.png)
 
 
 
