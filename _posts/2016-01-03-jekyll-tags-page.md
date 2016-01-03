@@ -75,14 +75,17 @@ permalink: /tags/
 ```
 {% endraw %}
 
-在_layout/post.html中想要添加相关tag链接的地方加入代码`{% include post-tags.html %}`
+在_layout/post.html中想要添加相关tag链接的地方加入代码
+{% raw %}
+`{% include post-tags.html %}`
+{% endraw %}
 
 我的_layout/post.html修改的内容如下:
 
 {% raw %}
 ```
        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-       {% include post-tag.html %}
+       {% in`clude post-tag.html %}
 ```
 {% endraw %}
 
