@@ -1,7 +1,7 @@
 ---
 layout: post
 title: vim 插件管理 vundle
-tags: shell program
+tags: shell vim
 ---
 
 
