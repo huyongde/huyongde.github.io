@@ -23,6 +23,3 @@ markdown: rdiscount
 #gems:
 #  - jekyll-redirect-from
 
-tags:
-- jekyll
-- code
