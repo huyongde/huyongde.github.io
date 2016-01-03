@@ -15,6 +15,8 @@ tags: jekyll tag
 
 在博客根目录生成一个tags.html文件，内容如下：
 
+
+{% raw %}
 ```
 ---
 layout: page
@@ -46,6 +48,8 @@ permalink: /tags/
 </div>
 
 ```
+{% endraw %}
+
 创建之后可以,可用通过root_url/tags来访问，比如我的就是`http://huyongde.github.io/tags/` 来访问tags页面
 
 ##2. 为每个post文章添加相关的tag链接
@@ -54,6 +58,7 @@ permalink: /tags/
 
 内容如下:
 
+{% raw %}
 ```
 <div class="post-tags">
   Tags: 
@@ -68,15 +73,18 @@ permalink: /tags/
 </div>
 
 ```
+{% endraw %}
 
 在_layout/post.html中想要添加相关tag链接的地方加入代码`{% include post-tags.html %}`
 
 我的_layout/post.html修改的内容如下:
 
+{% raw %}
 ```
        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
        {% include post-tag.html %}
 ```
+{% endraw %}
 
 ##3. 添加css配置
 
