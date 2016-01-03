@@ -1,6 +1,7 @@
 ---
 layout: default
 title:  整合disqus和jekyll，打造一个支持评论的blog
+tags: disqus jekyll
 
 ---
 
