@@ -8,6 +8,7 @@ tags: jekyll tag
 
 [Adding tag cloud and archives page to Jekyll](http://blog.meinside.pe.kr/Adding-tag-cloud-and-archives-page-to-Jekyll/)
 
+##简介
 本文介绍如何不使用插件为github page添加标签页
 
 ##1. touch tags.html
