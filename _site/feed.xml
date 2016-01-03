@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>step by step</title>
+    <description>步步为营，一步一个脚印
+</description>
+    <link>https://yourdomain.com/</link>
+    <atom:link href="https://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 03 Jan 2016 20:05:36 +0800</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 20:05:36 +0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>vim 插件管理 vundle</title>
+        <description>&lt;h2&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jasonding1354.github.io/2015/04/29/Developer%20Kits/%E3%80%90Vim%E3%80%91%E4%BD%BF%E7%94%A8Vundle%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AEVim%E5%9F%BA%E6%9C%AC%E6%8F%92%E4%BB%B6/&quot;&gt;&lt;strong&gt;&lt;em&gt;vundle配置vim使用的基本插件needtree, taglist等&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;1. 简介&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;vim 是程序员最受欢迎的coding神器，没有之一。 合理使用插件可以做到事半功倍的效果。 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;vundle 把git整合到插件管理中，用户需要做的只是去Github上找到自己想要的插件的名字，安装，更新和卸载都可有vundle来完成了。
+虽然去发现一个好的插件仍然是一个上下求索的过程，但是用户已经可以从安装配置的繁琐过程解脱了。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim&quot;&gt;Vundle git repo&lt;/a&gt; 介绍了如何安装vundle和通过vundle来安装vim插件&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim/blob/master/doc/vundle.txt&quot;&gt;vundle.txt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;2. 安装&amp;amp;&amp;amp;使用&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;下载vundle：&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;下载完成之后，在vimrc中添加配置：&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;set nocompatible              &quot; be iMproved, required
+filetype off                  &quot; required
+
+&quot; set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+&quot; alternatively, pass a path where Vundle should install plugins
+&quot;call vundle#begin(&#39;~/some/path/here&#39;)
+
+&quot; let Vundle manage Vundle, required
+Plugin &#39;VundleVim/Vundle.vim&#39;
+
+&quot; The following are examples of different formats supported.
+&quot; Keep Plugin commands between vundle#begin/end.
+&quot; plugin on GitHub repo
+Plugin &#39;tpope/vim-fugitive&#39;
+&quot; plugin from http://vim-scripts.org/vim/scripts.html
+Plugin &#39;L9&#39;
+&quot; Git plugin not hosted on GitHub
+Plugin &#39;git://git.wincent.com/command-t.git&#39;
+&quot; git repos on your local machine (i.e. when working on your own plugin)
+Plugin &#39;file:///home/gmarik/path/to/plugin&#39;
+&quot; The sparkup vim script is in a subdirectory of this repo called vim.
+&quot; Pass the path to set the runtimepath properly.
+Plugin &#39;rstacruz/sparkup&#39;, {&#39;rtp&#39;: &#39;vim/&#39;}
+&quot; Avoid a name conflict with L9
+Plugin &#39;user/L9&#39;, {&#39;name&#39;: &#39;newL9&#39;}
+
+&quot; All of your Plugins must be added before the following line
+call vundle#end()            &quot; required
+filetype plugin indent on    &quot; required
+&quot; To ignore plugin indent changes, instead use:
+&quot;filetype plugin on
+&quot;
+&quot; Brief help
+&quot; :PluginList       - lists configured plugins
+&quot; :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+&quot; :PluginSearch foo - searches for foo; append `!` to refresh local cache
+&quot; :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+&quot;
+&quot; see :h vundle for more details or wiki for FAQ
+&quot; Put your non-Plugin stuff after this line
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;vim 任意打开文件， 运行 &lt;code&gt;:PluginInstall&lt;/code&gt; 就会安装vimrc中Plugin配置的需要安装的插件&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Plugin &#39;VundleVim/Vundle.vim&#39; 配置vundle&lt;/li&gt;
+&lt;li&gt;另外配置了其他一些vim 插件， 如L9等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对添加的vim 配置的一些解释&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;set nocompatible               &quot; be iMproved
+ filetype off                   &quot; required!
+
+ set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+ &quot; let Vundle manage Vundle
+ &quot; required! 
+ Bundle &#39;gmarik/vundle&#39;
+
+ &quot; My Bundles here:
+ #以后你想安装什么插件可以写在下面
+ &quot;
+ &quot; original repos on github 
+#如果你的插件来自github，写在下方，只要作者名/项目名就行了
+ Bundle &#39;tpope/vim-fugitive&#39; #如这里就安装了vim-fugitive这个插件
+ Bundle &#39;Lokaltog/vim-easymotion&#39;
+ Bundle &#39;rstacruz/sparkup&#39;, {&#39;rtp&#39;: &#39;vim/&#39;}
+ Bundle &#39;tpope/vim-rails.git&#39;
+ &quot; vim-scripts repos
+#如果插件来自 vim-scripts，你直接写插件名就行了
+ Bundle &#39;L9&#39;
+ Bundle &#39;FuzzyFinder&#39;
+ &quot; non github repos
+#如使用自己的git库的插件，像下面这样做
+ Bundle &#39;git://git.wincent.com/command-t.git&#39;
+ &quot; git repos on your local machine (ie. when working on your own plugin)
+ Bundle &#39;file:///Users/gmarik/path/to/plugin&#39;
+ &quot; ...
+
+ filetype plugin indent on     &quot; required!
+#下面是 vundle的一些命令代会会用到
+ &quot;
+ &quot; Brief help
+ &quot; :BundleList          - list configured bundles
+ &quot; :BundleInstall(!)    - install(update) bundles
+ &quot; :BundleSearch(!) foo - search(or refresh cache first) for foo
+ &quot; :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ &quot;
+ &quot; see :h vundle for more details or wiki for FAQ
+ &quot; NOTE: comments after Bundle command are not allowed..
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2016/01/02/vim-plugin-bundler-vundle.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2016/01/02/vim-plugin-bundler-vundle.html</guid>
+        
+        <category>shell</category>
+        
+        <category>program</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>go 基础学习</title>
+        <description>&lt;p&gt;参考: &lt;a href=&quot;http://blog.csdn.net/broadview2006/article/details/8919014&quot;&gt;&lt;strong&gt;go语言基础&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;本文将介绍如何定义变量、常量、Go语言内置类型及Go语言程序设计中的一些技巧。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;定义变量&lt;/h2&gt;
+
+&lt;p&gt;Go语言里面定义变量有多种方式。&lt;/p&gt;
+
+&lt;p&gt;使用var关键字是Go语言最基本的定义变量方式，与C语言不同的是Go语言把变量类型放在变量名后面，如下所示。&lt;/p&gt;
+
+&lt;h4&gt;定义一个变量&lt;/h4&gt;
+
+&lt;p&gt;//定义一个名称为“variableName”，类型为&quot;type&quot;的变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var variableName type
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;定义多个变量。&lt;/h4&gt;
+
+&lt;p&gt;//定义三个类型都是“type”的三个变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var vname1, vname2,vname3 type
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;定义变量并初始化值。&lt;/h4&gt;
+
+&lt;p&gt;//初始化“variableName”的变量为“value”值，类型是“type”&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var variableName type= value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;同时初始化多个变量。&lt;/h4&gt;
+
+&lt;p&gt;定义三个类型都是&quot;type&quot;的三个变量,并且它们分别初始化相应的值
+vname1为v1，vname2为v2，vname3为v3&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var vname1, vname2, vname3 type= v1, v2, v3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;你是不是觉得上面这样的定义有点繁琐？没关系，因为Go语言的设计者也发现了，有一种写法可以让它变得简单一点。我们可以直接忽略类型声明，那么上面的代码变成如下所示。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4&gt;定义三个变量，它们分别初始化相应的值&lt;/h4&gt;
+
+&lt;p&gt;vname1为v1，vname2为v2，vname3为v3&lt;/p&gt;
+
+&lt;p&gt;然后Go会根据其相应值的类型来帮你初始化它们&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var vname1, vname2, vname3 = v1, v2, v3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;你觉得上面的还是有些繁琐？好吧，让我们继续简化。&lt;/h4&gt;
+
+&lt;p&gt;定义三个变量，它们分别初始化相应的值&lt;/p&gt;
+
+&lt;p&gt;vname1为v1，vname2为v2，vname3为v3&lt;/p&gt;
+
+&lt;p&gt;编译器会根据初始化的值自动推导出相应的类型&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vname1, vname2, vname3 := v1, v2, v3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在是不是看上去非常简洁了&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;:=&lt;/code&gt; 这个符号直接取代了var和type，这种形式叫做简短声明。&lt;/p&gt;
+
+&lt;p&gt;不过它有一个限制，&lt;strong&gt;&lt;em&gt;那就是&lt;code&gt;:=&lt;/code&gt;只能用在函数内部；在函数外部使用则会无法编译通过，所以一般用var方式来定义全局变量。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5&gt;_（下画线）是个特殊的变量名，任何赋予它的值都会被丢弃。在这个例子中，我们将值35赋予b，并同时丢弃34。&lt;/h5&gt;
+
+&lt;p&gt;_, b := 34, 35
+Go语言对于已声明但未使用的变量会在编译阶段报错，比如下面的代码就会产生一个错误：声明了i但未使用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+func main() {
+    var i int
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;常量&lt;/h2&gt;
+
+&lt;p&gt;所谓常量，也就是在程序编译阶段就确定下来的值，而程序在运行时则无法改变该值。在Go语言程序中，常量可定义为数值、布尔值或字符串等类型。&lt;/p&gt;
+
+&lt;p&gt;它的语法如下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const constantName =value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;//如果需要，也可以明确指定常量的类型：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const Pi float32 =3.1415926
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;以下是一些常量声明的例子。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;const Pi = 3.1415926
+const i = 10000
+const MaxThread = 10
+const prefix =&quot;astaxie_&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;内置基础类型&lt;/h2&gt;
+
+&lt;h3&gt;Boolean&lt;/h3&gt;
+
+&lt;p&gt;在Go语言中，布尔值的类型为bool，值是true或false，&lt;strong&gt;默认为false&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h6&gt;示例代码&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;var isActivebool  // 全局变量声明
+var enabled, disabled= true, false  // 忽略类型的声明
+
+func test() {
+    var available bool  // 一般声明
+    valid := false      // 简短声明
+    available = true    // 赋值操作
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;数值类型&lt;/h2&gt;
+
+&lt;p&gt;整数类型有无符号和带符号两种。Go语言同时支持int和uint，这两种类型的长度相同，但具体长度取决于不同编译器的实现。&lt;/p&gt;
+
+&lt;p&gt;当前的gcc和gccgo编译器在32位和64位平台上都使用32位来表示int和uint，但未来在64位平台上可能增加到64位。&lt;/p&gt;
+
+&lt;p&gt;Go语言里面也有直接定义好位数的类型：&lt;code&gt;rune，int8，int16，int32，int64和byte，uint8，uint16，uint32，uint64&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;其中rune是int32的别称，byte是uint8的别称。&lt;/p&gt;
+
+&lt;p&gt;需要注意的一点是，&lt;strong&gt;&lt;em&gt;这些类型的变量之间不允许互相赋值或操作，不然会在编译时引起编译器报错。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;例如，以下代码会产生错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var a int8
+var b int32
+c:=a + b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外，&lt;strong&gt;&lt;em&gt;尽管int的长度是32 bit，但int与int32并不可以互用。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h6&gt;浮点数的类型有float32和float64两种（没有float类型），默认是float64。&lt;/h6&gt;
+
+&lt;p&gt;这就是全部吗？不止，Go语言还支持复数。它的默认类型是complex128（64位实数+64位虚数）。&lt;/p&gt;
+
+&lt;p&gt;如果需要小一些的，也有complex64（32位实数+32位虚数）。复数的形式为RE + IMi，其中RE是实数部分，IM是虚数部分，而最后的i是虚数单位。&lt;/p&gt;
+
+&lt;p&gt;下面是一个使用复数的例子。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var c complex64 = 5+5i
+//output: (5+5i)
+fmt.Printf(&quot;Value is: %v&quot;, c)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;字符串&lt;/h2&gt;
+
+&lt;p&gt;Go语言中的字符串都是采用UTF-8字符集编码。&lt;/p&gt;
+
+&lt;p&gt;字符串是用一对&lt;strong&gt;&lt;em&gt;双引号&lt;/em&gt;&lt;/strong&gt;（&quot;&quot;）或&lt;strong&gt;&lt;em&gt;反引号&lt;/em&gt;&lt;/strong&gt;（&lt;code&gt;&lt;/code&gt;）括起来定义，它的类型是string。&lt;/p&gt;
+
+&lt;p&gt;//示例代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var frenchHello string  // 声明变量为字符串的一般方法
+var emptyString string = &quot;&quot; // 声明了一个字符串变量，初始化为空字符串
+func test() {
+    no, yes, maybe :=&quot;no&quot;, &quot;yes&quot;, &quot;maybe&quot;  // 简短声明，同时声明多个变量
+    japaneseHello :=&quot;Ohaiou&quot;  // 同上
+    frenchHello =&quot;Bonjour&quot;  // 常规赋值
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;在Go语言中字符串是不可变的，例如，以下代码编译时会报错。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;var s string = &quot;hello&quot;
+s[0] = &#39;c&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;但如果真的想要修改怎么办？下面的代码可以实现。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;s := &quot;hello&quot;
+c := []byte(s)  // 将字符串 s 转换为 []byte 类型
+c[0] = &#39;c&#39;
+s2 := string(c)  // 再转换回 string 类型
+fmt.Printf(&quot;%s\n&quot;, s2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;Go语言中可以使用“+”操作符来连接两个字符串。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;s := &quot;hello,&quot;
+m := &quot; world&quot;
+a := s + m
+fmt.Printf(&quot;%s\n&quot;, a)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;修改字符串也可写为&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;s := &quot;hello&quot;
+s = &quot;c&quot; + s[1:] // 字符串虽不能更改，但可进行切片操作
+fmt.Printf(&quot;%s\n&quot;, s)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;如果要声明一个多行的字符串怎么办？可以通过&lt;strong&gt;&lt;em&gt;反引号&lt;/em&gt;&lt;/strong&gt;“`”来声明。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;m := `hello
+
+    world`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意： &lt;strong&gt;反引号“`”括起的字符串为Raw字符串，即字符串在代码中的形式就是打印时的形式，它没有字符转义，换行也将原样输出&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;错误类型&lt;/h2&gt;
+
+&lt;p&gt;Go语言内置有一个error类型，专门用来处理错误信息，Go语言的package里面还专门有一个包errors来处理错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;err :=errors.New(&quot;emit macho dwarf: elf header corrupted&quot;)
+if err != nil {
+    fmt.Print(err)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;一些技巧&lt;/h2&gt;
+
+&lt;p&gt;分组声明
+在Go语言中，同时声明多个常量、变量，或者导入多个包时，可采用分组的方式进行声明。&lt;/p&gt;
+
+&lt;p&gt;例如下面的代码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import&quot;fmt&quot;
+import &quot;os&quot;
+
+const i = 100
+const pi = 3.1415
+const prefix =&quot;Go_&quot;
+
+var i int
+var pi float32
+var prefix string
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;可以分组写成如下形式。&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;import(
+    &quot;fmt&quot;
+    &quot;os&quot;
+)
+
+const(
+    i = 100
+    pi = 3.1415
+    prefix = &quot;Go_&quot;
+)
+
+var(
+    i int
+    pi float32
+    prefix string
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;常量的几点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;除非被显式设置为其他值或iota，每个const分组的第一个常量被默认设置为它的0值.&lt;/li&gt;
+&lt;li&gt;第二及后续的常量被默认设置为它前面那个常量的值，如果前面那个常量的值是iota，则它也被设置为iota.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;iota枚举&lt;/h2&gt;
+
+&lt;p&gt;Go语言里面有一个关键字iota，这个关键字用来声明enum的时候采用，它默认开始值是0，每调用一次加1。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const(
+    x = iota // x == 0
+    y = iota // y == 1
+    z = iota // z == 2
+    w  //常量声明省略值时，默认和之前一个值的字面相同。这里隐式地说w = iota，因此w== 3。其实上面y和z可同样不用&quot;= iota&quot;
+)
+const v = iota // 每遇到一个const关键字，iota就会重置，此时v == 0 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Go语言程序设计的一些规则&lt;/h2&gt;
+
+&lt;p&gt;Go语言之所以简洁，是因为它有一些默认的行为。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;大写字母开头的变量是可导出的，即其他包可以读取，是公用变量；小写字母开头的不可导出，是私有变量。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;大写字母开头的函数也是一样，相当于class中带public关键词的公有函数；小写字母开头就是有private关键词的私有函数。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 28 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/28/go-basic-learn.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/28/go-basic-learn.html</guid>
+        
+        <category>go</category>
+        
+        <category>program</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>go语言 array, slice , map 简单介绍</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/yjf512/archive/2012/06/14/2549929.html&quot;&gt;&lt;strong&gt;&lt;em&gt;参考&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;1. 数组 array&lt;/h3&gt;
+
+&lt;p&gt;array是固定长度的数组，这个和C语言中的数组是一样的，使用前必须确定数组长度。&lt;/p&gt;
+
+&lt;p&gt;但是和C中的数组相比，又是有一些不同的：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Go中的数组是值传递类型，换句话说，如果你将一个数组赋值给另外一个数组，那么，实际上就是将整个数组拷贝一份。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果Go中的数组作为函数的参数，那么实际传递的参数是一份数组的拷贝，而不是数组的指针, 是值传递而不是引用传递。
+ 这个和C要区分开。因此，在Go中如果将数组作为函数的参数传递的话，那效率就肯定没有传递指针高了。好坑的感觉!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;array的长度也是Type的一部分，这样就说明[10]int和[20]int是不一样的。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h5&gt;array的结构如下:&lt;/h5&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;len&lt;/th&gt;
+&lt;th&gt;int&lt;/th&gt;
+&lt;th&gt;int&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt; 1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;&lt;strong&gt;len表示数组的长度，后面是存储的实际数据&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3&gt;2. 切片 slice&lt;/h3&gt;
+
+&lt;p&gt;可以参考本站另一个博文  &lt;a href=&quot;http://huyongde.github.io/2015/12/25/go-slice.html&quot;&gt;&lt;em&gt;slice 学习&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;这里再介绍两点：&lt;/p&gt;
+
+&lt;h4&gt;2.1 slice长度可变&lt;/h4&gt;
+
+&lt;p&gt;定义完一个slice变量之后，不需要为它的容量而担心，你随时可以往slice里面加数据&lt;/p&gt;
+
+&lt;p&gt;比如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;v:=[]int{}
+v=append(v,  10)
+//这里附带说一下，slice和array的写法很容易混
+v:=[2]string{&quot;arr&quot;, &quot;arr&quot;} //这个是array
+m:=[]string{&quot;s&quot;,&quot;s&quot;} //这个是slice
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;要记住：array 定长slice不定长,array 定长slice不定长,array 定长slice不定长....  ，重要的事情说多变。&lt;/p&gt;
+
+&lt;h4&gt;2.2slice是引用传递, 是指针&lt;/h4&gt;
+
+&lt;p&gt;指针比值可就小多了，因此，我们将slice作为函数参数传递比将array作为函数参数传递会更有性能。
+slice是一个指针，它指向的是一个array结构，它有两个基本函数len和cap。&lt;/p&gt;
+
+&lt;p&gt;slice是一个带有point（指向数组的指针），Len（数组中实际有值的个数），Cap（数组的容量）&lt;/p&gt;
+
+&lt;p&gt;append函数就理解为往slice中加入一个值，如果未达到容量（len&amp;lt;cap）那么就直接往数组中加值，
+如果达到容量（len = cap）那么就新增一倍的新元素空间，再赋值。&lt;/p&gt;
+
+&lt;h3&gt;3. map 结构&lt;/h3&gt;
+
+&lt;p&gt;map结构也经常常用，它和php中的&lt;code&gt;array（）&lt;/code&gt;几乎一模一样，是一个&lt;code&gt;key-value&lt;/code&gt;的hash结构。&lt;/p&gt;
+
+&lt;p&gt;key可以是除了func类型，array,slice,map类型之外的类型。&lt;/p&gt;
+
+&lt;p&gt;使用例子如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fmt.Println(&quot;learn map&quot;)
+m := map[string]string{}
+var m1 = map[int]string{}
+m[&quot;key1&quot;] = &quot;value1&quot;
+fmt.Println(m)
+m1[1] = &quot;int key , string value&quot;
+fmt.Println(m1)
+var m2 = map[int]int{}
+m2[1] = 2
+fmt.Println(m2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出结果:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;learn map
+map[key1:value1]
+map[1:int key , string value]
+map[1:2]
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Sat, 26 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/26/golang-array-slice-map-introduction.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/26/golang-array-slice-map-introduction.html</guid>
+        
+        <category>program</category>
+        
+        <category>go</category>
+        
+        <category>golang</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>go slice(切片)学习</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.tuicool.com/articles/QrymYz&quot;&gt;&lt;strong&gt;&lt;em&gt;参考&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;slice简介&lt;/h2&gt;
+
+&lt;p&gt;slice切片是对底层数组Array的封装，在内存中的存储本质就是数组，体现为连续的内存块.&lt;/p&gt;
+
+&lt;h2&gt;slice 与 array的关系&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Go语言中的数组定义之后，长度就已经固定了，在使用过程中并不能改变其长度，而Slice就可以看做一个长度可变的数组进行使用，&lt;/li&gt;
+&lt;li&gt;数组在使用的过程中都是值传递，将一个数组赋值给一个新变量或作为方法参数传递时，是将源数组在内存中完全复制了一份，而不是引用源数组在内存中的地址，为了满足内存空间的复用和数组元素的值的一致性的应用需求，Slice出现了，每个Slice都是都源数组在内存中的地址的一个引用，源数组可以衍生出多个Slice，Slice也可以继续衍生Slice，而内存中，始终只有源数组，也有例外，最后会介绍。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;如何定义slice&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;直接定义
+直接上例子&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;var slice1 = []int{100, 200}
+fmt.Println(slice1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过数组生成切片slice, 例子如下&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;a := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+s := a[3:6]
+fmt.Println(s)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;定义一个数组a,并截取下标3到6（包括3,不包括6）的元素构建slice s.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;make定义切片slice, 例子如下:&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;s := make([]int, 10)
+fmt.Println(s)
+fmt.Printf(&quot;len s %d, cap s %d\n&quot;, len(s), cap(s))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;make 函数第一个参数是构建slice的类型，第二个参数是slice的长度，第三个参数是slice的容量，默认是第二个参数的值&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;slice 长度(len) 和 容量（cap)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;slice有两个比较混淆的概念，就是长度和容量. &lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;何谓长度？这个长度跟数组的长度是一个概念，即在内存中进行了初始化实际存在的元素的个数。&lt;/li&gt;
+&lt;li&gt;何谓容量？如果通过make函数创建Slice的时候指定了容量参数，那内存管理器会根据指定的容量的值先划分一块内存空间，然后才在其中存放有数组元素，多余部分处于空闲状态，在Slice上追加元素的时候，首先会放到这块空闲的内存中，如果添加的参数个数超过了容量值，内存管理器会重新划分一块容量值为原容量值*2大小的内存空间，依次类推。这个机制的好处在能够提升运算性能，因为内存的重新划分会降低性能。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;看如下例子&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;s := make([]int, 10)
+fmt.Println(s)
+fmt.Printf(&quot;len s %d, cap s %d\n&quot;, len(s), cap(s))
+s = append(s, 100, 200, 300, 400)
+fmt.Println(s)
+fmt.Printf(&quot;len s %d, cap s %d\n&quot;, len(s), cap(s))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;make构建一个slice s,长度和容量都是10， 执行append之后，长度变成13， 容量变成20。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;slice 引用数据类型&lt;/h2&gt;
+
+&lt;p&gt;slice 是源数组的一个引用，改变slice的值，将会改变源数组的值。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var a = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+fmt.Println(a)
+s1 := a[3:6]
+fmt.Println(s1)
+fmt.Printf(&quot;len s1 %d, cap s1 %d\n&quot;, len(s1), cap(s1))
+s1[2] = 200
+fmt.Println(a)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;程序输出结果如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[1 2 3 4 5 6 7 8 9 0]
+[4 5 6]
+len s1 3, cap s1 7
+[1 2 3 4 5 200 7 8 9 0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;slice s1是通过数据a 构建的切片，当改变s1的下标为2的元素的值时，数组a下标为5的元素的值也被改变&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;slice 切片非引用的情况&lt;/h2&gt;
+
+&lt;p&gt;Slice是引用类型，指向的都是内存中的同一块内存，不过在实际应用中，有的时候却会发生“意外”
+这种情况只有在像切片append元素的时候出现，Slice的处理机制是这样的，&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;当Slice的容量还有空闲的时候，append进来的元素会直接使用空闲的容量空间;&lt;/li&gt;
+&lt;li&gt;一旦append进来的元素个数超过了原来指定容量值的时候，内存管理器就是重新开辟一个更大的内存空间，用于存储多出来的元素，并且会将原来的元素复制一份，放到这块新开辟的内存空间,这样就不是引用了。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;var a = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+fmt.Println(a)
+s1 := a[3:6]
+fmt.Println(s1)
+fmt.Printf(&quot;len s1 %d, cap s1 %d\n&quot;, len(s1), cap(s1))
+fmt.Printf(&quot;init address: %p\n&quot;, s1)
+s1 = append(s1, 1)
+fmt.Printf(&quot;in cap len s1 %d, cap s1 %d\n&quot;, len(s1), cap(s1))
+fmt.Printf(&quot;in cap, address: %p\n&quot;, s1)
+s1 = append(s1, 1, 2, 3, 4, 4, 5)
+fmt.Printf(&quot;out cap len s1 %d, cap s1 %d\n&quot;, len(s1), cap(s1))
+fmt.Printf(&quot;out cap, address: %p\n&quot;, s1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;程序输出结果:&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;[1 2 3 4 5 6 7 8 9 0]
+[4 5 6]
+len s1 3, cap s1 7
+init address: 0xc8200860b8
+in cap len s1 4, cap s1 7
+in cap, address: 0xc8200860b8
+out cap len s1 10, cap s1 14
+out cap, address: 0xc82006c070
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;可以看到切片s1第一次append之后，没有超过cap, 还是引用,s1 的地址没变； 第二次append之后，超过了原先预分配的cap, 变成了值复制，s1地址变了。&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/25/go-slice.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/25/go-slice.html</guid>
+        
+        <category>go</category>
+        
+        <category>study</category>
+        
+        <category>program</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>nginx lua 学习</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.ttlsa.com/nginx/nginx-lua/&quot;&gt;&lt;strong&gt;参考&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;1.1. 介绍&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ngx_lua – 把lua语言嵌入nginx中,使其支持lua来快速开发基于nginx下的业务逻辑
+该模块不在nginx源码包中，需自行下载编译安装。使用lua 5.1（目前不支持lua 5.2） 或 luajit 2.0 。
+添加lua支持后，开发复杂的模块，周期快，依然是100%异步非阻塞。&lt;/li&gt;
+&lt;li&gt;ngx_lua 哪些人在用:
+淘宝、腾讯财经、网易财经、360、去哪儿网等
+CloudFlare, CNN, Wingify, Reblaze, Turner, Broadcasting System&lt;/li&gt;
+&lt;li&gt;该项目主要开发者：
+chaoslawful Taobao, Alibaba Grp.
+agentzh CloudFlare
+https://github.com/chaoslawful/lua-nginx-module&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;1.2. 安装&lt;/h3&gt;
+
+&lt;h4&gt;1.2.1. 安装JIT平台&lt;/h4&gt;
+
+&lt;p&gt;通常，程序有两种运行方式：静态编译与动态直译。
+静态编译的程序在执行前全部被翻译为机器码，而动态直译执行的则是一句一句边运行边翻译。
+即时编译(Just-In-Time Compiler)则混合了这二者，一句一句编译源代码，但是会将翻译过的代码缓存起来以降低性能损耗。
+JAVA、.NET 实现都使用即时编译以提供高速的代码执行。&lt;/p&gt;
+
+&lt;p&gt;注意：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt; 在nginx.conf中添加&quot;lua_code_cache on/off&quot;，来开启是否将代码缓存，所以每次变更&quot;.lua&quot;文件时，必须reload nginx才可生效。仅针对&quot;set_by_lua_file, content_by_lua_file, rewrite_by_lua_file, and access_by_lua_file&quot;有效, 因为其他为写在配置文件中，更改代码也必须reload nginx。在生产环境下，不能禁用cache。同时在lua代码中使用&quot;dofile&quot; 或 &quot;loadfie&quot; 来加载外部lua脚本将不会对它进行缓存，应该使用&quot;require&quot;来代替。禁用cache，当且仅当在调式代码下。 &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5&gt;LuaJIT&lt;/h5&gt;
+
+&lt;p&gt;luajit 是一个利用JIT编译技术把Lua脚本直接编译成机器码由CPU运行
+版本：2.0 与 2.1
+当前稳定版本为 2.0。
+2.1为版本与ngx_lua将有较大性能提升，主要是CloudFlare公司对luajit的捐赠。
+FFI库，是LuaJIT中最重要的一个扩展库。
+1. 它允许从纯Lua代码调用外部C函数，使用C数据结构;
+2. 就不用再像Lua标准math库一样，编写Lua扩展库;
+3. 把开发者从开发Lua扩展C库（语言/功能绑定库）的繁重工作中释放出来;
+下载编译&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -c http://luajit.org/download/LuaJIT-2.0.2.tar.gz
+tar xzvf LuaJIT-2.0.2.tar.gz
+cd LuaJIT-2.0.2
+make install PREFIX=/usr/local/luajit
+echo &quot;/usr/local/luajit/lib&quot; &amp;gt; /etc/ld.so.conf.d/usr_local_luajit_lib.conf
+ldconfig
+#注意环境变量!
+export LUAJIT_LIB=/usr/local/luajit/lib
+export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;1.2.2. NDK与Lua_module&lt;/h4&gt;
+
+&lt;p&gt;NDK(Nginx Development Kit)模块是一个拓展Nginx服务器核心功能的模块
+第三方模块开发可以基于它来快速实现
+NDK提供函数和宏处理一些基本任务，减轻第三方模块开发的代码量。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -c https://github.com/simpl/ngx_devel_kit/archive/v0.2.18.tar.gz
+wget -c https://github.com/chaoslawful/lua-nginx-module/archive/v0.8.6.tar.gz
+tar xzvf v0.2.18
+tar xzvf v0.8.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;1.2.3. 编译安装Nginx&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -c http://nginx.org/download/nginx-1.4.2.tar.gz
+tar xzvf nginx-1.4.2.tar.gz
+cd nginx-1.4.2
+./configure --add-module=../ngx_devel_kit-0.2.18/ --add-module=../lua-nginx-module-0.8.6/
+make
+make install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1.3. 嵌入Lua后&lt;/h3&gt;
+
+&lt;h4&gt;1.3.1. 检测版本&lt;/h4&gt;
+
+&lt;p&gt;自己编译官方的 nginx 源码包，只需事前指定 LUAJIT_INC 和 LUAJIT_LIB 这两个环境变量。
+验证你的 LuaJIT 是否生效，可以通过下面这个接口：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;location = /lua-version {  
+    content_by_lua &#39; 
+            if jit then 
+                    ngx.say(jit.version) 
+                else 
+                    ngx.say(_VERSION) 
+            end 
+        &#39;; 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果使用的是标准 Lua，访问 /lua-version 应当返回响应体 Lua 5.1
+如果是 LuaJIT 则应当返回类似 LuaJIT 2.0.2 这样的输出。
+不要使用标准lua，应当使用luajit, 后者的效率比前者高多了。
+也可以直接用 ldd 命令验证是否链了 libluajit-5.1 这样的 .so 文件，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@limq5 sbin]# ldd nginx | grep lua
+libluajit-5.1.so.2 =&amp;gt; /usr/local/luajit/lib/libluajit-5.1.so.2 (0x00007f48e408b000)
+[root@limq5 sbin]#
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;1.3.2. Hello,World&lt;/h4&gt;
+
+&lt;p&gt;在nginx.conf中的service添加一个location。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;location = /test {
+       content_by_lua &#39;
+           ngx.say(&quot;Hello World&quot;)
+       ngx.log(ngx.ERR, &quot;err err err&quot;)
+       &#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;用户访问 &lt;code&gt;http://localhost/test&lt;/code&gt; 将会打印出“Hello World”内容。
+ngx.say 是 lua 显露給模块的接口。
+类似的有 ngx.log(ngx.DEBUG, “”),可以在error.log输出调试信息。
+另外也可以调用外部脚本，如同我们写php、jsp应用时,业务脚本单独组织在.php或.jsp文件中一样&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;location = /test2 {
+       content_by_lua_file conf/lua/hello.lua;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文件hello.lua内容如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ngx.say(&quot;Hello World&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这里的脚本可以任意复杂,也可以使用Lua 自己的库&lt;/p&gt;
+
+&lt;p&gt;lua可用&lt;a href=&quot;http://luarocks.org/repositories/rocks/&quot;&gt;模块列表&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装类似yum，它也有一个仓库:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;luarocks install luafilesystem&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;运行上面命令后，会编译一个 “lfs.so”, 文件，拷贝文件到nginx定义的LUA_PATH中，然后引用该
+库，就可调用其中函数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LUA_PATH:
+lua_package_path ‘/opt/17173/nginx-ds/conf/lua/?.lua;;’
+lua_package_cpath ‘/opt/17173/nginx-ds/conf/lua/lib/?.so;/usr/local/lib/?.?;;’;
+其中”;;”代表原先查找范围。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;1.3.3. 同步形式，异步执行&lt;/h4&gt;
+
+&lt;p&gt;我们假定,同时要访问多个数据源，而且,查询是没有依赖关系,那我们就可以同时发出请求
+这样我总的延时, 是我所有请求中最慢的一个所用时间,而不是原先的所有请求用时的叠加&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;location = /api {
+       content_by_lua &#39;
+           local res1, res2, res3 =
+               ngx.location.capture_multi{
+                   {&quot;/memc&quot;}, {&quot;/mysql&quot;}, {&quot;/postgres&quot;}
+               }
+           ngx.say(res1.body, res2.body, res3.body)
+       &#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ngx.location.capture&lt;/code&gt; 无法跨server进行处理, 只能在同一个server下的不同location。&lt;/p&gt;
+
+&lt;h3&gt;1.4. Nginx与Lua执行顺序&lt;/h3&gt;
+
+&lt;h4&gt;1.4.1. Nginx顺序&lt;/h4&gt;
+
+&lt;p&gt;Nginx 处理每一个用户请求时，都是按照若干个不同阶段（phase）依次处理的，而不是根据配置文件上的顺序。
+Nginx 处理请求的过程一共划分为 11 个阶段，按照执行顺序依次是&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;post-read、server-rewrite、find-config、rewrite、post-rewrite、 
+preaccess、access、post-access、try-files、content、log.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;post-read:
+读取请求内容阶段
+Nginx读取并解析完请求头之后就立即开始运行
+例如模块 ngx_realip 就在 post-read 阶段注册了处理程序，它的功能是迫使 Nginx 认为当前请求的来源地址是指定的某一个请求头的值。&lt;/li&gt;
+&lt;li&gt;server-rewrite
+Server请求地址重写阶段
+当 ngx_rewrite 模块的set配置指令直接书写在 server 配置块中时，基本上都是运行在 server-rewrite 阶段&lt;/li&gt;
+&lt;li&gt;find-config
+配置查找阶段
+这个阶段并不支持 Nginx 模块注册处理程序，而是由 Nginx 核心来完成当前请求与 location 配置块之间的配对工作。&lt;/li&gt;
+&lt;li&gt;rewrite
+Location请求地址重写阶段
+当 ngx_rewrite 模块的指令用于 location 块中时，便是运行在这个 rewrite 阶段。
+另外，ngx_set_misc(设置md5、encode_base64等) 模块的指令，还有 ngx_lua 模块的 set_by_lua 指令和 rewrite_by_lua 指令也在此阶段。&lt;/li&gt;
+&lt;li&gt;post-rewrite
+请求地址重写提交阶段
+由 Nginx 核心完成 rewrite 阶段所要求的“内部跳转”操作,如果 rewrite 阶段有此要求的话。&lt;/li&gt;
+&lt;li&gt;preaccess
+访问权限检查准备阶段
+标准模块 ngx_limit_req 和 ngx_limit_zone 就运行在此阶段，前者可以控制请求的访问频度，而后者可以限制访问的并发度。&lt;/li&gt;
+&lt;li&gt;access
+访问权限检查阶段
+标准模块 ngx_access、第三方模块 ngx_auth_request 以及第三方模块 ngx_lua 的 access_by_lua 指令就运行在这个阶段。
+配置指令多是执行访问控制性质的任务，比如检查用户的访问权限，检查用户的来源 IP 地址是否合法&lt;/li&gt;
+&lt;li&gt;post-access
+访问权限检查提交阶段
+主要用于配合 access 阶段实现标准 ngx_http_core 模块提供的配置指令 satisfy 的功能。
+satisfy all(与关系)
+satisfy any(或关系)&lt;/li&gt;
+&lt;li&gt;try-files
+配置项try_files处理阶段
+专门用于实现标准配置指令 try_files 的功能
+如果前 N-1 个参数所对应的文件系统对象都不存在，try-files 阶段就会立即发起“内部跳转”到最后一个参数（即第 N 个参数）所指定的 URI.&lt;/li&gt;
+&lt;li&gt;content
+内容产生阶段
+Nginx 的 content 阶段是所有请求处理阶段中最为重要的一个，因为运行在这个阶段的配置指令一般都肩负着生成“内容”并输出 HTTP 响应的使命。&lt;/li&gt;
+&lt;li&gt;log
+日志模块处理阶段
+记录日志
+淘宝有开放一个nginx开发手册，里面包含很多有用的资料
+http://tengine.taobao.org/book/
+作者的google论坛：
+https://groups.google.com/forum/#!forum/openresty&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;1.4.2. Lua顺序&lt;/h4&gt;
+
+&lt;p&gt;Nginx下Lua处理阶段与使用范围：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;init_by_lua            http
+set_by_lua             server, server if, location, location if
+rewrite_by_lua         http, server, location, location if
+access_by_lua          http, server, location, location if
+content_by_lua         location, location if
+header_filter_by_lua   http, server, location, location if
+body_filter_by_lua     http, server, location, location if
+log_by_lua             http, server, location, location if
+timer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;init_by_lua
+在nginx重新加载配置文件时，运行里面lua脚本，常用于全局变量的申请。
+例如lua_shared_dict共享内存的申请，只有当nginx重起后，共享内存数据才清空，这常用于统计。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;set_by_lua:
+设置一个变量，常用与计算一个逻辑，然后返回结果
+该阶段不能运行Output API、Control API、Subrequest API、Cosocket API&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;rewrite_by_lua:
+在access阶段前运行，主要用于rewrite&lt;/li&gt;
+&lt;li&gt;access_by_lua:
+主要用于访问控制，能收集到大部分变量，类似status需要在log阶段才有。
+这条指令运行于nginx access阶段的末尾，因此总是在 allow 和 deny 这样的指令之后运行，虽然它们同属 access 阶段。&lt;/li&gt;
+&lt;li&gt;content_by_lua:
+阶段是所有请求处理阶段中最为重要的一个，运行在这个阶段的配置指令一般都肩负着生成内容（content）并输出HTTP响应。&lt;/li&gt;
+&lt;li&gt;header_filter_by_lua:
+一般只用于设置Cookie和Headers等
+该阶段不能运行Output API、Control API、Subrequest API、Cosocket API&lt;/li&gt;
+&lt;li&gt;body_filter_by_lua:
+一般会在一次请求中被调用多次, 因为这是实现基于 HTTP 1.1 chunked 编码的所谓“流式输出”的。
+该阶段不能运行Output API、Control API、Subrequest API、Cosocket API&lt;/li&gt;
+&lt;li&gt;log_by_lua:
+该阶段总是运行在请求结束的时候，用于请求的后续操作，如在共享内存中进行统计数据,如果要高精确的数据统计，应该使用body_filter_by_lua。
+该阶段不能运行Output API、Control API、Subrequest API、Cosocket API&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 24 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/24/ngx-lua-learn.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/24/ngx-lua-learn.html</guid>
+        
+        <category>shell</category>
+        
+        <category>program</category>
+        
+        <category>nginx</category>
+        
+        <category>lua</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>nginx 的 sendfile tcp_nodelay  tcp_nopush 配置详解</title>
+        <description>&lt;h2&gt;sendfile&lt;/h2&gt;
+
+&lt;p&gt;现在流行的web 服务器里面都提供 sendfile 选项用来提高服务器性能，那到底 sendfile是什么，怎么影响性能的呢？&lt;/p&gt;
+
+&lt;p&gt;sendfile实际上是 Linux2.0+以后的推出的一个系统调用，web服务器可以通过调整自身的配置来决定是否利用 sendfile这个系统调用。&lt;/p&gt;
+
+&lt;h4&gt;先来看一下不用 sendfile的传统网络传输过程：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;read(file,tmp_buf, len);
+write(socket,tmp_buf, len);
+硬盘 &amp;gt;&amp;gt; kernel buffer &amp;gt;&amp;gt; user buffer&amp;gt;&amp;gt; kernel socket buffer &amp;gt;&amp;gt;协议栈
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;**一般来说一个网络应用是通过读硬盘数据，然后写数据到socket 来完成网络传输的。&lt;/p&gt;
+
+&lt;p&gt;上面2行用代码解释了这一点，不过上面2行简单的代码掩盖了底层的很多操作。来看看底层是怎么执行上面2行代码的:**&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;系统调用 &lt;code&gt;read()&lt;/code&gt;产生一个上下文切换：从 &lt;code&gt;user mode&lt;/code&gt; 切换到 &lt;code&gt;kernel mode&lt;/code&gt;，然后 DMA 执行拷贝，把文件数据从硬盘读到一个 &lt;code&gt;kernel buffer&lt;/code&gt; 里。&lt;/li&gt;
+&lt;li&gt;数据从 &lt;code&gt;kernel buffer&lt;/code&gt;拷贝到 &lt;code&gt;user buffer&lt;/code&gt;，然后系统调用 &lt;code&gt;read()&lt;/code&gt; 返回，这时又产生一个上下文切换：从&lt;code&gt;kernel mode&lt;/code&gt; 切换到 &lt;code&gt;user mode&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;系统调用&lt;code&gt;write()&lt;/code&gt;产生一个上下文切换：从 &lt;code&gt;user mode&lt;/code&gt;切换到 &lt;code&gt;kernel mode&lt;/code&gt;，然后把步骤2读到 &lt;code&gt;user buffer&lt;/code&gt;的数据拷贝到 &lt;code&gt;kernel buffer&lt;/code&gt;（数据第2次拷贝到 &lt;code&gt;kernel buffer&lt;/code&gt;），不过这次是个不同的 &lt;code&gt;kernel buffer&lt;/code&gt;，这个 &lt;code&gt;buffer&lt;/code&gt;和 &lt;code&gt;socket&lt;/code&gt;相关联。&lt;/li&gt;
+&lt;li&gt;系统调用 &lt;code&gt;write()&lt;/code&gt;返回，产生一个上下文切换：从 &lt;code&gt;kernel mode&lt;/code&gt; 切换到 &lt;code&gt;user mode&lt;/code&gt;（第4次切换了），然后 DMA 从 &lt;code&gt;kernel buffer&lt;/code&gt;拷贝数据到协议栈（第4次拷贝了）。&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;strong&gt;上面4个步骤有4次上下文切换，有4次拷贝，我们发现如果能减少切换次数和拷贝次数将会有效提升性能。在kernel2.0+ 版本中，系统调用 sendfile() 就是用来简化上面步骤提升性能的。sendfile() 不但能减少切换次数而且还能减少拷贝次数。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4&gt;再来看一下用 sendfile()来进行网络传输的过程：&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;sendfile(socket,file, len);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;硬盘 &gt;&gt; kernel buffer (快速拷贝到kernelsocket buffer) &gt;&gt;协议栈&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;系统调用&lt;code&gt;sendfile()&lt;/code&gt;通过 DMA把硬盘数据拷贝到 &lt;code&gt;kernel buffer&lt;/code&gt;，然后数据被 &lt;code&gt;kernel&lt;/code&gt;直接拷贝到另外一个与 &lt;code&gt;socket&lt;/code&gt;相关的 &lt;code&gt;kernel buffer&lt;/code&gt;。这里没有 &lt;code&gt;user mode&lt;/code&gt;和 &lt;code&gt;kernel mode&lt;/code&gt;之间的切换，在 &lt;code&gt;kernel&lt;/code&gt;中直接完成了从一个&lt;code&gt;buffer&lt;/code&gt;到另一个 &lt;code&gt;buffer&lt;/code&gt;的拷贝。&lt;/li&gt;
+&lt;li&gt;DMA 把数据从 &lt;code&gt;kernel buffer&lt;/code&gt; 直接拷贝给协议栈，没有切换，也不需要数据从 &lt;code&gt;user mode&lt;/code&gt; 拷贝到 &lt;code&gt;kernel mode&lt;/code&gt;，因为数据就在 &lt;code&gt;kernel&lt;/code&gt; 里。&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;strong&gt;步骤减少了，切换减少了，拷贝减少了，自然性能就提升了。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;tcp_nopush&lt;/h2&gt;
+
+&lt;p&gt;官方文档:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tcp_nopush
+Syntax: tcp_nopush on | off
+Default: off
+Context: http
+server
+location
+Reference: tcp_nopush
+
+This directive permits or forbids the use of the socket options TCP_NOPUSH on FreeBSD or TCP_CORK on Linux. 
+This option is only available when using sendfile.
+Setting this option causes nginx to attempt to send it’s HTTP response headers in one packet on Linux and FreeBSD 4.x.
+You can read more about the TCP_NOPUSH and TCP_CORK socket options here.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;linux 下是tcp_cork, 上面的意思就是说，当使用sendfile函数时，tcp_nopush才起作用，它和指令tcp_nodelay是互斥的。&lt;/p&gt;
+
+&lt;p&gt;tcp_cork是linux下tcp/ip传输的一个标准了，这个标准的大概的意思是，一般情况下，&lt;/p&gt;
+
+&lt;p&gt;在tcp交互的过程中，当应用程序接收到数据包后马上传送出去，不等待，&lt;/p&gt;
+
+&lt;p&gt;而tcp_cork选项是数据包不会马上传送出去，等到数据包最大时，一次性的传输出去，这样有助于解决网络堵塞，已经是默认了。&lt;/p&gt;
+
+&lt;p&gt;也就是说tcp_nopush = on 会设置调用tcp_cork方法，这个也是默认的，结果就是数据包不会马上传送出去，等到数据包最大时，一次性的传输出去，这样有助于解决网络堵塞。&lt;/p&gt;
+
+&lt;p&gt;*以快递投递举例说明一下（以下是我的理解，也许是不正确的），当快递东西时，快递员收到一个包裹，马上投递，&lt;/p&gt;
+
+&lt;p&gt;这样保证了即时性，但是会耗费大量的人力物力，在网络上表现就是会引起网络堵塞.&lt;/p&gt;
+
+&lt;p&gt;而当快递收到一个包裹，把包裹放到集散地，等一定数量后统一投递，这样就是tcp_cork的选项干的事情，这样的话，会最大化的利用网络资源，虽然有一点点延迟。
+*&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;对于nginx配置文件中的tcp_nopush，默认就是tcp_nopush,不需要特别指定，这个选项对于www，ftp等大文件很有帮助。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;tcp_nodelay&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;TCP_NODELAY&lt;/code&gt;和&lt;code&gt;TCP_CORK(tcp_nopush)&lt;/code&gt;基本上控制了包的&lt;code&gt;nagle化&lt;/code&gt;，agle化在这里的含义是采用Nagle算法把较小的包组装为更大的帧。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;John Nagle&lt;/code&gt;是&lt;code&gt;Nagle&lt;/code&gt;算法的发明人，后者就是用他的名字来命名的，他在1984年首次用这种方法来尝试解决福特汽车公司的网络拥塞问题（欲了解详情请参看IETF RFC 896）。&lt;/p&gt;
+
+&lt;p&gt;他解决的问题就是所谓的silly window syndrome，中文称“愚蠢窗口症候群”&lt;/p&gt;
+
+&lt;p&gt;，具体含义是，因为普遍终端应用程序每产生一次击键操作就会发送一个包，&lt;/p&gt;
+
+&lt;p&gt;而典型情况下一个包会拥有1个字节的数据载荷以及40个字节长的包头，于是产生&lt;strong&gt;4000%的过载&lt;/strong&gt;，很轻易地就能令网络发生拥塞。&lt;/p&gt;
+
+&lt;p&gt; Nagle化后来成了一种标准并且立即在因特网上得以实现。它现在已经成为缺省配置了.&lt;/p&gt;
+
+&lt;p&gt;但在我们看来，有些场合下把这一选项关掉也是合乎需要的。&lt;/p&gt;
+
+&lt;p&gt;现在让我们假设某个应用程序发出了一个请求，希望发送小块数据。我们可以选择立即发送数据或者等待产生更多的数据然后再一次发送两种策略。&lt;/p&gt;
+
+&lt;p&gt;如果我们马上发送数据，那么交互性的以及客户/服务器型的应用程序将极大地受益。&lt;/p&gt;
+
+&lt;p&gt;如果请求立即发出那么响应时间也会快一些。以上操作可以通过设置套接字的TCP_NODELAY = on 选项来完成，这样就禁用了Nagle 算法。&lt;/p&gt;
+
+&lt;p&gt;另外一种情况则需要我们等到数据量达到最大时才通过网络一次发送全部数据，这种数据传输方式有益于大量数据的通信性能，典型的应用就是文件服务器。&lt;/p&gt;
+
+&lt;p&gt;应用 Nagle算法在这种情况下就会产生问题。但是，如果你正在发送大量数据，你可以设置TCP_CORK选项禁用Nagle化，其方式正好同 TCP_NODELAY相反（TCP_CORK和 TCP_NODELAY是互相排斥的）。&lt;/p&gt;
+
+&lt;h2&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.2cto.com/os/201306/222745.html&quot;&gt;&lt;em&gt;nginx sendfile tcp_onpush tcp_nodelay 详解&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://nginx.org/en/docs/http/ngx_http_core_module.html&quot;&gt;&lt;strong&gt;ngx_http_core_module&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/20/nginx-sendfile-tcp_nodelay-tcp_nopush.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/20/nginx-sendfile-tcp_nodelay-tcp_nopush.html</guid>
+        
+        <category>shell</category>
+        
+        <category>nginx</category>
+        
+        <category>program</category>
+        
+        <category>protocol</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Proc Sys Net Ipv4</title>
+        <description>
+</description>
+        <pubDate>Wed, 16 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/16/proc-sys-net-ipv4.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/16/proc-sys-net-ipv4.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>go 学习资料汇总</title>
+        <description>&lt;h2&gt;go 简介&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;go语言是一个开源的项目，让程序员(programmer)能有更多的产出.
+go语言简单易懂，执行高效。他有很好的并发机制(concurrency/kən&lt;code&gt;kʌrənsɪ/ mechanism /&lt;/code&gt;mekənɪzəm/)
+以及很好的垃圾回收(garbage collection). go是一个静态的编译型语言，但他看起来更像动态的解释型语言。
+ (PS  翻译的不好，原文请参考&lt;/em&gt;
+ &lt;a href=&quot;https://golang.org/doc/&quot;&gt;go doc&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2&gt;go 安装&lt;/h2&gt;
+
+&lt;p&gt;参考文档 &lt;a href=&quot;https://golang.org/doc/install&quot;&gt;go 安装&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;这里不详细介绍，很简单。&lt;/p&gt;
+
+&lt;h2&gt;go语法学习&lt;/h2&gt;
+
+&lt;h3&gt;看过的资料&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://golang.org/doc/code.html&quot;&gt;how to write go code&lt;/a&gt; 介绍了go代码的基本组织结构，有个简单的hello world代码，
+可以通过&lt;code&gt;mkdir hello;cd hello; export GOPATH=$(pwd); go get github.com/golang/example/hello&lt;/code&gt; 来获得源码,学习到go相关的工具如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;go install&lt;/li&gt;
+&lt;li&gt;go test&lt;/li&gt;
+&lt;li&gt;go build&lt;/li&gt;
+&lt;li&gt;go get&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://gobyexample.com/&quot;&gt;go example&lt;/a&gt; 通过例子来学习golang&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;正在看的&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://golang.org/ref/spec&quot;&gt;The Go Programming Language Specification&lt;/a&gt; go语言编程规范
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://golang.org/ref/spec#The_zero_value&quot;&gt;zero values&lt;/a&gt; &lt;code&gt;false for booleans, 0 for integers, 0.0 for floats, &quot;&quot; for strings, and nil for pointers, functions, interfaces, slices, channels, and maps&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://golang.org/pkg/&quot;&gt;golang package&lt;/a&gt; go各个package的介绍,干货多多。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tonybai.com/2015/09/17/7-things-you-may-not-pay-attation-to-in-go/&quot;&gt;关于go需要注意的七个细节&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;计划看的资料&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://golang.org/doc/effective_go.html&quot;&gt;effective go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;a id=&quot;reference&quot;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://golang.org/doc/&quot;&gt;&lt;strong&gt;go doc&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tour.golang.org/&quot;&gt;&lt;strong&gt;go tour&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 14 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/14/go-learn.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/14/go-learn.html</guid>
+        
+        <category>program</category>
+        
+        <category>go</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>英语单词学习</title>
+        <description>&lt;h2&gt;go学习涉及到的单词&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;demonstrate /`demənstreɪt/ 介绍说明&lt;/li&gt;
+&lt;li&gt;screencast 视频教程&lt;/li&gt;
+&lt;li&gt;repository /rɪ`pɑːzətɔːri, 仓库代码库&lt;/li&gt;
+&lt;li&gt;hierarchy /`haɪərɑːrki/ 组织结构，阶层&lt;/li&gt;
+&lt;li&gt;mercurial /mɜː`kjʊriəl/  易变的&lt;/li&gt;
+&lt;li&gt;comprise 包括&lt;/li&gt;
+&lt;li&gt;typical /`tipikl/ 通常的&lt;/li&gt;
+&lt;li&gt;distinction /di`stigksn/ 区别&lt;/li&gt;
+&lt;li&gt;specify /spesɪfaɪ/ 指定&lt;/li&gt;
+&lt;li&gt;installation /ˌɪnstə`leɪʃn/ 安装  名词&lt;/li&gt;
+&lt;li&gt;collide /kə`laɪd/ 碰撞，冲突&lt;/li&gt;
+&lt;li&gt;convention /kən&#39;venʃnz/  约定，公约，惯例&lt;/li&gt;
+&lt;li&gt;borrow /&#39;bɑːroʊ, &#39;bɒrəʊ/ 借用，借力，从其他语言引入&lt;/li&gt;
+&lt;li&gt;satisfactory /ˌsætɪs&#39;fæktəri/ 满意的&lt;/li&gt;
+&lt;li&gt;straightforward  /ˌstreɪt&#39;fɔːrwərd, ˌstreɪt&#39;fɔːwəd/ 直截了当&lt;/li&gt;
+&lt;li&gt;augment  /ɔːɡ&#39;ment/ 增加，补充，增补&lt;/li&gt;
+&lt;li&gt;specification 规范， language specification 语言规范 /ˌspesɪfɪ&#39;keɪʃn/&lt;/li&gt;
+&lt;li&gt;grammar /&#39;ɡræmər, &#39;ɡræmə(r)/ 语法&lt;/li&gt;
+&lt;li&gt;precedence /&#39;presɪdəns/ 优先权&lt;/li&gt;
+&lt;li&gt;quote /kwoʊt, kwəʊt/  引号
+
+&lt;ul&gt;
+&lt;li&gt;single quote 单引号&lt;/li&gt;
+&lt;li&gt;double quotes 双引号&lt;/li&gt;
+&lt;li&gt;back quote 反引号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;syntax /&#39;sɪntæks/ 语法&lt;/li&gt;
+&lt;li&gt;lexical /&#39;leksɪkl/ 词法词汇  lexical token 词法标记&lt;/li&gt;
+&lt;li&gt;denote /dɪ&#39;noʊt, dɪ&#39;nəʊt/ 表示&lt;/li&gt;
+&lt;li&gt;enumeration /ɪˌnjuːmə&#39;reɪʃn/  枚举&lt;/li&gt;
+&lt;li&gt;snippet /&#39;snɪpɪt/  片段  code snippet代码片段&lt;/li&gt;
+&lt;li&gt;restriction /rɪ&#39;strɪkʃn/  限制， implementation restriction 实现限制&lt;/li&gt;
+&lt;li&gt;implementation /ˌɪmplɪmen&#39;teɪʃn/  实现，履行&lt;/li&gt;
+&lt;li&gt;decimal /&#39;desɪml/  十进制&lt;/li&gt;
+&lt;li&gt;octal /&#39;ɒktəl, &#39;ɒktl/  八进制&lt;/li&gt;
+&lt;li&gt;hex /heks/  十六进制 hexadecimal/ˌheksə&#39;desɪml/&lt;/li&gt;
+&lt;li&gt;vocabulary /və&#39;kæbjəleri, və&#39;kæbjələri/   词汇&lt;/li&gt;
+&lt;li&gt;semicolon /&#39;semikoʊlən, ˌsemi&#39;kəʊlən/  分号&lt;/li&gt;
+&lt;li&gt;teminator /&#39;tɜːməˌneɪtə, &#39;tɜːmɪneɪtə/终结者 终结  终结符&lt;/li&gt;
+&lt;li&gt;omit /ə&#39;mɪt/ 忽略&lt;/li&gt;
+&lt;li&gt;integer/&#39;ɪntɪdʒər, &#39;ɪntɪdʒə(r)/ 整数&lt;/li&gt;
+&lt;li&gt;occupy/&#39;ɑːkjupaɪ, &#39;ɒkjupaɪ/ 占据&lt;/li&gt;
+&lt;li&gt;idiomatic/ˌɪdiə&#39;mætɪk/惯用的&lt;/li&gt;
+&lt;li&gt;reserve/rɪ&#39;zɜːrv, rɪ&#39;zɜːv/ 保留&lt;/li&gt;
+&lt;li&gt;literal/&#39;lɪtərəl/  文字&lt;/li&gt;
+&lt;li&gt;fractional/&#39;frækʃənl/ 分数的，小数的&lt;/li&gt;
+&lt;li&gt;exponent/ɪk&#39;spoʊnənt, ɪk&#39;spəʊnənt/   指数&lt;/li&gt;
+&lt;li&gt;elide/i&#39;laɪd/ 删掉，省略，取消&lt;/li&gt;
+&lt;li&gt;complex number 复数&lt;/li&gt;
+&lt;li&gt;line feed 换行&lt;/li&gt;
+&lt;li&gt;backslash/&#39;bækslæʃ/反斜线&lt;/li&gt;
+&lt;li&gt;synchronization [,sɪŋkrənaɪ&#39;zeɪʃən]  同步&lt;/li&gt;
+&lt;li&gt;asynchronization 异步&lt;/li&gt;
+&lt;li&gt;marshal [&#39;mɑːʃ(ə)l]  整理排列&lt;/li&gt;
+&lt;li&gt;arbitrary/&#39;ɑːrbətreri, &#39;ɑːbɪtrəri/随意的&lt;/li&gt;
+&lt;li&gt;anonymous [ə&#39;nɒnɪməs]  匿名的&lt;/li&gt;
+&lt;li&gt;synchronously [&#39;siŋkrənəsli]  adv  同步地&lt;/li&gt;
+&lt;li&gt;interleave [ɪntə&#39;liːv] vt, n  交错&lt;/li&gt;
+&lt;li&gt;clause [klɔːz]  从句,子句&lt;/li&gt;
+&lt;li&gt;nano [&#39;nænəʊ] 纳，毫微， 纳米， 纳秒, 10的九次方&lt;/li&gt;
+&lt;li&gt;epoch [&#39;iːpɒk; &#39;epɒk]  新时代；时间上的一点&lt;/li&gt;
+&lt;li&gt;respective [rɪ&#39;spektɪv] 分别得，各自的&lt;/li&gt;
+&lt;li&gt;elapse [ɪ&#39;læps] 流逝，时间过去。&lt;/li&gt;
+&lt;li&gt;compatible [kəm&#39;pætɪb(ə)l] 兼容的，可共处的，可并立的&lt;/li&gt;
+&lt;li&gt;exec  [ɪg&#39;zek; eg-]  执行程序，执行&lt;/li&gt;
+&lt;li&gt;execute [&#39;eksɪkjuːt]  实行，执行&lt;/li&gt;
+&lt;li&gt;bundle plugin [&#39;bʌnd(ə)l]  [plʌgɪn]  捆绑插件&lt;/li&gt;
+&lt;li&gt;bundler 打包机  vim plugin bundler vim 插件打包机&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 14 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/14/english-learn.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/14/english-learn.html</guid>
+        
+        <category>english</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>php7 安装 install</title>
+        <description>&lt;h2&gt;简介&lt;/h2&gt;
+
+&lt;p&gt;安装php,把玩PHP新特性&lt;/p&gt;
+
+&lt;h2&gt;下载源代码&lt;/h2&gt;
+
+&lt;p&gt;php7的&lt;a href=&quot;http://cn2.php.net/distributions/php-7.0.0.tar.gz&quot;&gt;&lt;strong&gt;下载地址&lt;/strong&gt;&lt;/a&gt; 点击下载即可&lt;/p&gt;
+
+&lt;h2&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;运行./configure 并设置自己的选项,我的选项如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;需要安装的一些库:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;brew install homebrew/dupes/libiconv&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;brew install homebrew/dupes/zlib&lt;/code&gt; , 之后配置 &lt;code&gt;--with-zlib-dir=/usr/local/Cellar/zlib/1.2.8 \&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;brew install curl&lt;/code&gt;,之后配置&lt;code&gt;--with-curl=/usr/local/Cellar/curl/7.46.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;brew install homebrew/versions/libpng12&lt;/code&gt; ， 之后配置 ``&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;strong&gt;未完待续&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 13 Dec 2015 00:00:00 +0800</pubDate>
+        <link>https://yourdomain.com/2015/12/13/php7-install.html</link>
+        <guid isPermaLink="true">https://yourdomain.com/2015/12/13/php7-install.html</guid>
+        
+        <category>shell</category>
+        
+        <category>program</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
