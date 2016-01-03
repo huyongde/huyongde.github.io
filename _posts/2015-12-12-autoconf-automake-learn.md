@@ -1,7 +1,7 @@
 ---
 layout: post
 title: autoconf  automake 学习
-tags: shell language
+tags: c++
 ---
 
 
