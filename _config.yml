@@ -15,6 +15,8 @@ url: "https://yourdomain.com" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 github_username: huyongde 
 
+paginate: 2
+
 # Build settings
 markdown: rdiscount 
 
