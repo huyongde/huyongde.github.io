@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux 设置输出内容的颜色
-tags: shell color
+tags: shell
 ---
 
 ##**目录**
