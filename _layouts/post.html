@@ -18,7 +18,7 @@ layout: default
 
 <hr>
 
-<div style="float:right;">
+<div style="float:left;">
 <h3 class="page-heading">最新文章:</h3>
 
     {% for post in site.related_posts limit:5 %}
@@ -63,7 +63,7 @@ layout: default
 
 -->
 
-<div style="float:left;">
+<div style="float:right;">
     {% assign hasSimilar = '' %}
 {% for post in site.related_posts %}
     {% assign postHasSimilar = false %}
@@ -71,7 +71,7 @@ layout: default
         {% for thisTag in page.tags %}
             {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
                 {% if hasSimilar.size == 0 %}
-                <h2>Similar Posts</h2>
+                <h3>相关文章:</h3>
                 <ul>
                 {% endif %}
       <li>
