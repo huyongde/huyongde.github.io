@@ -14,12 +14,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://yourdomain.com" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 github_username: huyongde 
-
-#paginate: 2
+gems: 
+    - jekyll-paginate
+paginate: 5
+paginate_path: "/page:num/"
 
 # Build settings
 markdown: rdiscount 
-
-#gems:
-#  - jekyll-redirect-from
 
