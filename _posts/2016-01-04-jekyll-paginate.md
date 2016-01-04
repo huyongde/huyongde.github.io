@@ -1,7 +1,7 @@
 ---
 layout: post
 title: jekyll-paginate 为blog添加分页功能
-tags: jekyll paginate 分页
+tags: jekyll paginate 分页 blog
 ---
 
 ##参考
