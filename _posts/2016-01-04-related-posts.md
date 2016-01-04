@@ -19,28 +19,29 @@ tags: blog jekyll related_posts
 {% raw %}
 <div style="float:right;">
     {% assign hasSimilar = '' %}
-            {% for thisTag in page.tags %}
     {% for post in site.posts %}
         {% assign postHasSimilar = false %}
         {% for tag in post.tags %}
             {% if postHasSimilar == false %}
-                {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
-                    {% if hasSimilar.size == 0 %}
-                        <h3 class="page-heading">相关文章:</h3>
-                        <ul>
-                    {% endif %}
-                    <li> <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}   {{tag}}</span>
+                {% for thisTag in page.tags %}
+                    {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
+                        {% if hasSimilar.size == 0 %}
+                            <h3 class="page-heading">相关文章:</h3>
+                            <ul>
+                        {% endif %}
+                        <li> <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-                    <h5> <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> </h5>
-                    {% assign postHasSimilar = true %}
-                {% endif %}
+                        <h5> <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> </h5>
+                        {% assign postHasSimilar = true %}
+                    {% endif %}
+                {% endfor %}
             {% endif %}
         {% endfor %}
+
         {% if postHasSimilar == true %}
             {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
         {% endif %}
     {% endfor %}
-            {% endfor %}
 
     {% if hasSimilar.size > 0 %}
     </ul>
