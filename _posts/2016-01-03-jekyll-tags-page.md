@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为jekyll搭建的blog生成tags页面
-tags: jekyll tag
+tags: jekyll tag blog
 ---
 
 ##参考

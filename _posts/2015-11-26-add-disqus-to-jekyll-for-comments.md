@@ -1,7 +1,7 @@
 ---
 layout: post 
 title:  整合disqus和jekyll，打造一个支持评论的blog
-tags: disqus jekyll
+tags: disqus jekyll blog
 ---
 
 ##目录

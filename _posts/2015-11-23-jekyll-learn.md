@@ -1,8 +1,7 @@
 ---
 layout: post 
 title: jekyll 入门 && jekyll 搭建github page的框架
-tags: 
-- jekyll
+tags: jekyll blog
 ---
 
 ##参考

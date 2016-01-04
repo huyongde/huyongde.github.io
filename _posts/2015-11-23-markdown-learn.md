@@ -1,6 +1,7 @@
 ---
 layout: post 
 title: markdown 学习 
+tags: markdown blog
 ---
 
 主题

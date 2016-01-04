@@ -1,7 +1,7 @@
 ---
 layout: post
 title: markdown语法再学习
-tags: markdown shell
+tags: markdown blog 
 ---
 
 #引用
