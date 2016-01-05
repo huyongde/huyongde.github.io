@@ -16,8 +16,19 @@ url: "https://yourdomain.com" # the base hostname & protocol for your site
 github_username: huyongde 
 gems: 
     - jekyll-paginate
+    - jekyll-archives
 paginate: 5
 paginate_path: "/page:num/"
+
+#jekyll-archives:
+#  enabled: all 
+#  layout: 'page'
+#  permalinks:
+#    year: '/:year/'
+#    month: '/:year/:month/'
+#    day: '/:year/:month/:day/'
+#    tag: '/tags/:name/'
+#    #category: '/category/:name/'
 
 # Build settings
 markdown: rdiscount 
