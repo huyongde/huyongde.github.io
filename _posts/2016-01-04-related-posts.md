@@ -53,8 +53,9 @@ tags: blog jekyll related_posts
 我的blog就是左边显示相关的posts，右边显示最新更新的文章。
 
 ####自己主要修改的地方：
-* 支持正确的显示5个相关文章。
-* 支持优先显示和本文第一个tag相同的文章，增加相关性。
+* 支持正确的显示5个相关文章, 使用的是site.posts，而不是site.related_posts.
+ related_posts是一个不包括当前post的，本站的最新的10个post,再久远的就不包括在related_post中了, [jekyll variables](http://jekyllrb.com/docs/variables/) 中有介绍。
+* 使用site.posts之后,通过post.id的比较来过滤当前post. 
 
 
 效果见本博客。
