@@ -22,7 +22,7 @@ tags: jekyll tag blog
 ---
 layout: page
 permalink: /tags/
----
+\-\-\-
 <ul class="tag-cloud">
 {% for tag in site.tags %}
   <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
