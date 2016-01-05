@@ -19,7 +19,7 @@ tags: blog jekyll related_posts
 {% raw %}
 <div style="float:right;">
     {% assign hasSimilar = '' %}
-    {% for post in site.posts %}
+    {% for post in site.related_posts %}
         {% assign postHasSimilar = false %}
         {% for tag in post.tags %}
             {% if postHasSimilar == false %}
