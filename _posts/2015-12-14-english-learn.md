@@ -71,5 +71,6 @@ tags: english
 * execute ['eksɪkjuːt]  实行，执行
 * bundle plugin ['bʌnd(ə)l]  [plʌgɪn]  捆绑插件
 * bundler 打包机  vim plugin bundler vim 插件打包机
+* permalink ['pɜːməlɪŋk]  永久链接
 
  
