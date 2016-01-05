@@ -81,10 +81,12 @@ layout: default
                         <li> 
                         <span class="post-meta">
                             {{ post.date | date: "%b %-d, %Y" }} 
+                            <!-- 显示每个相关文章的tags
                             Tags:
                             {% for postTag in post.tags %}
                                 <a href="/tags/#{{postTag|slugize}}">{{postTag}}</a>{% unless forloop.last %},{% endunless %}
                             {% endfor %}
+                            -->
                         
                         </span>
 
