@@ -12,12 +12,32 @@ layout: default
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
-
-
 </article>
+<style>
+    .next_and_previous{ background-color: darkgray;  width: 100%; }
 
-<hr>
+    .recommend{ background-color: red;  width: 100%; }
+</style>
+  <div class="next_and_previous" style="color:DodgerBlue;">
+      <div style="float:left;">
+          {% if page.next %}
+      上一篇: <a href="{{ page.next.url | prepend: site.baseurl }}">{{ page.next.title }}</a>
+          {% else %}
+      上一篇:暂无
+          {% endif %}
+      </div>
+      <div style="float:right;">
+          {% if page.previous %}
+      下一篇: <a href="{{ page.previous.url | prepend: site.baseurl }}">{{ page.previous.title }}</a>
+          {% else %}
+      下一篇:暂无
+          {% endif %}
+      </div>
+  <div>
 
+
+<br>
+<div class= "next_and_previous" style="color:DodgerBlue;">
 <div style="float:left;">
 <h3 class="page-heading">最新文章:</h3>
 
@@ -110,4 +130,5 @@ layout: default
     {% if hasSimilar.size > 0 %}
     </ul>
     {% endif %}
+</div>
 </div>

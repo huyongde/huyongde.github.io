@@ -5,15 +5,16 @@ permalink: /tags/
 
 <ul class="tag-cloud">
 {% for tag in site.tags %}
-{% capture font_color %} {{ ["yellow","red","blue"] | sample : 1 }} {% endcapture %}
-{{ font_color }}
   <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
     <a href="#{{ tag | first | slugize }}">
         {% capture first_tag %} {{ tag | first }} {% endcapture %}
-        {{ first_tag }}({{ tag[1] | size }}) {{ cycle ""}}
+        {{ first_tag }}({{ tag[1] | size }}) 
     </a>
   </li>
-{{ ["yellow","red","blue"] | sample:1 }}
+  <!--
+    {{ "red-blue-yellow-yellowblue" | split : "-" | first }}
+    {{ "red-blue-yellow-yellowblue" | split : "-" | sample : 3 }}
+    -->
 {% endfor %}
 </ul>
 
