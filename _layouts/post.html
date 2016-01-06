@@ -21,14 +21,14 @@ layout: default
   <div class="next_and_previous" style="color:DodgerBlue;">
       <div style="float:left;">
           {% if page.next %}
-      上一篇: <a href="{{ page.next.url | prepend: site.baseurl }}">{{ page.next.title }}</a>
+      <a href="{{ page.next.url | prepend: site.baseurl }}">上一篇: {{ page.next.title }}</a>
           {% else %}
       上一篇:暂无
           {% endif %}
       </div>
       <div style="float:right;">
           {% if page.previous %}
-      下一篇: <a href="{{ page.previous.url | prepend: site.baseurl }}">{{ page.previous.title }}</a>
+       <a href="{{ page.previous.url | prepend: site.baseurl }}">下一篇: {{ page.previous.title }}</a>
           {% else %}
       下一篇:暂无
           {% endif %}
@@ -36,15 +36,13 @@ layout: default
   <div>
 
 
-<br>
-<div class= "next_and_previous" style="color:DodgerBlue;">
+      <br >
+<div style="color:DodgerBlue; padding-left:1cm; padding-right:1cm;">
 <div style="float:left;">
-<h3 class="page-heading">最新文章:</h3>
-
+<h3 >最新文章:</h3>
     {% for post in site.related_posts limit:5 %}
       <li>
       <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
         <h5>
           <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h5>
@@ -95,7 +93,7 @@ layout: default
                 {% for thisTag in page.tags %}
                     {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
                         {% if hasSimilar.size == 0 %}
-                            <h3 class="page-heading">相关文章:</h3>
+                            <h3 >相关文章:</h3>
                             <ul>
                         {% endif %}
                         <li> 
