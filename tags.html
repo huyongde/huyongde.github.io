@@ -7,7 +7,8 @@ permalink: /tags/
 {% for tag in site.tags %}
   <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
     <a href="#{{ tag | first | slugize }}">
-      {{ tag | first }}
+        {% capture first_tag %} {{ tag | first }} {% endcapture %}
+        {{ first_tag }}({{ tag[1] | size }})
     </a>
   </li>
 {% endfor %}
@@ -18,7 +19,7 @@ permalink: /tags/
   <div class="archive-group">
     {% capture tag_name %}{{ tag | first }}{% endcapture %}
     <a name="{{ tag_name | slugize }}"></a>
-    <h3 id="#{{ tag_name | slugize }}">{{ tag_name }}</h3>
+    <h3 id="#{{ tag_name | slugize }}">{{ tag_name }}({{ tag[1] | size }})</h3>
     {% for post in site.tags[tag_name] %}
     <article class="archive-item">
     <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
