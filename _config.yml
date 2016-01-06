@@ -17,7 +17,7 @@ github_username: huyongde
 gems: 
     - jekyll-paginate
     - jekyll-archives
-paginate: 5
+paginate: 8
 paginate_path: "/page:num/"
 
 #jekyll-archives:
