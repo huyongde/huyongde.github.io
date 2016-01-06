@@ -16,7 +16,7 @@ tags: jekyll tag blog
 在博客根目录生成一个tags.html文件，内容如下：
 
 
-{% highlight html %}
+{% highlight html linenos %}
 {% raw %}
 
 ---
@@ -94,7 +94,7 @@ permalink: /tags/
 
 需要添加的内容如下:
 
-{% highlight css %}
+{% highlight css linenos %}
 // for tag cloud and archives
 .tag-cloud {
   list-style: none;
