@@ -12,10 +12,27 @@ layout: default
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
+      <ul class="page">
+      <li class="previous" data-toggle="tooltip" data-placement="top">
+          {% if page.next %}
+      <a href="{{ page.next.url | prepend: site.baseurl }}">上一篇: {{ page.next.title }}</a>
+          {% else %}
+      上一篇:暂无
+          {% endif %}
+      </li>
+      <li class="next" data-toggle="tooltip" data-placement="top" >
+          {% if page.previous %}
+       <a href="{{ page.previous.url | prepend: site.baseurl }}">下一篇: {{ page.previous.title }}</a>
+          {% else %}
+      下一篇:暂无
+          {% endif %}
+      </li>
+      </ul>
 </article>
 <style>
     .next_and_previous{ background-color: darkgray;  width: 100%;height:auto }
 </style>
+<!--
   <div class="next_and_previous" style="color:DodgerBlue;">
       <div style="float:left;">
           {% if page.next %}
@@ -32,6 +49,7 @@ layout: default
           {% endif %}
       </div>
   <div>
+      -->
 
 
       <br >
