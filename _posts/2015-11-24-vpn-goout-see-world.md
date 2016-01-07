@@ -11,7 +11,8 @@ mac系统奥，
 
 ***vpn推荐 jsqgreen*** 
 
-####[jsqgreen注册地址](http://gjsq.me/12324854)
+####[jsqgreen官网注册地址](http://gjsq.me/12324854)
+<a href="http://gjsq.me/12324854"><img style="border: 0px" src="/image/jsqgreen.gif"></img></a>
 
 官网每个系统都有相关的安装使用教程，自己用了一阵，免费试用的线路足够用了。
 
