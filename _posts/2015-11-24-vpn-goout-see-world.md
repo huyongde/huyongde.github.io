@@ -1,6 +1,7 @@
 ---
 title: 翻墙看世界
 layout: post
+tags: vpn
 ---
 
 
