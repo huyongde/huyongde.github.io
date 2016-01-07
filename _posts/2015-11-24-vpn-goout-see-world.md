@@ -9,7 +9,9 @@ tags: vpn
   
 mac系统奥，
 
-***vpn推荐*** [jsqgreen](http://www.greenvpn.website/)
+***vpn推荐*** [jsqgreen 官网](http://www.greenvpn.website/)
+
+官网每个系统都有相关的安装使用教程，自己用了一阵，免费试用的线路足够用了。
 
 jsqgreen 的缺点是，vpn的地址可能经常变，所以链接不上后，需要去官网线路列表看看，是否vpn的地址已经更新了。
 
