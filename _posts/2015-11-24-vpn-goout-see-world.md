@@ -8,7 +8,9 @@ layout: post
   
 mac系统奥，
 
-***vpn推荐*** [jsqgreen](http://www.jsqgreen.net)
+***vpn推荐*** [jsqgreen](http://www.greenvpn.website/)
+
+jsqgreen 的缺点是，vpn的地址可能经常变，所以链接不上后，需要去官网线路列表看看，是否vpn的地址已经更新了。
 
 设置访问国内网站不走vpn,的设置
 
