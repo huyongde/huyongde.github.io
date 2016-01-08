@@ -1,0 +1,73 @@
+---
+layout: post
+title: go开发工具介绍
+tags: go vim plugin
+---
+
+##参考
+* [goweb 编程-go开发工具](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.4.md)
+* [配置vim go 开发环境](http://blog.kissdata.com/2014/06/18/vim-golang.html)
+
+
+##简介
+    搭建vim 开发golang的环境,作为一个初级vimer，慢慢向高级迈进。
+
+####0. vim插件管理工具 vundle
+vundle 安装和使用，参考[vundle 管理vim插件](http://huyongde.github.io/2016/01/02/vim-plugin-bundler-vundle.html)
+
+####0.1 go相关tools安装
+
+通过vim中`:GoInstallBinaries` 来安装go开发相关的tools,安装完成后，tools的bin文件在$GOPATH/bin下.
+我安装完后$GOPATH/bin下二进制文件如下：
+
+```
+rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
+-rwxr-xr-x  1 huyongde  staff   5.8M  1  8 10:27 errcheck
+-rwxr-xr-x  1 huyongde  staff   6.0M  1  8 10:27 golint
+-rwxr-xr-x  1 huyongde  staff   6.3M  1  8 10:27 gorename
+-rwxr-xr-x  1 huyongde  staff   9.1M  1  8 10:27 oracle
+-rwxr-xr-x  1 huyongde  staff   6.0M  1  8 10:19 godef
+-rwxr-xr-x  1 huyongde  staff   6.2M  1  8 10:19 gometalinter
+-rwxr-xr-x  1 huyongde  staff    10M  1  8 10:18 gocode
+-rwxr-xr-x  1 huyongde  staff   5.0M  1  8 02:48 goimports
+```
+##vim go开发相关的插件
+* [vim-godef 插件详细介绍](https://github.com/dgryski/vim-godef)  此插件依赖GoInstallBinaries安装的godef, vimrc需要加的配置 `Bundle 'dgryski/vim-godef'` ,之后可以打开go文件，把光标移动到指定函数就可以使用vim normal模式下的gd命令查看对应函数的定义了。
+
+* [vim-gocode](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 
+
+* [tagbar](https://github.com/majutsushi/tagbar) 此插件和taglist类似，用来显示go中相关func method variable 等的定义， 此插件需要依赖GoInstallBinaries安装的gotags, vimrc需要配置
+```
+Bundle 'majutsushi/tagbar'
+
+""""set for tagbar start
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+```
+
+* 暂时这么多，后续再补充
