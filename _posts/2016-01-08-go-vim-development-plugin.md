@@ -12,7 +12,7 @@ tags: go vim plugin
 ##简介
     搭建vim 开发golang的环境,作为一个初级vimer，慢慢向高级迈进。
 
-####0. vim插件管理工具 vundle
+####0.vim插件管理工具 vundle
 vundle 安装和使用，参考[vundle 管理vim插件](http://huyongde.github.io/2016/01/02/vim-plugin-bundler-vundle.html)
 
 ####0.1 go相关tools安装
@@ -32,7 +32,7 @@ rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
 -rwxr-xr-x  1 huyongde  staff    10M  1  8 10:18 gocode
 -rwxr-xr-x  1 huyongde  staff   5.0M  1  8 02:48 goimports
 ```
-##1 vim go 插件
+##1.vim go 插件
 * [vim-godef github 详细介绍](https://github.com/dgryski/vim-godef)  此插件依赖GoInstallBinaries安装的godef, vimrc需要加的配置 `Bundle 'dgryski/vim-godef'` ,之后可以打开go文件，把光标移动到指定函数就可以使用vim normal模式下的gd命令查看对应函数的定义了。
 godef显示方式配置，在vimrc中加入:
 
@@ -44,7 +44,7 @@ let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需�
 
 * [vim-gocode github 详细介绍](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 做go代码的补全。
 
-* [YouCompleteMe github 详细介绍](https://github.com/Valloric/YouCompleteMe)配合gocode，做代码补全，简直棒棒的, 需要vimrc配置` Plugin 'Valloric/YouCompleteMe'` .
+* [YouCompleteMe github 详细介绍](https://github.com/Valloric/YouCompleteMe) 配合gocode，做代码补全，简直棒棒的, 需要vimrc配置` Plugin 'Valloric/YouCompleteMe'` .
 
 * [tagbar  github 详细介绍](https://github.com/majutsushi/tagbar) 此插件和taglist类似，用来显示go中相关func method variable 等的定义， 此插件需要依赖GoInstallBinaries安装的gotags, vimrc需要配置
 
