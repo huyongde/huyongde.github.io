@@ -42,7 +42,9 @@ let g:godef_split=3 """打开新窗口的时候左右split
 let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需要打开新窗口
 ```
 
-* [vim-gocode](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 
+* [vim-gocode](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 做go代码的补全。
+
+* [YouCompleteMe]()配合gocode，做代码补全，简直棒棒的, 需要vimrc配置` Plugin 'Valloric/YouCompleteMe'` .
 
 * [tagbar](https://github.com/majutsushi/tagbar) 此插件和taglist类似，用来显示go中相关func method variable 等的定义， 此插件需要依赖GoInstallBinaries安装的gotags, vimrc需要配置
 
@@ -79,4 +81,57 @@ let g:tagbar_type_go = {
     \ }
 ```
 
-* 暂时这么多，后续再补充
+####目前我的vim为go的配置如下:
+
+{% highlight shell linenos %}
+""""""set for go start
+     Plugin 'fatih/vim-go'
+     Bundle 'elgris/hint'
+     Plugin 'Valloric/YouCompleteMe'
+     Plugin 'majutsushi/tagbar'
+     Bundle 'scrooloose/nerdtree'
+     Bundle 'dgryski/vim-godef'
+     Plugin 'nsf/gocode', {'rtp': 'vim/'}
+
+""""set for godef
+let g:godef_split=3 """打开新窗口的时候左右split
+let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需要打开新窗口
+
+""""set for tagbar start
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+"""set for tagbar end 
+
+"""set for goimports
+"""end goimports
+
+{% endhighlight %}
+
+
+**暂时这么多，后续再补充**
+
