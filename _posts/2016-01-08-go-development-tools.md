@@ -20,6 +20,7 @@ vundle 安装和使用，参考[vundle 管理vim插件](http://huyongde.github.i
 通过vim中`:GoInstallBinaries` 来安装go开发相关的tools,安装完成后，tools的bin文件在$GOPATH/bin下.
 我安装完后$GOPATH/bin下二进制文件如下：
 
+
 ```
 rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
 -rwxr-xr-x  1 huyongde  staff   5.8M  1  8 10:27 errcheck
@@ -37,6 +38,7 @@ rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
 * [vim-gocode](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 
 
 * [tagbar](https://github.com/majutsushi/tagbar) 此插件和taglist类似，用来显示go中相关func method variable 等的定义， 此插件需要依赖GoInstallBinaries安装的gotags, vimrc需要配置
+
 ```
 Bundle 'majutsushi/tagbar'
 
