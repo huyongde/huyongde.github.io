@@ -83,7 +83,7 @@ let g:tagbar_type_go = {
 
 ####目前我的vim为go的配置如下:
 
-{% highlight linenos %}
+{% highlight %}
 """"""set for go start
      Plugin 'fatih/vim-go'
      Bundle 'elgris/hint'
