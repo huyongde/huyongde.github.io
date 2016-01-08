@@ -1,6 +1,6 @@
 ---
 layout: post
-title: go开发工具介绍
+title: vim go 开发环境配置
 tags: go vim plugin
 ---
 
