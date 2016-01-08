@@ -32,7 +32,7 @@ rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
 -rwxr-xr-x  1 huyongde  staff    10M  1  8 10:18 gocode
 -rwxr-xr-x  1 huyongde  staff   5.0M  1  8 02:48 goimports
 ```
-##vim go开发相关的插件
+##1 vim go 插件
 * [vim-godef 插件详细介绍](https://github.com/dgryski/vim-godef)  此插件依赖GoInstallBinaries安装的godef, vimrc需要加的配置 `Bundle 'dgryski/vim-godef'` ,之后可以打开go文件，把光标移动到指定函数就可以使用vim normal模式下的gd命令查看对应函数的定义了。
 
 * [vim-gocode](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 
