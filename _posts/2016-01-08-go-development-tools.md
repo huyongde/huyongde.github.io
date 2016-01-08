@@ -34,6 +34,13 @@ rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
 ```
 ##1 vim go 插件
 * [vim-godef 插件详细介绍](https://github.com/dgryski/vim-godef)  此插件依赖GoInstallBinaries安装的godef, vimrc需要加的配置 `Bundle 'dgryski/vim-godef'` ,之后可以打开go文件，把光标移动到指定函数就可以使用vim normal模式下的gd命令查看对应函数的定义了。
+godef显示方式配置，在vimrc中加入:
+
+```
+"""set for godef
+let g:godef_split=3 """打开新窗口的时候左右split
+let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需要打开新窗口
+```
 
 * [vim-gocode](https://github.com/nsf/gocode) 此插件依赖GoInstallBinaries安装的gocode, vimrc需要配置`Plugin 'nsf/gocode', {'rtp': 'vim/'}`, 
 
