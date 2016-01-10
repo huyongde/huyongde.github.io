@@ -73,5 +73,6 @@ tags: english
 * bundler 打包机  vim plugin bundler vim 插件打包机
 * permalink ['pɜːməlɪŋk]  永久链接
 * denial  dɪ'naɪ(ə)l  n.拒绝，否认 ， denial of service attack (dos attack)  拒绝服务攻击
-
+* pseudo 'sjuːdəʊ 冒充的， 假的， pseudo header 假头信息
+* urgent 英 'ɜːdʒ(ə)nt紧急的，急迫的
  
