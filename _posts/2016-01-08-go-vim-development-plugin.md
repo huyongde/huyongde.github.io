@@ -17,7 +17,9 @@ vundle 安装和使用，参考[vundle 管理vim插件](http://huyongde.github.i
 
 ####0.1 go相关tools安装
 
-通过vim中`:GoInstallBinaries` 来安装go开发相关的tools,安装完成后，tools的bin文件在$GOPATH/bin下.
+
+通过vim中`:GoInstallBinaries` 来安装go开发相关的tools, （GoInstallBinaries 依赖mercurial需要先命令行安装mercurial, mercurial是google开发的类似于svn，git的代码托管服务）
+安装完成后，tools的bin文件在$GOPATH/bin下.
 我安装完后$GOPATH/bin下二进制文件如下：
 
 

@@ -1,0 +1,49 @@
+---
+layout: post
+title: 抓包神器 charles, 抓移动端的包
+tags: socket charles
+---
+
+###简介
+
+```
+之前在thinkpad上，是用猎豹建wifi, 电脑建个热点，手机链接热点，然后wireshark抓包，
+但是wireshark follow tcp 流之后看不到请求的response header,
+ 好坑，好坑，好坑(很low的，大家轻拍)
+
+自从转战mac之后，就没再怎么定位移动端的问题了， 最近PM们又开始说移动端有问题了，
+然后说是我们server导致的, 又有了抓移动端的包的需求.
+
+从全能QA 同学那里了解到了charles,看了第一眼我就爱上了这个东西，
+logo既然是个大茶壶,谁都不要阻拦我去用它。
+```
+
+**charles官网[charles](http://www.charlesproxy.com/)**
+
+
+###安装
+charles需要是付费的，自然需要安装破解版，
+
+安装文件和破解jar见网盘链接  [链接](http://pan.baidu.com/s/1i4s3rlr) 密码: wg2v
+
+安装很简单，下面说下如何破解， 下载分享链接中的charles.jar,放到指定charles安装的指定目录中，替换原来的charles.jar,如何替换请看下面两个图片：
+
+![one](/image/charles.png)
+![two](/image/charles2.png)
+
+
+
+###使用
+
+启动charles之后，本机端口8888会被监听，若想抓移动端的包，
+
+需要手动设置移动端的网络代理,设置成本机的ip, port 是8888， 本机ip获取可以通过 (系统偏好设置->网络皆可以看得到)，
+
+我的手机是屌丝小米手机，设置截图如下：
+
+![mi note set](/image/charles3.png)
+
+
+设置好了之后就可以看到移动端访问网络的包了。
+
+
