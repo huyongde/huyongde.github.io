@@ -33,7 +33,7 @@ charles需要是付费的，自然需要安装破解版，
 
 
 
-###使用
+###使用1
 
 启动charles之后，本机端口8888会被监听，若想抓移动端的包，
 
@@ -45,6 +45,26 @@ charles需要是付费的，自然需要安装破解版，
 
 
 设置好了之后就可以看到移动端访问网络的包了。
+
+
+###使用2
+
+```
+抓取移动端的https包
+```
+
+* 移动端需要配置： 对于移动端https的包，需要移动端额外安装个证书才行，移动端浏览器下载 网盘链接  [链接](http://pan.baidu.com/s/1i4s3rlr) 密码: wg2v 
+
+中的`charles-proxy-ssl-proxying-certificate.crt` 文件提示要安装，随便给证书起个名字，安装好， 移动端配置完成。
+
+* charles需要的配置： charles菜单栏的`Proxy` => `Proxy setting` => `SSL` => `Enable SSL Proxying` ; 之后配置Locations: host为*， port 为443.
+
+
+```
+配置好移动端和charles之后就可以看到详细的https的信息了。
+
+```
+
 
 
 
