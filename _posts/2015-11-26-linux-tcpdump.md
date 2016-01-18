@@ -1,7 +1,7 @@
 ---
 layout: post
 title: tcpdump tutorial - sniffing and analysing packets from commandline
-tags: shell network
+tags: network command tcpdump
 ---
 
 ##[tcpdump](http://www.tcpdump.org/) 
