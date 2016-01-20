@@ -8,7 +8,11 @@ github is [huyongde](https://github.com/huyongde)
 
 熟悉的东东
 
-`php nginx redis lua shell wireshark tcpdump`
+`php nginx redis lua shell`
+
+`wireshark tcpdump charles `
+
+`vim`
 
 tennis, bodybuilding
 
