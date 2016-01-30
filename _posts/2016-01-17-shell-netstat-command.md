@@ -26,3 +26,16 @@ masquerade connections, and multicast memberships
 * netstat -re 选项e 更友好的方式显示内核路由信息
 * netstat -tc 选项c 可以持续显示连接信息
 * netstat -g 显示多播相关信息
+
+###netstat返回结果解释
+
+` Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)`
+
+一般的返回结果都有如上几列
+
+* Ptoto 表示socket使用的协议
+* Recv-Q 数据已经在本地接收缓冲,但是还没有recv().
+* Send-Q 对方没有收到的数据或者说没有Ack的,还是本地缓冲区.
+* Local Address 本地地址
+* Foreign Address 远端地址
+* state socket链接的当前状态
