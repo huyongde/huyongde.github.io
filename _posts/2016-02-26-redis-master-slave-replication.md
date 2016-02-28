@@ -80,3 +80,6 @@ Redis2.8版本开始，实验性地加上了无硬盘复制的功能。
 3. slave-read-only 来配置slave只读
 
 
+###参考
+[深入剖析Redis主从复制](http://daoluan.net/blog/2014/04/22/decode-redis-replication/)
+
