@@ -33,3 +33,5 @@ github is [huyongde](https://github.com/huyongde)
 * [redisbook](http://redisbook.readthedocs.org/en/latest/index.html)
 * [memcache cas(check and save)](http://blog.csdn.net/ywh147/article/details/9385137)
 * 补充一点操作系统的知识
+* 时间复杂度的原理以及计算
+
