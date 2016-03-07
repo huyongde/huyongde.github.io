@@ -34,4 +34,5 @@ github is [huyongde](https://github.com/huyongde)
 * [memcache cas(check and save)](http://blog.csdn.net/ywh147/article/details/9385137)
 * 补充一点操作系统的知识
 * 时间复杂度的原理以及计算
+* yeild generator iterator 协程 相关学习，包括PHP语言，python语言的实现。
 
