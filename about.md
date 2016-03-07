@@ -35,4 +35,7 @@ github is [huyongde](https://github.com/huyongde)
 * 补充一点操作系统的知识
 * 时间复杂度的原理以及计算
 * yeild generator iterator 协程 相关学习，包括PHP语言，python语言的实现。
+* 线程池，以及epool, select 深入了解
+    * [IO多路复用了解](https://www.zhihu.com/question/32163005) 知乎上[罗志宇](https://www.zhihu.com/people/fredriklo)提到： I/O multiplexing 这里面的 multiplexing 指的其实是在单个线程通过记录跟踪每一个Sock(I/O流)的状态(对应空管塔里面的Fight progress strip槽)来同时管理多个I/O流. 发明它的原因，是尽量多的提高服务器的吞吐能力
+
 
