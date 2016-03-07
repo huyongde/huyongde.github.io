@@ -31,6 +31,6 @@ paginate_path: "/page:num/"
 #    #category: '/category/:name/'
 
 # Build settings
-#markdown: rdiscount 
-markdown: kramdown
+markdown: rdiscount 
+#markdown: kramdown
 
