@@ -16,3 +16,4 @@ permalink: /plan/
 * 线程池，以及epool, select 深入了解
     * [IO多路复用了解](https://www.zhihu.com/question/32163005) ： I/O multiplexing 这里面的 multiplexing 指的其实是在单个线程通过记录跟踪每一个Sock(I/O流)的状态(对应空管塔里面的Fight progress strip槽)来同时管理多个I/O流. 发明它的原因，是尽量多的提高服务器的吞吐能力(@[知乎罗志宇](https://www.zhihu.com/people/fredriklo))
     * [线程池原理和实现](http://www.cnblogs.com/coser/archive/2012/03/10/2389264.html)
+* [unix domain socket Unix 域套接字](http://www.tuicool.com/articles/RBBRVz) 学习unix域套接字进行进程间通信，并且知道为什么比直接使用TCP要快.
