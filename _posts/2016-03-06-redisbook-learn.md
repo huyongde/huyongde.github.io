@@ -83,37 +83,30 @@ typedef struct list {
 
 #####字典的hash表实现
 
+
 {% highlight c++ linenos %}
 //每个字典有两个hash表，来实现渐进式rehash
 typedef struct dict {
     //特定类型的处理函数
     dictType *type;
-
     //类型处理函数的私有数据
     void *privdata;
-
     //哈希表2个
     dictht ht[2];
-
     // 记录rehash进度
     int rehashidx;
-
     //迭代器的数量
     int iterators;
 }dict;
 
 //哈希表的实现
-
 typedef struct dictht {
     //哈希表节点指针的数组
     dictEntry **table;
-    
     //指针数组的大小
     unsigned long size;
-    
     //指针数组的长度掩码,用来计算索引值
     unsigned long sizemark;
-    
     //哈希表现有节点数量
     unsigned long used;
 }dictht;
@@ -123,14 +116,12 @@ typedef struct dictht {
 type struct dictEntry {
     //键
     void *key;
-
     //值
     union {
         void *val;
         uint64_t u64;
         int64_t s64;    
     }v;
-
     //后继节点
     dictEntry *next;
 }dictEntry;
