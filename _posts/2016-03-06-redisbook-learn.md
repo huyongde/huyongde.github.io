@@ -125,10 +125,8 @@ type struct dictEntry {
     //后继节点
     dictEntry *next;
 }dictEntry;
-/*
-next属性指向另一个dictEntry节点，dictht是通过链地址来解决hash碰撞。
-当不同的键有相同的hash值时，dictht通过一个链表来链接起来这些key-value对的dictEntry。
-*/
+//next属性指向另一个dictEntry节点，dictht是通过链地址来解决hash碰撞。
+//当不同的键有相同的hash值时，dictht通过一个链表来链接起来这些key-value对的dictEntry。
 {% endhighlight %}
 
 
