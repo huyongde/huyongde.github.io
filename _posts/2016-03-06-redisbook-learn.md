@@ -129,5 +129,9 @@ type struct dictEntry {
 //当不同的键有相同的hash值时，dictht通过一个链表来链接起来这些key-value对的dictEntry。
 {% endhighlight %}
 
+####redis字典的实现可以用下图表示
+
+![redis-dict](/image/redis-dict.jpg)
+
 
 未完下周继续
