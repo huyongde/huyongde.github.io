@@ -131,7 +131,7 @@ type struct dictEntry {
 
 ####redis字典的实现可以用下图表示
 
-![redis-dict](/image/redis-dict.jpg)
+![redis-dict](/image/redis-dict.png)
 
 
 未完下周继续
