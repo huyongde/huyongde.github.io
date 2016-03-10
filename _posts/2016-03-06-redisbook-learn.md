@@ -14,9 +14,10 @@ tags: redis
 * [redisbook网站](redisbook.com)
 * [redis pdf 版本下载](http://pan.baidu.com/s/1jGXhgvs)  pdf版本已经大概看了一遍，确实对redis设计以及底层实现有了一些了解，**应对面试足够了。**
 
-###redisbook学习心得
+## redisbook学习心得
+>逼迫自己静下心来做自己抵触的事情，一定会有收获的。 
 
-##reis内部数据结构
+## reis内部数据结构
 
 ####0.简单动态字符串(simple dynamic string, sds)
 ##### redis sds 的实现如下：
@@ -132,6 +133,17 @@ type struct dictEntry {
 ####redis字典的实现可以用下图表示
 
 ![redis-dict](/image/redis-dict.png)
+
+#### 字典的特征
+1. 字典是由键值对构成的抽象的数据类型
+2. Redis 中的数据库和哈希键都基于字典来实现
+3. Redis 字典的底层实现为哈希表，每个字典有两个hash表，一般情况下只使用0号哈希表，只有在rehash进行时，才会同时使用0号和1号哈希表。
+4. 哈希表是使用链地址的方式来解决键冲突的问题
+5. Rehash 可以用于扩展或收缩哈希表
+6. 对哈希表进行rehash，是分多次，渐进式完成的
+
+
+### 3.跳跃表
 
 
 未完下周继续
