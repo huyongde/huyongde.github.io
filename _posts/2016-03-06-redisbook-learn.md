@@ -242,7 +242,13 @@ typedef struct intset {
 * 升级涉及对每个元素进行内存重分配和移动，时间复杂度是O(N)
 * intset是有序的，使用二分法来查找元素，时间复杂度O(logN)
 ###2. 压缩列表
+> ziplist是一系列特殊编码的内存块构成的列表，一个ziplist可以包括多个节点entry，每个节点可以保存一个长度受限制的 字符数据或者整数.
 
+####ziplist的结构
+![ziplist](/image/ziplist.png)
+
+
+![ziplistentry](/image/ziplistentry.png)
 
 
 未完待续
