@@ -164,19 +164,15 @@ typedef zskiplist struct {
     unsigned long length;
     int level;
 }zskiplist;
-
 typedef zskiplistNode struct {
     robj *robj;
     double score;
     struct zskiplistNode *backward;
-
     struct zkiplistlevel {
         struct zskiplistNode *forward;
         unsigned span; //跨越节点的数量
     } level[];
-    
 } zskiplistNode;
-
 {% endhighlight %}
 
 > 跳跃表的删除、插入、查找一个元素的时间复杂度都是O(logN).
