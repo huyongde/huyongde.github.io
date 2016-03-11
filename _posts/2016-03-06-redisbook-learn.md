@@ -245,6 +245,7 @@ typedef struct intset {
 > ziplist是一系列特殊编码的内存块构成的列表，一个ziplist可以包括多个节点entry，每个节点可以保存一个长度受限制的 字符数据或者整数.
 
 ####ziplist的结构
+
 ![ziplist](/image/ziplist.png)
 
 下面分别解释途中每个字段的含义：
