@@ -145,5 +145,42 @@ type struct dictEntry {
 
 ### 3.跳跃表
 
+#### 3.0 参考
+    * [跳跃表](http://blog.sina.com.cn/s/blog_60707c0f0100wudj.html)
+
+#### 3.1 跳跃表中查找元素时间复杂度O(logN):
+
+在跳跃表中查找一个元素x，按照如下几个步骤进行：
+> 从最上层的链的开头开始假设当前位置为p，它向右指向的节点为q（p与q不一定相邻），且q的值为y。
+> 将y与x作比较: 如果x=y，输出查询成功，输出相关信息；
+> 如果x大于y，从p向右移动到q的位置；
+> 如果x小于y，从p向下移动一格， 如果当前位置在最底层的链S0中，且还要往下移动的话，则输出查询失败。 
+
+#### 3.2跳跃表的结构定义
+
+{% highlight c linenos%}
+typedef zskiplist struct {
+    zskiplistNode *header, *tail;
+    unsigned long length;
+    int level;
+}zskiplist;
+
+typedef zskiplistNode struct {
+    robj *robj;
+    double score;
+    struct zskiplistNode *backward;
+
+    struct zkiplistlevel {
+        struct zskiplistNode *forward;
+        unsigned span; //跨越节点的数量
+    } level[];
+    
+} zskiplistNode;
+
+{% endhighlight %}
+
+> 跳跃表的删除、插入、查找一个元素的时间复杂度都是O(logN).
+
+
 
 未完下周继续

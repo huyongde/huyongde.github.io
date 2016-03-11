@@ -11,6 +11,7 @@ tags: iterator yeild generator coroutine
 * [php生成器和协程的实现](https://phphub.org/topics/1430)
 
 ###学习总结
+0. 迭代器的优点是在处理大量数据的时候不需要一次性全部加载到内存中.
 1. 协程是基于iterator, yield, generator 实现的.
 2. 有yield的函数就变成了一个generator.
 3. yield返回的是一个iterator.
