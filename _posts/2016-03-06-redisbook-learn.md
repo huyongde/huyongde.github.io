@@ -223,9 +223,9 @@ typedef struct intset {
 
 `encoding`的值可以是如下三种的一种：
 {% highlight c linenos %}
-#define INTSET_ENC_INT16 (sizeof(int16_t))
-#define INTSET_ENC_INT32 (sizeof(int32_t))
-#define INTSET_ENC_INT64 (sizeof(int64_t))
+\#define INTSET_ENC_INT16 (sizeof(int16_t))
+\#define INTSET_ENC_INT32 (sizeof(int32_t))
+\#define INTSET_ENC_INT64 (sizeof(int64_t))
 {% endhighlight %}
 
 
@@ -241,6 +241,7 @@ typedef struct intset {
 * 当一个位长度更长的整数值添加到intset时，需要对intset进行升级,升级后的intset中的元素的位长度都等于新加元素的位长度,但元素值保持不变。
 * 升级涉及对每个元素进行内存重分配和移动，时间复杂度是O(N)
 * intset是有序的，使用二分法来查找元素，时间复杂度O(logN)
+###2. 压缩列表
 
 
 
