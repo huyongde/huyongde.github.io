@@ -158,6 +158,8 @@ type struct dictEntry {
 
 #### 3.2跳跃表的结构定义
 
+如下zskiplist和zskiplistNode定义都在redis.h头文件中.
+
 {% highlight c linenos%}
 typedef zskiplist struct {
     zskiplistNode *header, *tail;
