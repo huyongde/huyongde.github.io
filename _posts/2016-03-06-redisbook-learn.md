@@ -247,8 +247,29 @@ typedef struct intset {
 ####ziplist的结构
 ![ziplist](/image/ziplist.png)
 
+下面分别解释途中每个字段的含义：
+
+* zlbytes: uint32_t 表示整个ziplist的字节数，用来重新分配内存或者计算末端使用
+* zltail: uint32_t 到达整个ziplist表尾的偏移量，通过这个偏移量可以在不遍历整个列表的前提下，获得表尾节点
+* zllen: uint16_t ziplist中节点(entry)的数量
+* entryX : 节点，entry的结构见下图
+* zlend: uint8_t 用来标记ziplist末端
 
 ![ziplistentry](/image/ziplistentry.png)
+
+下面介绍些ziplist节点每个字段的含义：
+
+* pre_entry_length: 上一个节点的长度，通过这个值，可以进行指针计算,从而跳到上一个节点
+* encoding && length: encoding 和length共同决定了content中保存数据的数据类型以及长度。
+* content: 是节点的实际数据内容
+
+###ziplist总结
+> 添加或者删除ziplist节点,可能会引起连锁更新，最坏时间复杂度是O(N^2), 不过连锁更新的概率不高，所以一般时间复杂度是O(N).
+
+
+## Redis 数据类型
+
+
 
 
 未完待续
