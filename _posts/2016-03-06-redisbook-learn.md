@@ -205,6 +205,43 @@ typedef zskiplistNode struct {
 
 Redis中内存映射数据结构有两种1.intset, 2.压缩列表
 
+### 1. 整数集合
+> 整数集合用来保存有序、无重复的多个整数值，它会根据元素的值，自动想选择该用什么长度的整形类型来保存数据,是用最长类型元素的类型来保存所有的元素，
+> 新元素的加入可能会改变整数集合的编码类型，可能要变成更大空间的类型来存储所有的元素
+
+#####整数集合的数据结构
+
+定义在`intset.h`中可以找到，详细如下：
+
+{% highlight c linenos %}
+typedef struct intset {
+    uint32_t encoding; //保存元素所使用的类型的长度
+    uint32_t length; //整数集合中元素个数
+    int8_t contents[]; //保存元素的数组
+}intset;
+{% endhighlight %}
+
+`encoding`的值可以是如下三种的一种：
+{% highlight c linenos %}
+#define INTSET_ENC_INT16 (sizeof(int16_t))
+#define INTSET_ENC_INT32 (sizeof(int32_t))
+#define INTSET_ENC_INT64 (sizeof(int64_t))
+{% endhighlight %}
+
+
+
+`contents` 是实际存放元素的地方，数组中的元素有如下两个特性：
+ 
+* 没有重复元素
+* 元素在数组中从小到大排序。
+
+#####intset 特征总结
+
+* intset 用来存储有序、不重复的整形数据，它会根据元素的值，选择该用什么长度的整数类型来保存元素
+* 当一个位长度更长的整数值添加到intset时，需要对intset进行升级,升级后的intset中的元素的位长度都等于新加元素的位长度,但元素值保持不变。
+* 升级涉及对每个元素进行内存重分配和移动，时间复杂度是O(N)
+* intset是有序的，使用二分法来查找元素，时间复杂度O(logN)
+
 
 
 未完待续
