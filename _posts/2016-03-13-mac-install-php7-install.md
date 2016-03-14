@@ -29,7 +29,7 @@ google了把，发现了个解决方案[cannot find libz](http://codex16.com/mac
 
 这个问题解决后，又出现了一个GD相关的错误，搞了会没搞定。
 
-
+###大招
 **最后google出来一个安装方式[MAC OS 一行代码安装php7](http://php-osx.liip.ch/) **
 
 **安装方式是`curl -s http://php-osx.liip.ch/install.sh | bash -s 7.0` **
@@ -49,6 +49,32 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
 
 建议先翻墙再执行命令。终于安装好了，迫不及待把玩一下php7.
 
+下面是PHP7相关配置的路径：
+
+```
+ $ ./php --ini
+Configuration File (php.ini) Path: /usr/local/php5/lib
+Loaded Configuration File:         /usr/local/php5/lib/php.ini
+Scan for additional .ini files in: /usr/local/php5/php.d
+Additional .ini files parsed:      /usr/local/php5/php.d/10-extension_dir.ini,
+/usr/local/php5/php.d/20-extension-opcache.ini,
+/usr/local/php5/php.d/50-extension-apcu.ini,
+/usr/local/php5/php.d/50-extension-curl.ini,
+/usr/local/php5/php.d/50-extension-gmp.ini,
+/usr/local/php5/php.d/50-extension-imap.ini,
+/usr/local/php5/php.d/50-extension-intl.ini,
+/usr/local/php5/php.d/50-extension-mcrypt.ini,
+/usr/local/php5/php.d/50-extension-mssql.ini,
+/usr/local/php5/php.d/50-extension-pdo_pgsql.ini,
+/usr/local/php5/php.d/50-extension-pgsql.ini,
+/usr/local/php5/php.d/50-extension-propro.ini,
+/usr/local/php5/php.d/50-extension-raphf.ini,
+/usr/local/php5/php.d/50-extension-readline.ini,
+/usr/local/php5/php.d/50-extension-xdebug.ini,
+/usr/local/php5/php.d/50-extension-xsl.ini,
+/usr/local/php5/php.d/60-extension-pecl_http.ini,
+/usr/local/php5/php.d/99-liip-developer.ini
+```
 
 
 
