@@ -30,9 +30,9 @@ google了把，发现了个解决方案[cannot find libz](http://codex16.com/mac
 这个问题解决后，又出现了一个GD相关的错误，搞了会没搞定。
 
 
-***最后google出来一个安装方式[MAC OS 一行代码安装php7](http://php-osx.liip.ch/)
+**最后google出来一个安装方式[MAC OS 一行代码安装php7](http://php-osx.liip.ch/) **
 
-安装方式是`curl -s http://php-osx.liip.ch/install.sh | bash -s 7.0` ***
+**安装方式是`curl -s http://php-osx.liip.ch/install.sh | bash -s 7.0` **
 
 等待一段时间后，终于安装成功了，
 
