@@ -77,6 +77,17 @@ Additional .ini files parsed:      /usr/local/php5/php.d/10-extension_dir.ini,
 ```
 
 
+###配置让php7成为默认的php
+
+修改自己的系统配置，我用的是zsh，所以我在`~/.zshrc`中添加了`export PATH=/usr/local/php5/bin:$PATH` 这行代码，
+
+保存退出后，执行`source ~/.zshrc`
+
+只有直接命令行执行php就是php7了。
+
+####大功告成。
+
+
 
 
 
