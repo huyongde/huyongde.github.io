@@ -13,7 +13,7 @@ tags: php
 ####前戏
 
 * 95年php诞生，
-* personal home page
+* php (personal home page)
 * 81.9%的网站是PHP开发
 * php中1+"aaa" 结果是？
 

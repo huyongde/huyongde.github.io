@@ -19,3 +19,6 @@ permalink: /plan/
 * [unix domain socket Unix 域套接字](http://www.tuicool.com/articles/RBBRVz) 学习unix域套接字进行进程间通信，并且知道为什么比直接使用TCP要快.
 
 * [csdn问底板块学习](http://www.csdn.net/tag/%E9%97%AE%E5%BA%95/news)
+
+* [docker && golang](https://github.com/docker/docker)
+* [PHP 词法解析器re2c](http://www.phppan.com/2011/09/php-lexical-re2c/)
