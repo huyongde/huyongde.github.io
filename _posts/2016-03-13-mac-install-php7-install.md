@@ -1,6 +1,6 @@
 ---
 layout: post
-title: mac上通过homebrew 安装php7
+title: mac 安装php7
 tags: brew php
 ---
 
