@@ -100,7 +100,6 @@ typedef struct list {
 
 #####字典的hash表实现
 
-
 {% highlight c++ linenos %}
 //每个字典有两个hash表，来实现渐进式rehash
 typedef struct dict {
@@ -146,11 +145,12 @@ typedef struct dictEntry {
 //当不同的键有相同的hash值时，dictht通过一个链表来链接起来这些key-value对的dictEntry。
 {% endhighlight %}
 
-####redis字典的实现可以用下图表示
+#### redis字典的实现可以用下图表示
 
 ![redis-dict](/image/redis-dict.png)
 
 #### 字典的特征
+
 1. 字典是由键值对构成的抽象的数据类型
 2. Redis 中的数据库和哈希键都基于字典来实现
 3. Redis 字典的底层实现为哈希表，每个字典有两个hash表，一般情况下只使用0号哈希表，只有在rehash进行时，才会同时使用0号和1号哈希表。
@@ -268,6 +268,62 @@ typedef struct intset {
 
 
 ## Redis 数据类型
+>  Redis中每个数据类型的对象都应该有个类型信息，并且redis每个数据类型的底层实现也有多种，实现方式在redis称为编码(encoding)方式,
+>  比如集合可以用intset或者hash表两种底层实现方式(编码方式).
+
+#### 类型系统应该包括如下功能：
+* 检查数据类型
+* 检查数据编码(encoding)方式
+* 数据所占空间分配，销毁和分享等
+
+
+####RedisObject 定义
+
+```
+typedef struct redisObject {
+    unsigned type:4; //对象类型
+    unsigned encoding:4; //编码方式
+    unsigned lru:24;  //LRU
+    int refcount; //引用计数
+    void *ptr; //指向robj对象对应的值
+}robj;
+```
+
+其中， type是对象类型，可以有如下5种类型:
+
+```
+#define REDIS_STRING 0
+#define REDIS_LIST 1
+#define REDIS_SET 2
+#define REDIS_ZSET 3
+#define REDIS_HASH 4
+```
+
+encoding 记录了对象的编码方式,可以有如下编码方式:
+
+```
+/* Objects encoding. Some kind of objects like Strings and Hashes can be
+ * internally represented in multiple ways. The 'encoding' field of the object
+ *  * is set to one of this fields for this object.
+ *  */
+#define REDIS_ENCODING_RAW 0     /* Raw representation */
+#define REDIS_ENCODING_INT 1     /* Encoded as integer */
+#define REDIS_ENCODING_HT 2      /* Encoded as hash table */
+#define REDIS_ENCODING_ZIPMAP 3  /* Encoded as zipmap */
+#define REDIS_ENCODING_LINKEDLIST 4 /* Encoded as regular linked list */
+#define REDIS_ENCODING_ZIPLIST 5 /* Encoded as ziplist */
+#define REDIS_ENCODING_INTSET 6  /* Encoded as intset */
+#define REDIS_ENCODING_SKIPLIST 7  /* Encoded as skiplist */
+#define REDIS_ENCODING_EMBSTR 8  /* Embedded sds string encoding */
+```
+
+
+ptr指向这个对象实际包括的值，如一个字典，一个列表，一个集合等。
+
+
+通过下图给出redisObject中类型和编码的关系:
+
+![redisObject](/image/redisObject.png)
 
 
 
