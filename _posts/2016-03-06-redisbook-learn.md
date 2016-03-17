@@ -326,6 +326,29 @@ ptr指向这个对象实际包括的值，如一个字典，一个列表，一�
 ![redisObject](/image/redisObject.png)
 
 
+####redis执行一个处理数据类型的命令需要进行如下步骤:
+1. 根据key在数据库的key空间中(数据库字典)中查找对应的RedisObject,如果没有找到则返回NULL.
+2. 检查RedisObject 的type属性，判断执行的命令是否和robj的类型相符合，若不符合，则返回类型错误.
+3. 根据redisObject encoding编码信息，选择合适的操作函数来处理底层数据结构.
+4. 数据结构操作的结果作为命令的返回值
+
+####redis引用计数以及对象销毁机制
+> Redis的对象系统使用引用计数技术来负责维持和销毁对象，引用计数技术的机制如下：
+
+
+* 每个redisObject 都有个refcount属性，指示这个对象被引用了多少次。
+* 当创建一个redisObject时，refcount 设置为1.
+* 当对一个对象进行共享时，它的refcount属性的值增加1.
+* 当用完一个对象或者取消对一个对象的共享时，对象的refcount减小1.
+* 当对象的refcount变为0时，这个redisObject结构,以及它所引用的数据结构的内存都将被释放。
+
+
+###数据类型---字符串  REDIS_STRING
+###数据类型---列表    REDIS_LIST
+###数据类型---哈希表  REDIS_HASH
+###数据类型---集合    REDIS_SET
+###数据类型---有序集合 REDIS_ZSET
+
 
 
 
