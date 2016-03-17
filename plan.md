@@ -5,6 +5,7 @@ permalink: /plan/
 ---
 
 ##零碎的学习计划
+* 有计划的去翻译一些比较好的英文文章，学习下专业术语
 
 ### 语言相关 PHP  golang 等
 * yeild generator iterator 协程 相关学习，包括[PHP语言](http://www.cnblogs.com/whoamme/p/5039533.html)，python语言的实现。
