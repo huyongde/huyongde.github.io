@@ -83,7 +83,7 @@ Additional .ini files parsed:      /usr/local/php5/php.d/10-extension_dir.ini,
 
 保存退出后，执行`source ~/.zshrc`
 
-现直接命令行执行php就是php7了。
+现在直接命令行执行php就是php7了。
 
 ####大功告成。
 
