@@ -30,7 +30,7 @@ PHP7
 > php7 又称 php next generation
 
 * [phpng](https://wiki.php.net/phpng)
-* HHVM(hiphop virtual machine), HHVM提升PHP性能的途径，采用的方式就是替代Zend引擎来生成和执行PHP的中间**字节码**e（HHVM生成自己格式的中间字节码），执行时通过JIT（Just In Time，即时编译是种软件优化技术，指在运行时才会去编译字节码为机器码）转为**机器码**执行。Zend引擎默认做法，是先编译为opcode，然后再逐条执行，通常每条指令对应的是C语言级别的函数。如果我们产生大量重复的opcode（纯PHP写的代码和函数），对应的则是Zend多次逐条执行这些C代码。而JIT所做的则是更进一步，将大量重复执行的字节码在运行的时候编译为机器码，达到提高执行效率的目的。通常，触发JIT的条件是代码或者函数被多次重复调用。
+* HHVM(hiphop virtual machine), HHVM提升PHP性能的途径，采用的方式就是替代Zend引擎来生成和执行PHP的中间**字节码**（HHVM生成自己格式的中间字节码），执行时通过JIT（Just In Time，即时编译是种软件优化技术，指在运行时才会去编译字节码为机器码）转为**机器码**执行。Zend引擎默认做法，是先编译为opcode，然后再逐条执行，通常每条指令对应的是C语言级别的函数。如果我们产生大量重复的opcode（纯PHP写的代码和函数），对应的则是Zend多次逐条执行这些C代码。而JIT所做的则是更进一步，将大量重复执行的字节码在运行的时候编译为机器码，达到提高执行效率的目的。通常，触发JIT的条件是代码或者函数被多次重复调用。
 *  [HHVM VS PHP7,优化PHP性能](http://www.csdn.net/article/2014-12-25/2823234)
 * [HHVM官网](http://hhvm.com/)
 
