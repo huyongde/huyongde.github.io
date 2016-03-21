@@ -239,7 +239,8 @@ typedef struct intset {
 * 没有重复元素
 * 元素在数组中从小到大排序。
 
-#####intset 特征总结
+
+#### intset 特征总结
 
 * intset 用来存储有序、不重复的整形数据，它会根据元素的值，选择该用什么长度的整数类型来保存元素
 * 当一个位长度更长的整数值添加到intset时，需要对intset进行升级,升级后的intset中的元素的位长度都等于新加元素的位长度,但元素值保持不变。
@@ -248,7 +249,7 @@ typedef struct intset {
 ###2. 压缩列表
 > ziplist是一系列特殊编码的内存块构成的列表，一个ziplist可以包括多个节点entry，每个节点可以保存一个长度受限制的 字符数据或者整数.
 
-####ziplist的结构
+#### 2. ziplist的结构
 
 ![ziplist](/image/ziplist.png)
 
@@ -282,7 +283,7 @@ typedef struct intset {
 * 数据所占空间分配，销毁和分享等
 
 
-####RedisObject 定义
+#### 0. RedisObject 定义
 
 ```
 typedef struct redisObject {
@@ -348,7 +349,7 @@ ptr指向这个对象实际包括的值，如一个字典，一个列表，一�
 * 当对象的refcount变为0时，这个redisObject结构,以及它所引用的数据结构的内存都将被释放。
 
 
-###数据类型---字符串  REDIS_STRING
+### 1.数据类型---字符串  REDIS_STRING
 
 RedisObject 字符串类型有两种编码格式REDIS_ENCODING_RAW 和 REDIS_ENCODING_INT，
 
@@ -356,7 +357,7 @@ RedisObject 字符串类型有两种编码格式REDIS_ENCODING_RAW 和 REDIS_ENC
 * REDIS_ENCODING_RAW 使用sds来保存字符串、long long、double以及long double.
 > Redis为字符串类型选择的编码默认是REDIS_ENCODING_RAW。
 
-###数据类型---哈希表  REDIS_HASH
+### 2.数据类型---哈希表  REDIS_HASH
 RedisObject 哈希表类型也有两种编码方式，REDIS_ENCODING_ZIPLIST 和 REDIS_ENCODING_HT
 
 Redis_HASH 的默认编码类型是REDIS_ENCODING_ZIPLIST(压缩列表),当如下两个条件满足任一个时，编码从REDIS_ENCODING_ZIPLIST
@@ -366,7 +367,7 @@ Redis_HASH 的默认编码类型是REDIS_ENCODING_ZIPLIST(压缩列表),当如�
 
 > ZIPLIST来存储哈希表时,Key-Value是顺序存储的。
 
-###数据类型---列表    REDIS_LIST
+### 3.数据类型---列表    REDIS_LIST
 RedisObject 列表类型也有两种编码方式压缩列表REDIS_ENCODING_ZIPLIST 和 双端列表REDIS_ENCODING_LINKEDLIST
 
 编码选择:创建一个列表时，默认的编码方式是: REDIS_ENCODING_ZIPLIST压缩列表， 当下列某一个条件满足时，列表编码方式会切换成
@@ -374,7 +375,7 @@ REDIS_ENCODING_LINKEDLIST双端列表：
 1. 试图向列表中插入一个字符串值，且这个字符串长度超过server.list_max_ziplist_value(默认是64字节);
 2. ziplist包含节点超过server.list_max_ziplist_entries(默认是512)。
 
-###数据类型---集合    REDIS_SET
+### 4.数据类型---集合    REDIS_SET
 RedisObject 集合类型有两种编码方式:REDIS_ENCODING_INTSET（整数集合）和 REDIS_ENCODING_HT（字典）
 
 ####编码选择 
@@ -387,7 +388,7 @@ RedisObject 集合类型有两种编码方式:REDIS_ENCODING_INTSET（整数集�
 1. intset 保存的整数的个数超过了server.set_max_intset_entries(默认是512).
 2. 试图往集合里面加一个新元素，并且这个新元素不能被long long类型表示时（也就是新元素不是整数时）。
 
-###数据类型---有序集合 REDIS_ZSET
+### 5.数据类型---有序集合 REDIS_ZSET
 RedisObject 有序集类型有两种编码方式，一种是压缩列表REDIS_ENCODING_ZIPLIST， 一种是通过skiplist跳跃表和字典共同实现。
 
 ####编码选择
@@ -399,6 +400,8 @@ zadd添加一个元素到一个空的有序集时，如果有序集同时满足�
 对于一个压缩列表编码的有序集，若满足如下任一个条件，则有序集的编码转换为跳跃表和字典编码方式：
 1. ziplist压缩列表所保存的元素个数超过了server.zset_ziplist_max_entries的值，默认是128
 2. 新添加的元素的member的长度大于服务器属性server.zset_ziplist_max_value的值，默认是64字节。
+
+> 有序集通过字典来实现通过key查找的O(1)复杂度， 用跳跃表来保证按照score查找的O(logN)的复杂度.
 
 
 
