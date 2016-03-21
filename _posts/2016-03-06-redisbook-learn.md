@@ -333,6 +333,7 @@ ptr指向这个对象实际包括的值，如一个字典，一个列表，一�
 
 
 ####redis执行一个处理数据类型的命令需要进行如下步骤:
+
 1. 根据key在数据库的key空间中(数据库字典)中查找对应的RedisObject,如果没有找到则返回NULL.
 2. 检查RedisObject 的type属性，判断执行的命令是否和robj的类型相符合，若不符合，则返回类型错误.
 3. 根据redisObject encoding编码信息，选择合适的操作函数来处理底层数据结构.
@@ -362,6 +363,7 @@ RedisObject 哈希表类型也有两种编码方式，REDIS_ENCODING_ZIPLIST 和
 
 Redis_HASH 的默认编码类型是REDIS_ENCODING_ZIPLIST(压缩列表),当如下两个条件满足任一个时，编码从REDIS_ENCODING_ZIPLIST
 切换到REDIS_ENCODING_HT:
+
 1. 哈希表中某个键或者某个值的长度大于server.hash_max_ziplist_value （默认是64字节）。
 2. 压缩列表中节点数量大于server.hash_max_ziplist_entries （默认是512）。
 
@@ -372,6 +374,7 @@ RedisObject 列表类型也有两种编码方式压缩列表REDIS_ENCODING_ZIPLI
 
 编码选择:创建一个列表时，默认的编码方式是: REDIS_ENCODING_ZIPLIST压缩列表， 当下列某一个条件满足时，列表编码方式会切换成
 REDIS_ENCODING_LINKEDLIST双端列表：
+
 1. 试图向列表中插入一个字符串值，且这个字符串长度超过server.list_max_ziplist_value(默认是64字节);
 2. ziplist包含节点超过server.list_max_ziplist_entries(默认是512)。
 
@@ -380,11 +383,13 @@ RedisObject 集合类型有两种编码方式:REDIS_ENCODING_INTSET（整数集�
 
 ####编码选择 
 第一个添加到集合中的元素,决定了创建集合的编码:
+
 * 若的第一个元素可以表示为long long 整数类型，那么集合初始编码类型是REDIS_ENCODING_INTSET
 * 否则，集合的编码类型为REDIS_ENCODING_HT（字典）
 
 ####编码切换
 如果集合用REDIS_ENCODING_INTSET编码，那么当下面任一个条件满足时，编码类型都会转换为REDIS_ENCODING_HT
+
 1. intset 保存的整数的个数超过了server.set_max_intset_entries(默认是512).
 2. 试图往集合里面加一个新元素，并且这个新元素不能被long long类型表示时（也就是新元素不是整数时）。
 
@@ -393,11 +398,13 @@ RedisObject 有序集类型有两种编码方式，一种是压缩列表REDIS_EN
 
 ####编码选择
 zadd添加一个元素到一个空的有序集时，如果有序集同时满足如下条件，则用REDIS_ENCODING_ZIPLIST编码方式:
+
 1. 服务器属性server.zset_ziplist_max_entries的值大于0(默认是128)
 2. 新元素的值小于server.zset_ziplist_max_value的值，默认是64字节
 
 ####编码切换
 对于一个压缩列表编码的有序集，若满足如下任一个条件，则有序集的编码转换为跳跃表和字典编码方式：
+
 1. ziplist压缩列表所保存的元素个数超过了server.zset_ziplist_max_entries的值，默认是128
 2. 新添加的元素的member的长度大于服务器属性server.zset_ziplist_max_value的值，默认是64字节。
 
