@@ -29,6 +29,11 @@ tags: redis
     * 列表
     * 集合
     * 有序集合
+* 功能实现
+    * 事务
+    * 订阅发布
+    * lua 脚本
+    * 慢查询日志
 
 ## redisbook学习心得
 >逼迫自己静下心来做自己抵触的事情，一定会有收获的。 
@@ -345,14 +350,58 @@ ptr指向这个对象实际包括的值，如一个字典，一个列表，一�
 
 ###数据类型---字符串  REDIS_STRING
 
-###数据类型---列表    REDIS_LIST
+RedisObject 字符串类型有两种编码格式REDIS_ENCODING_RAW 和 REDIS_ENCODING_INT，
+
+* REDIS_ENCODING_INT 用来保存long类型值
+* REDIS_ENCODING_RAW 使用sds来保存字符串、long long、double以及long double.
+> Redis为字符串类型选择的编码默认是REDIS_ENCODING_RAW。
+
 ###数据类型---哈希表  REDIS_HASH
+RedisObject 哈希表类型也有两种编码方式，REDIS_ENCODING_ZIPLIST 和 REDIS_ENCODING_HT
+
+Redis_HASH 的默认编码类型是REDIS_ENCODING_ZIPLIST(压缩列表),当如下两个条件满足任一个时，编码从REDIS_ENCODING_ZIPLIST
+切换到REDIS_ENCODING_HT:
+1. 哈希表中某个键或者某个值的长度大于server.hash_max_ziplist_value （默认是64字节）。
+2. 压缩列表中节点数量大于server.hash_max_ziplist_entries （默认是512）。
+
+> ZIPLIST来存储哈希表时,Key-Value是顺序存储的。
+
+###数据类型---列表    REDIS_LIST
+RedisObject 列表类型也有两种编码方式压缩列表REDIS_ENCODING_ZIPLIST 和 双端列表REDIS_ENCODING_LINKEDLIST
+
+编码选择:创建一个列表时，默认的编码方式是: REDIS_ENCODING_ZIPLIST压缩列表， 当下列某一个条件满足时，列表编码方式会切换成
+REDIS_ENCODING_LINKEDLIST双端列表：
+1. 试图向列表中插入一个字符串值，且这个字符串长度超过server.list_max_ziplist_value(默认是64字节);
+2. ziplist包含节点超过server.list_max_ziplist_entries(默认是512)。
+
 ###数据类型---集合    REDIS_SET
+RedisObject 集合类型有两种编码方式:REDIS_ENCODING_INTSET（整数集合）和 REDIS_ENCODING_HT（字典）
+
+####编码选择 
+第一个添加到集合中的元素,决定了创建集合的编码:
+* 若的第一个元素可以表示为long long 整数类型，那么集合初始编码类型是REDIS_ENCODING_INTSET
+* 否则，集合的编码类型为REDIS_ENCODING_HT（字典）
+
+####编码切换
+如果集合用REDIS_ENCODING_INTSET编码，那么当下面任一个条件满足时，编码类型都会转换为REDIS_ENCODING_HT
+1. intset 保存的整数的个数超过了server.set_max_intset_entries(默认是512).
+2. 试图往集合里面加一个新元素，并且这个新元素不能被long long类型表示时（也就是新元素不是整数时）。
+
 ###数据类型---有序集合 REDIS_ZSET
+RedisObject 有序集类型有两种编码方式，一种是压缩列表REDIS_ENCODING_ZIPLIST， 一种是通过skiplist跳跃表和字典共同实现。
+
+####编码选择
+zadd添加一个元素到一个空的有序集时，如果有序集同时满足如下条件，则用REDIS_ENCODING_ZIPLIST编码方式:
+1. 服务器属性server.zset_ziplist_max_entries的值大于0(默认是128)
+2. 新元素的值小于server.zset_ziplist_max_value的值，默认是64字节
+
+####编码切换
+对于一个压缩列表编码的有序集，若满足如下任一个条件，则有序集的编码转换为跳跃表和字典编码方式：
+1. ziplist压缩列表所保存的元素个数超过了server.zset_ziplist_max_entries的值，默认是128
+2. 新添加的元素的member的长度大于服务器属性server.zset_ziplist_max_value的值，默认是64字节。
 
 
 
-
-
+下一部分学习  Redis相关功能实现。
 
 未完待续
