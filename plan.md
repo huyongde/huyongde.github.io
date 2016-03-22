@@ -14,6 +14,8 @@ permalink: /plan/
 * [PHP7革新和性能优化](http://www.csdn.net/article/2015-09-16/2825720)
 * [关于HHVM/Hack/Jit和PHP的性能问题](http://www.tuicool.com/articles/ziie2e)
 * [PHP扩展开发及内核应用](https://github.com/walu/phpbook/blob/master/preface.md)
+* [php-build](https://github.com/php-build/php-build)
+* [phpenv](https://github.com/chh/phpenv)
 
 
 ### 系统&& 网络相关
