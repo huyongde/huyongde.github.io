@@ -412,7 +412,7 @@ zadd添加一个元素到一个空的有序集时，如果有序集同时满足�
 
 ### 四、功能实现
 
-####4.1 事务
+####1. 事务
 > redis 通过mutil discard exec 和 watch来实现事务操作。
 
 
@@ -423,11 +423,49 @@ zadd添加一个元素到一个空的有序集时，如果有序集同时满足�
 
 
 另外两个事务相关的命令
-* discard
-* watch
+* discard, discard命令用于取消事务，它清空客户端相关的整个事务队列，然后将客户端从事务状态调整到非事务状态，最后返回字符串OK给客户端，说明事务取消成功。
+* watch, watch 只能在客户端进入事务状态之前执行，来监视任意数量的键，当调用exec时，如果任意一个被监视的键，被其他客户端修改,那么整个事务不再执行，直接返回失败。
+
+#### 1.1watch 命令的实现
+
+每一个代表数据库的redis.h/redisDb数据结构中，都保存了一个watched_keys字典，字典的键就是被监视的键，
+字典的值是一个链表，保存了那些客户端监视了这个键
+
+redisDb的数据结构如下:
+
+``` c++
+typedef struct redisDb {
+    dict *dict;  //redis数据库的见空间
+    dict *expire; // 设置有效期的key的一个字典
+    dict *blocking_keys; // 处于堵塞状态的键
+    dict *ready_keys; //被堵塞，但已经有数据的键
+    dict *watched_keys; // 事务前被监视的键
+    struct evictionPoolEntry *eviction_pool; /* Eviction pool of keys */
+    int id; //数据库编号
+    long long avg_ttl; //平均有效期，统计用的
+}redisDb;
+```
+
+#### 1.2 wacth 命令的触发
+
+1. 在任何对数据库的键空间进行修改的命令执行成功之后，multi/touchWatchKey函数都会被调用, touchWatchKey函数会检查数据库的
+watched_keys字典，看是否有客户端在监听被本命令修改的键，如果有的话，程序会将所有监视被修改键的客户端的redis_dirty_cas选项打开.
+2. 当客户端发送exec执行事务时，服务器会对客户端的redis_dirty_cas选项做检查
+    * 如何客户端的redis_dirty_cas选项已经被打开，那说明客户端监视的键至少有一个已经被修改，事务的安全性已经被破坏。
+      服务器会停止执行此事务，直接向客户端返回空，表示事务执行失败。
+    * 如果客户端的redis_dirty_case选项未被打开，说明被客户端监视的key都是安全的，正常执行事务。
 
 
+#### 1.3 事务的ACID性质
 
+传统的关系型数据库中，常用ACID性质来检查事务功能的安全性
 
+redis事务保证了其中的一致性(C)和隔离性(I), 但不保证原子性(A)和持久性(D)
+
+* 原子性(Atomicity) Redis单个命令的执行时原子的，但是redis没有在事务上增加任何维护原子性的机制，所以redis事务不是原子的。
+    事务中所有命令执行成功则事务执行成功，但是若redis执行事务命令过程中被杀，它不提供事务中已执行命令的回滚操作。
+* 一致性(Consistency)
+* 隔离性(Isolation) Redis是单进程程序，可以保证事务执行过程中不会被中断。
+* 持久性(Durability), 即使有redis有snapshot 和aof的持久化，但是两种方式都不能保证持久化的完备性。
 
 未完待续
