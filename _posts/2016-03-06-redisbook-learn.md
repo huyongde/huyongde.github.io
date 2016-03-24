@@ -12,7 +12,7 @@ tags: redis
 
 * [带注释的redis源码](https://github.com/huangz1990/redis-3.0-annotated)
 * [redisbook网站](redisbook.com)
-* [redis pdf 版本下载](http://pan.baidu.com/s/1jGXhgvs)  pdf版本已经大概看了一遍，确实对redis设计以及底层实现有了一些了解，**应对面试足够了。**
+* [redis pdf 版本下载](http://pan.baidu.com/s/1jGXhgvs)  pdf版本已经大概看了一遍，确实对redis设计以及底层实现有了一些了解.
 
 ###目录
 * 内部数据结构
