@@ -470,5 +470,104 @@ redis事务保证了其中的一致性(C)和隔离性(I), 但不保证原子性(
 * 隔离性(Isolation) Redis是单进程程序，可以保证事务执行过程中不会被中断。
 * 持久性(Durability), 即使有redis有rdb 和aof的持久化，但是两种方式都不能保证持久化的完备性。
 
+### 2. 订阅和发布
+
+#### 2.1 频道的订阅和信息发布
+
+ subscribe 可以让客户端定义任意多个频道，每当有新信息发送到频道时，所有订阅次频道的客户端都会收到对应的信息。
+ publish 可以发送一个信息到某个频道。
+
+#### 2.1.1 subscribe  订阅频道
+
+每个运行的Redis服务器都维护着一个redis.h/redisServer的结构体， redisServer中有个pubsub_channels字典。
+这个字典保存了所有被订阅频道的信息, 其中，字典的键就是频道的名字，字典的值是一个链表，链表中保存了所有订阅这个频道的客户端。
+当一个客户端调用subscribe时，程序就会把此客户端和pubsub_channels字典关联起来，把此客户端append到频道对应的列表中。
+
+ redisServer 结构体的部分定义如下：
+
+ ```
+ struct redisServer {
+    // ...
+    dict *pubsub_channels;
+    list *pubsub_patterns;
+    // ...
+ };
+
+ ```
+
+订阅一个频道的伪代码如下:
+
+```
+def SUBSCRIBE (client, channels):
+    for channel in channels:
+        redisServer.pubsub_channels[channel].append(client)
+```
+#### 2.1.2 publish 发布信息到频道
+
+当调用publish channel message后，程序会定位到字典pubsub_channels中key为channel的元素，然后将信息发送给键channel对应的列表中的所有的客户端。
+
+发布信息到一个频道的伪代码如下:
+
+```
+def PUBLISH (channel, message):
+    for client in pubsub_channels[channel]:
+        send_message(client, message)
+
+```
+
+> unsubscribe可以取消对一个频道的订阅
+
+#### 2.2 模式的订阅和信息发布
+
+#### 2.2.1 psubscribe 订阅模式
+
+redisServer.pubsub_patterns 是一个链表，里面存储了模式相关的信息。
+
+pubsub_patterns链表中每个元素都是一个redis.h/pubsubPattern结构体，定义如下:
+
+```
+typedef struct pubsubPattern {
+    RedisClient *client;
+    robj *pattern;
+}pubsubPattern;
+```
+
+其中， client保存了订阅了此模式的客户端，pattern 保存了被订阅的模式.
+
+
+每次调用psubscribe 命令，程序都会创建一个包含客户端信息和被订阅的模式信息的pubsubPattern结构体，
+并将此结构体添加到redisServer.pubsub_patterns链表中。
+
+订阅模式的伪代码实现如下:
+
+
+```
+def PSUBSCRIBE(client, pattern):
+    pubsubPattern *tmp
+    tmp->client = client
+    tmp->pattern = pattern
+    redisServer.pubsub_patterns.append(tmp)
+
+```
+#### 2.2.2 发送消息到模式和频道
+
+多了可以订阅模式之后，publish发送一个消息后，不仅订阅频道的客户端可以收到消息，订阅了对应模式的客户端也会收到消息
+完整的发布消息的实现如下：
+
+```
+def PUBLISH(channel, message);
+    for client in redisServer.pubsub_channels[channel]:
+        send_message(client, message)
+
+    for pattern, client in redisServer.pubsub_patterns:
+        if match(channel, pattern):
+            send_message(client, message)
+```
+
+> punsubscribe 用于退订一个模式
+
+
+### 4.3 lua脚本
+
 
 未完待续
