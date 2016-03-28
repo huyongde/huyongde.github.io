@@ -8,6 +8,7 @@ permalink: /plan/
 * 有计划的去翻译一些比较好的英文文章，学习下专业术语
 
 ### 语言相关 PHP  golang 等
+* [php 底层的运行机制](http://blog.jobbole.com/94475/)
 * yeild generator iterator 协程 相关学习，包括[PHP语言](http://www.cnblogs.com/whoamme/p/5039533.html)，python语言的实现。
 * [docker && golang](https://github.com/docker/docker)
 * [PHP 词法解析器re2c](http://www.phppan.com/2011/09/php-lexical-re2c/)
