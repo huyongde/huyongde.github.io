@@ -9,6 +9,7 @@ permalink: /plan/
 
 ### 语言相关 PHP  golang 等
 * [php扩展开发](http://www.nowamagic.net/librarys/veda/detail/1467)
+* [鸟哥php扩展开发教学](http://www.laruence.com/2009/04/28/719.html)
 * [php 扩展helloworld](http://www.bo56.com/php7%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E4%B9%8Bhello-word/)
 * [php内核--哈希表和哈希碰撞](http://www.csdn.net/article/2014-10-16/2822134)
 * [php 底层的运行机制](http://blog.jobbole.com/94475/)
