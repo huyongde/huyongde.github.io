@@ -8,6 +8,8 @@ permalink: /plan/
 * 有计划的去翻译一些比较好的英文文章，学习下专业术语
 
 ### 语言相关 PHP  golang 等
+* [php扩展开发](http://www.nowamagic.net/librarys/veda/detail/1467)
+* [php 扩展helloworld](http://www.bo56.com/php7%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E4%B9%8Bhello-word/)
 * [php内核--哈希表和哈希碰撞](http://www.csdn.net/article/2014-10-16/2822134)
 * [php 底层的运行机制](http://blog.jobbole.com/94475/)
 * yeild generator iterator 协程 相关学习，包括[PHP语言](http://www.cnblogs.com/whoamme/p/5039533.html)，python语言的实现。
