@@ -16,6 +16,8 @@ tags: php extension
 * 参数  扩展的名称
 * 返回值 成功返回true, 失败返回false;
 * 例子
+
+
 ``` php
 if (!extension_loaded('sqlite')) {
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
