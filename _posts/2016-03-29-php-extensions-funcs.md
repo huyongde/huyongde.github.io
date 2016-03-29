@@ -54,3 +54,8 @@ if (!extension_loaded('sqlite')) {
 
 
 
+###参考
+
+* [php 选项信息函数](http://php.net/manual/zh/ref.info.php)
+
+
