@@ -1,6 +1,6 @@
 ---
 layout: post
-title: linux 服务器集群系统，LVS学习
+title: "linux 服务器集群系统，LVS学习"
 tags: lvs load-balance
 ---
 
@@ -56,7 +56,7 @@ tags: lvs load-balance
 真实服务器的响应报文，也需要通过调度器返回给客户端。这里调度器就相当于一个代理服务器。
 ```
 
-###补充2
+####补充2
 > 介绍下开放式系统互联七层网络模型和TCP/IP 五层网络模型
 
 ####OSI七层网络模型(Open System Interconnection, 开放式系统互联)

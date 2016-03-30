@@ -1,28 +1,20 @@
 ---
-layout: page 
+layout: page
 title: About 
-permalink: /about/
+permalink: /about
 ---
 
-github is [huyongde](https://github.com/huyongde)
+熟悉的
 
-####熟悉的东东
+* php lua shell python golang
+* nginx
+* memcache redis
+* mysql
+* wireshark tcpdump charles 
+* vim
+* tennis bodybuilding
 
-`php lua shell python golang`
-
-`nginx`
-
-`memcache redis`
-
-`mysql`
-
-`wireshark tcpdump charles `
-
-`vim`
-
-`tennis` `bodybuilding`
-
-####正在学习的东西
+正在学习的
 
 [plan](/plan/)
 
