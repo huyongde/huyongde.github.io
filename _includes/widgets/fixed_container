@@ -1,9 +1,9 @@
 <div id="fixed-container">
   <section>
-    {% include widgets/repos_list %}
+    {% include widgets/contacts_list %}
   </section>
   <section>
-    {% include widgets/contacts_list %}
+    {% include widgets/repos_list %}
   </section>
   <section>
     {% include widgets/links_list %}
