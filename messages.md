@@ -1,8 +1,7 @@
 ---
 layout: page
 title: "留言板"
-description: ""
-group: navigation
+permalink: /messages
 ---
 {% include JB/setup %}
 

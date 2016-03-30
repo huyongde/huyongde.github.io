@@ -83,10 +83,10 @@ JB :
   #
   archive_path: /archive.html
   # categories_path : /categories.html
-  tags_path : /tags.html
+  tags_path : /tags
   atom_path : /atom.xml
   rss_path : /feed.xml
-  messages_path : /messages.html
+  messages_path : /messages
   about_path : /about
 
   # Settings for comments helper
