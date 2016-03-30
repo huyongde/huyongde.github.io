@@ -35,9 +35,10 @@
   <div id="wrap">
     <header id="top">
       <!-- Home Link -->
-      <a id="logo" href="{{ HOME_PATH }}" title="回到首页">
-          <h1>{{ site.title }}</h1>
-      </a>
+       <a id="logo" href="{{ HOME_PATH }}" title="回到首页">
+            <img src="{{ ASSET_PATH }}/img/logo.png" alt="{{ site.title }}">
+       </a>
+
 
       <!-- Navigation Bar -->
       <nav id="navbar">
@@ -52,6 +53,9 @@
           -->
           <li{% if page.url == site.JB.tags_path %} class="active"{% endif %}>
             <a href="{{ site.JB.tags_path }}" title="标签">标签</a>
+          </li>
+          <li{% if page.url == site.JB.archive_path %} class="active"{% endif %}>
+            <a href="{{ site.JB.archive_path }}" title="归档">归档</a>
           </li>
           <li{% if page.url == site.JB.messages_path %} class="active"{% endif %}>
             <a href="{{ site.JB.messages_path }}" title="留言板">留言板</a>
