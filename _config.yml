@@ -1,6 +1,7 @@
 # This is the default format. 
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /:categories/:title.html
+
+#permalink: /:categories/:title.html
 
 safe: false
 gems: ["jekyll-paginate", "jekyll-feed"]
@@ -94,7 +95,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : duoshuo
+    provider : duoshuo 
     duoshuo :
       short_name : hyde
     disqus :
