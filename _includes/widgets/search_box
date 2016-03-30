@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#query').blur().attr('disabled', true);
     $('#main-content').hide();
     $('#loader').show();
-    $.ajax({url: '/atom.xml?r=' + (Math.random() * 999999), dataType: 'xml', success: function(data) {
+    $.ajax({url: '/feed.xml?r=' + (Math.random() * 999999), dataType: 'xml', success: function(data) {
       var rq = new RegExp($('#query').val(), 'im');
       var rl = /\/([^\/]+)\.html$/;
       var html = '';
@@ -29,6 +29,7 @@ $(document).ready(function() {
           html += '</article>';
         }
       });
+alter("xxxx");
       $('#main-content').html(html);
       $('#loader').hide();
       $('#main-content').show();
