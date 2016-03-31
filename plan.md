@@ -8,6 +8,8 @@ permalink: /plan/
 * 有计划的去翻译一些比较好的英文文章，学习下专业术语
 
 ### 语言相关 PHP  golang 等
+* [php socket 类函数](http://php.net/manual/zh/function.socket-select.php)
+* [php stream 扩展](http://php.net/manual/zh/ref.stream.php)
 * [php扩展开发](http://www.nowamagic.net/librarys/veda/detail/1467)
 * [鸟哥php扩展开发教学](http://www.laruence.com/2009/04/28/719.html)
 * [php 扩展helloworld](http://www.bo56.com/php7%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E4%B9%8Bhello-word/)
