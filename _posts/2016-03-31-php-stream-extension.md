@@ -80,8 +80,11 @@ Array
 上下文包括http请求的header等. 各个协议都包含自己的上下文，详情参考[上下文选项和参数](http://php.net/manual/zh/context.php)
 
 
-### 3. 学习几个列子
-#### 3.1 file_get_contents获取不同源的数据
+### 3. stream类函数
+
+详情参照[PHP stream 函数](http://php.net/manual/zh/ref.stream.php)
+
+每个函数后续继续学习
 
 
 未完待续
