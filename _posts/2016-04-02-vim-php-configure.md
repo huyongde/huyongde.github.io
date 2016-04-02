@@ -48,7 +48,10 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 
 > 最终我选择的Phplint，显示的结果更友好些。
 
+### 1.4 php文件保存的时候自动进行代码格式化
+
+* 不借助插件来实现 `autocmd! BufWrite *.php :exec 'normal ggVG==='`
+* vim各类代码格式化的插件[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
 
 
-### 参考
-* [配置一个高效开发PHP的VIM](http://www.cnblogs.com/mo-beifeng/archive/2011/09/07/2169994.html)
+> 楼主目前用的非插件的antocmd配置方式， 后续研究下插件方式的
