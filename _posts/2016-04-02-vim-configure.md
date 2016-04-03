@@ -51,8 +51,19 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 > 上面三步一步不少的执行完后，就可以愉快的看到中文版的vim help了， 可以help autocmd验证下
 
 #### 1.3 编码配置
+参考学习
+
+* [vim解决中文乱码问题](http://www.vimer.cn/2009/10/87.html) 
+* [vim文件编码识别设置](http://edyfox.codecarver.org/html/vim_fileencodings_detection.html)
+* [mbbill/fencview](https://github.com/mbbill/fencview) 文件编码自动检测插件
+
 
 #### 1.4 缩进配置
+
+参考学习
+
+* [vim缩进配置](http://linux-wiki.cn/wiki/zh-hans/Vim%E4%BB%A3%E7%A0%81%E7%BC%A9%E8%BF%9B%E8%AE%BE%E7%BD%AE)
+
 
 
 ### 补充
