@@ -55,3 +55,7 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 
 
 > 楼主目前用的非插件的antocmd配置方式， 后续研究下插件方式的
+
+
+
+##### 楼主现在用的[vim配置](https://github.com/huyongde/my.vimrc)
