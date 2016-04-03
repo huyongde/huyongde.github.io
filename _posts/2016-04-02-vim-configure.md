@@ -1,12 +1,24 @@
 ---
 layout: post
-title: "VIM PHP开发相关配置整理"
+title: "VIM 配置学习篇(一)"
 tags: vim php
 ---
 
 ### 0. 简介
 
-vim配置弄过很多，关于编码的，缩进的，taglist, nerdtree， vunble插件管理器等的配置。假期有空重新整理学习学习
+vim配置弄过很多，关于编码的，缩进的，taglist, nerdtree， vundle插件管理器等的配置。假期有空重新整理学习学习
+
+准备从如下几个方面去整理：
+
+1. vim基础配置学习，如编码，缩进 
+2. vim各项配置命令学习,如map, aotocmd, command等等
+1. [vundle 安装使用](http://huyongde.github.io/2016/01/02/vim-plugin-bundler-vundle.html)
+2. 自动代码格式化
+3. 各语言代码语法自动检查
+4. 代码补全
+
+
+> 本篇主要介绍下vim相关的基础配置
 
 ### 1. 相关配置
 ####1.1 设置保存vimrc自动生效
@@ -38,8 +50,13 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 
 > 上面三步一步不少的执行完后，就可以愉快的看到中文版的vim help了， 可以help autocmd验证下
 
+#### 1.3 编码配置
 
-#### 1.3 设置php文件保存的时候自动进行php -l的php语法检查
+#### 1.4 缩进配置
+
+
+### 补充
+#### 设置php文件保存的时候自动进行php -l的php语法检查
 * 第一种方法，不借助插件的配置`autocmd! BufWritePost *.php :!php -l %` 
 是通过php -l来执行，做了一次自动命令的来实现的,当写php文件的时候，自动执行`:!php -l %`
 * [vim 各语言的语法检查插件](https://github.com/scrooloose/syntastic)  [相关wiki](https://github.com/scrooloose/syntastic/wiki/Syntax-Checkers) 
@@ -48,7 +65,7 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 
 > 最终我选择的Phplint，显示的结果更友好些。
 
-### 1.4 php文件保存的时候自动进行代码格式化
+### php文件保存的时候自动进行代码格式化
 
 * 不借助插件来实现 `autocmd! BufWrite *.php :exec 'normal ggVG==='`
 * vim各类代码格式化的插件[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
