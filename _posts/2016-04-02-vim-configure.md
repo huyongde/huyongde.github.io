@@ -85,5 +85,5 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 > 楼主目前用的非插件的antocmd配置方式， 后续研究下插件方式的
 
 ##### 接下来准备研究下vim的map类命令[vim的几种模式和按键映射](http://haoxiang.org/2011/09/vim-modes-and-mappin/)
-
+##### 学习下[vim插件推荐](http://edyfox.codecarver.org/html/vimplugins.html) 文章中推荐的插件
 ##### 楼主现在用的[vim配置](https://github.com/huyongde/my.vimrc)
