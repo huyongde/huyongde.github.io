@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VIM 配置学习篇(一)"
+title: "VIM 配置(一)--基础篇"
 tags: vim php
 ---
 
