@@ -33,10 +33,10 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 
 ```
 :com[mand][!] [{attr}...] {cmd} {rep}
-                        定义一个用户命令。命令的名字是 {cmd}，而替换的文本是
-                        {rep}。该命令的属性 (参考下面) 是 {attr}。如果该命令已
-                        存在，报错，除非已经指定了一个 !，这种情况下命令被重定
-                        义。
+定义一个用户命令。命令的名字是 {cmd}，而替换的文本是
+{rep}。该命令的属性 (参考下面) 是 {attr}。如果该命令已
+存在，报错，除非已经指定了一个 !，这种情况下命令被重定
+义。
 ```
 
 > 设置完成上面两步之后，就可以在修改了~/.vimrc并保存的时候，自动执行`source ~/.vimrc` 来使配置生效了。
@@ -51,6 +51,23 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 > 上面三步一步不少的执行完后，就可以愉快的看到中文版的vim help了， 可以help autocmd验证下
 
 #### 1.3 编码配置
+
+vim 中有四个关于编码的选项，分别是encoding(enc), termencoding(tenc), fileencoding(fenc), fileencodings(fencs). 下面分别介绍这四种编码：
+
+* encoding(enc) : encoding 是vim内部使用的字符编码方式，vim内部所有的buffer,寄存器， 脚本中的字符串都是使用此编码。 
+vim工作时，遇到编码和内部编码不一致时， 会把编码转化为内部编码，无法转化的部分就会丢失。
+* termencoding(tenc) : termencoding 是vim用于屏幕显示的编码, 在显示的时候vim会把内部编码转化为屏幕编码，再用于输出。
+无法从内部编码转化为屏幕编码的字符，显示的时候将会变成问号。 若termencoding不设置，则屏幕编码直接使用encoding的设置。
+* fileencoding(fenc) : 当vim从磁盘上读取文件的时候，会对文件的编码进行探测。如果文件的编码方式和 vim 的内部编码方式不同，vim 就会对编码进行转换。
+转换完毕后，Vim 会将 fileencoding 选项设置为文件的编码。当 Vim 存盘的时候，如果 encoding 和 fileencoding 不一样，Vim 就会进行编码转换。
+因此，通过打开文件后设置 fileencoding，我们可以将文件由一种编码转换为另一种编码。但是，由前面的介绍可以看出，fileencoding 是在打开文件的时候 ，
+由 Vim 进行探测后自动设置的。因此，如果出现乱码，我们无法通过在打开文件后重新设置 fileencoding 来纠正乱码。 
+* fileencodings(fencs) :  编码的自动识别是通过设置 fileencodings 实现的，注意是复数形式。
+fileencodings 是一个用逗号分隔的列表，列表中的每一项是一种编码的名称。当我们打开文件的时候，
+VIM 按顺序使用 fileencodings 中的编码进行尝试解码，如果成功的话，就使用该编码方式进行解码，
+并将 fileencoding 设置为这个值，如果失败的话，就继续试验下一个编码。 因此，我们在设置 fileencodings 的时候，
+一定要把要求严格的、当文件不是这个编码的时候更容易出现解码失败的编码方式放在前面，把宽松的编码方式放在后面。
+
 参考学习
 
 * [vim解决中文乱码问题](http://www.vimer.cn/2009/10/87.html) 
@@ -63,7 +80,6 @@ superuser有关于这个问题的解决方案，[解决source ~/.vimrc E174](htt
 参考学习
 
 * [vim缩进配置](http://linux-wiki.cn/wiki/zh-hans/Vim%E4%BB%A3%E7%A0%81%E7%BC%A9%E8%BF%9B%E8%AE%BE%E7%BD%AE)
-
 
 
 ### 补充
