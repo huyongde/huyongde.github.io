@@ -23,6 +23,7 @@ permalink: /plan/
 * [PHP扩展开发及内核应用](https://github.com/walu/phpbook/blob/master/preface.md)
 * [php-build](https://github.com/php-build/php-build)
 * [phpenv](https://github.com/chh/phpenv)
+* [python html 解析器beautiful soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/index.html)
 
 
 ### 系统&& 网络相关
