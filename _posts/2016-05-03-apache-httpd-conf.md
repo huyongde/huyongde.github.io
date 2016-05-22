@@ -167,6 +167,38 @@ NameVirtualHost 172.20.30.40:8080
 </VirtualHost>
 
 ```
+
+#### 1.6 目录访问权限控制
+主要指令: Order, Allow, Deny。 Order来控制指令Allow和Deny的生效顺序,
+
+也就是说Allow和deny的生效顺序和他们在配置中的位置没有关系，和Order的配置有关。
+
+下面看几个例子
+
+```
+<Directory /www/web>
+    Order Allow Deny
+    Allow from all
+    Deny from 112.10.20.30
+    ### 先允许所有用户访问再拒绝ip112.10.20.30的访问
+
+</Directory>
+```
+
+```
+<Directory /web>
+    Order Deny,Allow
+    Deny from 112.2.10.2
+    Allow from all
+    Deny from 123.10.10.1
+    #先拒绝112.2.10.2访问
+    #再拒绝123.10.10.1访问
+    #最后允许所有用户访问
+    #总结：允许所有用户访问
+    #(即使Allow指令在Deny指令前，但是根据Order Deny,Allow语句，仍然先看Deny，再看Allow)
+</Directory>
+```
+
 未完待续
 
 #### 参考 
