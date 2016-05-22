@@ -74,8 +74,99 @@ rewirte主要的功能就是实现URL的跳转，它的正则表达式是基于P
 
 * `ServerTokens` 设置http response header中server的信息，`Server:Apache`. 默认为“Full”， 这表示在回应头中将包含模块中的操作系统类型和编译信息。可以设为列各值中的一个： Full | OS | Minor | Minimal | Major | Prod. Full传达的信息最多，而Prod最少。
 
+#### 1.5 VirtualHost (update on 2016-05-22 22:27:10 )
 
+VirtualHost 通过设置虚拟主机，来实现一个机器多个域名，多个主机名等
+看几个例子:
 
+#### 1.5.1 一个IP上部署多个服务
+```
+Listen 80
+NameVirtualHost *:80
+<VirtualHost *:80>
+    DocumentRoot /www/example1
+    ServerName www.example1.com
+    # 其他的一些指令配置
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot /www/example2
+    ServerName www.example2.com
+    # 其他的指令配置
+
+</VirtualHOst>
+```
+**多个虚拟主机域名时，当一个不存在的主机域名请求到来时，第一个虚拟主机会服务这个请求**
+
+#### 1.5.2 不同的域名部署在不同的IP上
+
+```
+##主服务 运行在172.20.30.40 上
+ServerName server.domain.com
+DocumentRoot /www/mainserver
+
+###另一个IP
+NameVirtualHost 172.20.30.50
+
+<VirtualHost 172.20.30.50>
+    DocumentRoot /www/example1
+    ServerName www.example1.com
+    # 其他的一些指令配置
+</VirtualHost>
+
+<VirtualHost 172.20.30.50>
+    DocumentRoot /www/example2
+    ServerName www.example2.com
+    # 其他的一些指令配置
+</VirtualHost>
+```
+
+**所有不是到.50IP 的请求都是主服务来服务， 所有到.50的，不带Host,或者host不是www.example1.com 和 www.example2.com的都将被第一个虚拟主机来服务**
+
+#### 1.5.3 多个IP上部署同一个服务
+```
+NameVirtualHost 192.168.0.1
+NameVirtualHost 172.20.30.40
+
+<VirtualHost 192.168.0.1 172.20.30.40>
+    DocumentRoot /www/server
+    ServerName www.server.example.com
+    ServerAlias server
+</VirtualHost>
+```
+
+**可以通过serverAlias server来代替www.server.example.com域名来访问服务**
+
+#### 1.5.4 不同的端口部署不同的服务
+
+```
+Listen 80
+Listen 8080
+
+NameVirtualHost 172.20.30.40:80
+NameVirtualHost 172.20.30.40:8080
+
+<VirtualHost 172.20.30.40:80>
+    ServerName www.example1.com
+    DocumentRoot /www/domain-80
+</VirtualHost>
+
+<VirtualHost 172.20.30.40:8080>
+    ServerName www.example1.com
+    DocumentRoot /www/domain-8080
+</VirtualHost>
+
+<VirtualHost 172.20.30.40:80>
+    ServerName www.example2.org
+    DocumentRoot /www/otherdomain-80
+</VirtualHost>
+
+<VirtualHost 172.20.30.40:8080>
+    ServerName www.example2.org
+    DocumentRoot /www/otherdomain-8080
+</VirtualHost>
+
+```
 未完待续
 
 #### 参考 
