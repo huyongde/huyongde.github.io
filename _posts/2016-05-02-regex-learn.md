@@ -111,7 +111,7 @@ linux 命令grep 如果想要查找多个字符串， 可以用-e 选项来指�
 * (?=exp) 匹配exp之前的位置, 被匹配到的字符串的后面紧跟表达式exp. 比如:`\b\w(?=ing\b)` 匹配以ing结尾的单词的ing前面的部分,
  如果在`I am singing while you are dancing` 进行匹配会匹配到sing 和 danc.
 
-*(?<=exp) 匹配exp之后的位置，被匹配到的字符的前面是exp表达式代表的字符， 比如: `(?<=\bre)\w\b`, 匹配re开头的单词re后面部分的字符串，匹配
+* (?<=exp) 匹配exp之后的位置，被匹配到的字符的前面是exp表达式代表的字符， 比如: `(?<=\bre)\w\b`, 匹配re开头的单词re后面部分的字符串，匹配
 `reading a book` 时，会匹配到`ading`
 
 ### 10. 负向零宽断言
