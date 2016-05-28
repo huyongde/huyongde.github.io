@@ -63,7 +63,7 @@ rewirte主要的功能就是实现URL的跳转，它的正则表达式是基于P
 * `Listen`: 设置监听得的主机以及端口号
 * `ExtendedStatus`: 当调用`server-status`时，是否返回比较全面的信息`ExtendedStatus On`
 * `LoadModule`: 设置一些模块加载一些DSO模式编译的模块(DSO是Dynamic Shared Objects（动态共享目标）的缩写)
-* `ServerName`: 设定服务器的名字和端口号，和`Listen` 区别开
+* `ServerName`: 设定服务器的名字和端口号，和`Listen` 区别开, 若是不能进行DNS解析的域名，可以直接用ip地址代替。
 * `DocumentRoot`: 设定文档的根目录，默认情况下，所有请求都从这个目录进行应答, `DocumentRoot "/home/website/html"`
 * `<Directory></Directory>`: 设置Apache可以存取目录的存取权限
 * `DirectoryIndex`: 定义请求是一个目录时，Apache向用户提供服务的文件名, `DirectoryIndex index.php index.htm index.html index.html.var`
