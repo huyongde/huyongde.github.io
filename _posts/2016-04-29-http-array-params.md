@@ -13,7 +13,7 @@ layout: post
 
 后端`$_GET['info']`或者`$_POST['info']` 是一个数组，`array('name'=>'huyongde', 'age'=>20);`
 
-*** 注意：无论post还是Get请求都是可以传递数组参数奥。***
+** 注意：无论post还是Get请求都是可以传递数组参数奥。**
 
 
 
