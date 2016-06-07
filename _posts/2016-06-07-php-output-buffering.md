@@ -55,6 +55,7 @@ for($i=0; $i<10; $i++) {
 如上例子将会 每秒输出一个sleeping，挨个输出，而不是一次性输出, 此处ob_flush() 是把php的缓冲区内容送出到sapi缓冲区， flush()是把SAPI的缓冲区内容送出
 两个函数共同实现了把echo的信息实时输出到浏览器，而不是一次性输出所有的echo信息。
 
+
 ### 参考
 * [深入理解php输出缓存](http://gywbd.github.io/posts/2015/1/php-output-buffer-in-deep.html)
 * [输出控制函数](http://php.net/manual/zh/ref.outcontrol.php)
