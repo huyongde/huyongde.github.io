@@ -57,3 +57,5 @@ for($i=0; $i<10; $i++) {
 
 ### 参考
 * [深入理解php输出缓存](http://gywbd.github.io/posts/2015/1/php-output-buffer-in-deep.html)
+* [输出控制函数](http://php.net/manual/zh/ref.outcontrol.php)
+* [输出控制运行时配置](http://php.net/manual/zh/outcontrol.configuration.php)
