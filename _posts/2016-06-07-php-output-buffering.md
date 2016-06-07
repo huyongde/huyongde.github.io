@@ -44,6 +44,7 @@ tags: ob php buffering
 ```
 for($i=0; $i<10; $i++) {
     echo "$i sleeping .... <br>";
+    echo "<script type='text/javascript'> window.scrollTo(0, document.body.scrollHeight);</script>"
     ob_flush();
     flush();
     sleep(1);
@@ -53,7 +54,7 @@ for($i=0; $i<10; $i++) {
 ```
 
 如上例子将会 每秒输出一个sleeping，挨个输出，而不是一次性输出, 此处ob_flush() 是把php的缓冲区内容送出到sapi缓冲区， flush()是把SAPI的缓冲区内容送出
-两个函数共同实现了把echo的信息实时输出到浏览器，而不是一次性输出所有的echo信息。
+两个函数共同实现了把echo的信息实时输出到浏览器，而不是一次性输出所有的echo信息。 js是用来控制浏览器滚动条一直在浏览器最底端， 也就是一直显示最新输出的内容.
 
 
 ### 参考
