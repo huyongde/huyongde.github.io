@@ -5,8 +5,8 @@ tags: ob php buffering
 ---
 
 ### 简介
-    output buffering 简称ob, 是输出缓冲区， 通过php配置以及output control （输出控制函数）来控制php的输出， 输出控制函数不会作用于setcookie以及header两个输出标头的函数， 只
-    会作用于类似与echo类的函数.
+`output buffering` 简称ob, 是输出缓冲区， 通过php配置以及output control （输出控制函数）来控制php的输出， 输出控制函数不会作用于setcookie以及header两个输出标头的函数， 只
+会作用于类似与echo类的函数.
 
 ### php 缓冲区分类
 
@@ -15,8 +15,14 @@ tags: ob php buffering
 3. sapi缓冲区
 
 ### output buffering 相关的php 配置
+* input_buffering boolean/integer 该选项设置为 On 时，将在所有的脚本中使用输出控制。如果要限制输出缓冲区的最大值，可将该选项设定为指定的最大字节数（例如 output_buffering=4096）。从PHP 4.3.5 版开始，该选项在 PHP-CLI 下总是为 Off。 设置为On时，相当于每次执行完echo类的输出后，自动执行`ob_flush()`函数.
 
+* implicit_flush boolean 默认为 FALSE。如将该选项改为 TRUE，PHP 将使输出层，在每段信息块输出后，自动刷新。这等同于在每次使用 print、echo 等函数或每个 HTML 块之后，调用 PHP 中的 flush() 函数。 不在web环境中使用 PHP 时，打开这个选项对程序执行的性能有严重的影响，通常只推荐在调试时使用。在 CLI SAPI 的执行模式下，该标记默认为 TRUE。
 
+* output_handler string 该选项可将脚本所有的输出，重定向到一个函数。例如，将 output_handler 设置为 mb_output_handler() 时，字符的编码将被修改为指定的编码。设置的任何处理函数，将自动的处理输出缓冲。
+
+**不能同时使用 mb_output_handler() 和 ob_iconv_handler()，也不能同时使用 ob_gzhandler() 和 zlib.output_compression**
+**只有内置函数可以使用此指令。对于用户定义的函数，使用 ob_start()**
 
 ### output buffering 相关的函数
 
