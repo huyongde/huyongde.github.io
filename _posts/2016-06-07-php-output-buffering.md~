@@ -56,7 +56,6 @@ for($i=0; $i<10; $i++) {
     sleep(1);
 
 }
-echo "<script type='text/javascript'> window.scrollTo(0, document.body.scrollHeight);</script>"
 
 ```
 
