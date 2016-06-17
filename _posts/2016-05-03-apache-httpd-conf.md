@@ -198,6 +198,64 @@ NameVirtualHost 172.20.30.40:8080
     #(即使Allow指令在Deny指令前，但是根据Order Deny,Allow语句，仍然先看Deny，再看Allow)
 </Directory>
 ```
+#### 1.7 rotatelogs进行日志的切分
+`rotatelogs` 可以按照日期或者日志文件大小对日志进行切分.
+前面介绍了CustomLog和ErrorLog指令都可以用配合`rotatelogs`使用，
+```
+CustomLog logs/access.log combinedio
+ErrorLog logs/error.log
+```
+**可以修改为 按照时间来切分日志**
+```
+CustomLog "| /usr/sbin/rotatelogs -l logs/access-%Y%m%d.log 86400" combinedio
+ErrorLog "| /usr/sbin/rotatelogs -l logs/error-%Y%m%d.log 86400" 
+```
+这样后，会把access.log 和 error.log按照时间进行切分，到达指定的时间点后会对日志进行切分，
+86400指定了多长时间进行一次日志切分，单位是秒，如上设置是1天进行一次日志切分， 会产生类似如下文件名的日志文件：
+
+```
+access-20160616.log
+error-20160616.log
+```
+
+**还可以修改为 按照时间来切分日志**
+```
+CustomLog "| /usr/sbin/rotatelogs  logs/access-%Y%m%d.log 100M" combinedio
+ErrorLog "| /usr/sbin/rotatelogs logs/error-%Y%m%d.log 50M" 
+```
+修改之后，access.log达到100M之后会进行日志切分，error.log日志达到50M后会进行切分，都会加上当前日期的后缀，
+**总结rotatelogs用法**
+* 格式: `rotatelogs [ -l ] logfile [ rotationtime [ offset ]] | [ filesizeM ]`
+* 参数说明
+    * -l 使用本地时间代替GMT时间作为时间基准。
+    * logfile 日志文件名
+    * rotationtime 日志切分进行的时间间隔， 时间单位秒
+    * offet 相对UTC的时差分钟数， 可以省略，如果省略， 则假定为0并使用UTC时间
+    * filesizeM 指定文件达到多大时进行切分，文件大小单位是M
+
+**配置切分日志格式的字符串**
+*  星期名全称(本地的) 
+*  %a 3个字符的星期名(本地的) 
+*  %B 月份名的全称(本地的) 
+*  %b 3个字符的月份名(本地的) 
+*  %c 日期和时间(本地的) 
+*  %d 2位数的一个月中的日期数 
+*  %H 2位数的小时数(24小时制) 
+*  %I 2位数的小时数(12小时制) 
+*  %j 3位数的一年中的日期数 
+*  %M 2位数的分钟数 
+*  %m 2位数的月份数 
+*  %p am/pm12小时制的上下午(本地的) 
+*  %S 2位数的秒数 
+*  %U 2位数的一年中的星期数(星期天为一周的第一天) 
+*  %W 2位数的一年中的星期数(星期一为一周的第一天) 
+*  %w 1位数的星期几(星期天为一周的第一天) 
+*  %X 时间(本地的) 
+*  %x 日期(本地的) 
+*  %Y 4位数的年份 
+*  %y 2位数的年份 
+*  %Z 时区名 
+*  %% 符号"%"本身 
 
 未完待续
 
