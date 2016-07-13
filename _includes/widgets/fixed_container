@@ -12,10 +12,10 @@
   {% include widgets/related_posts_list %}
   </section>
   <section>
-  {% include widgets/visitor_map %}
+  {% include widgets/mouse%}
   </section>
   <section>
-  {% include widgets/mouse%}
+  {% include widgets/visitor_map %}
   </section>
 </div>
 <script type="text/javascript">
