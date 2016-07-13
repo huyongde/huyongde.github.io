@@ -12,7 +12,7 @@
   {% include widgets/related_posts_list %}
   </section>
   <section>
-  {% include widgets/mouse%}
+  {% include widgets/mouse %}
   </section>
   <section>
   {% include widgets/visitor_map %}
