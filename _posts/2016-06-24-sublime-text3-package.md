@@ -8,13 +8,15 @@ tags: sublime package
 最近在用sublime text3, 通过package control 可以安装的扩展包真的太多了，很强大
 但是在安装的时候遇到了一些问题
 
-### vcs gutter
+### VCS gutter
 
 *　具体介绍和安装可以去[git官网](https://github.com/bradsokol/VcsGutter) , 
-	这个sublime 3 的插件主要是来判断某一行代码是否被修改删除或者添加过， 支持的版本控制系统(vcs: version control system )有git, svn, hg等
-* 安装完成之后，需要修改用户配置文件，修改后的VCS Gutter 用户配置文件如下
+	这个sublime 3 的插件主要是来判断某一行代码是否被修改删除或者添加过， 支持的版本控制系统(vcs: version control system )有git, svn, hg等.
+* VCS Gutter对于git来说就相当于git Gutter, 安装VCS Gutter之后，就可以remove 掉 Git Gutter了.
+* 安装完成之后，需要修改用户配置文件，修改后的VCS Gutter 用户配置文件如下:
 
 ```
+
 {
 	"vcs_paths": {
 	        "diff": "C:\\Users\\Administrator\\.babun\\cygwin\\bin\\diff.exe",
@@ -24,6 +26,7 @@ tags: sublime package
 	},
 	 "live_mode": false,
 }
+
 ```
 
 > 主要是配置各个版本控制系统的可执行命令的路径，以及diff路径，如上是我的配置文件，windows系统上面安装了babun(windows系统上的linux shell软件)， 可执行文件都配置的是babun相关的路径。
