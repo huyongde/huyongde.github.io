@@ -10,7 +10,7 @@ tags: sublime package
 
 ### VCS gutter
 
-*　具体介绍和安装可以去[git官网](https://github.com/bradsokol/VcsGutter) , 
+* 具体介绍和安装可以去[git官网](https://github.com/bradsokol/VcsGutter) , 
 	这个sublime 3 的插件主要是来判断某一行代码是否被修改删除或者添加过， 支持的版本控制系统(vcs: version control system )有git, svn, hg等.
 * VCS Gutter对于git来说就相当于git Gutter, 安装VCS Gutter之后，就可以remove 掉 Git Gutter了.
 * 安装完成之后，需要修改用户配置文件，修改后的VCS Gutter 用户配置文件如下:
