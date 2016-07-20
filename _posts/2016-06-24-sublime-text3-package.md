@@ -25,6 +25,7 @@ tags: sublime package
 	 "live_mode": false,
 }
 ```
+
 > 主要是配置各个版本控制系统的可执行命令的路径，以及diff路径，如上是我的配置文件，windows系统上面安装了babun(windows系统上的linux shell软件)， 可执行文件都配置的是babun相关的路径。
 
 ### 问题
