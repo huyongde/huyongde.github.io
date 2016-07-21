@@ -31,6 +31,40 @@ tags: sublime package
 
 > 主要是配置各个版本控制系统的可执行命令的路径，以及diff路径，如上是我的配置文件，windows系统上面安装了babun(windows系统上的linux shell软件)， 可执行文件都配置的是babun相关的路径。
 
+### Sublime Linter 
+
+* 具体的安装参考[官网](http://www.sublimelinter.com/en/latest/installation.html)
+* sublime linter 是sublime 用来做代码检查用的，可以发现代码存在的语法等的问题， **安装了Sublime Linter之后，需要为每一种语言单独安装语言特有的linter **
+比如php语言需要安装[SublimeLinter-PHP](https://github.com/SublimeLinter/SublimeLinter-php), SublimeLinter-PHP这个插件是通过` php -l `来实现语法检查的。
+* 安装完sublime linter 以及sublimeLinter-php之后，出现php语法错误后，sublime编辑器会给如下提示:
+![错误提示](/image/sublimeLinter.png)
+
+>其中，右上方提示了具体的错误信息，左下方红点表示错误发生的位置， 红点上方的绿色的加好是Vcs Gutter显示的代码基于当前版本所做的修改。
+
+### SublimeCodeIntel
+
+* 此插件是sublime 用来做代码补全的, codeIntel 全称code intelligence 代码智能的意思 
+* 安装参考[SublimeCodeIntel](https://github.com/SublimeCodeIntel/SublimeCodeIntel), 安装完成之后，做了如下配置：
+
+```
+{
+    "PHP": {
+        "php": "/cygdrive/c/wamp64/bin/php/php7.0.0/php",
+        "phpExtraPaths": [],
+        "phpConfigFile": "/cygdrive/c/wamp64/bin/php/php7.0.0/php.ini"
+    },
+    "JavaScript": {
+        "javascriptExtraPaths": []
+    },
+    "Python": {
+        "python": "C:\\Users\\Administrator\\.babun\\cygwin\\bin\\python",
+        "pythonExtraPaths": []
+    },
+}
+
+``` 
+
+
 ### 问题
 1. 安装完成SublimeCodeIntel后，使用时不成功，通过`C+~` 调出来命名窗口，发现 **OSError: [WinError 6] 句柄无效** 的错误。 这个问题google了下，stackoverflow上面有个相关的解决方案 [链接](http://stackoverflow.com/questions/3028786/how-can-i-fix-error-6-the-handle-is-invalid-with-pyserial)，说是python安装的版本不对.
 我的系统是win7 64, 需要安装64位的python, 下载了[安装包](https://www.python.org/ftp/python/2.7.12/python-2.7.12rc1.amd64.msi)
