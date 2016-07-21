@@ -1,6 +1,6 @@
 ---
 layout: post
-title: sublime text 3  扩展包安装遇到的问题
+title: sublime text 3  扩展包安装以及遇到的问题
 tags: sublime package
 ---
 
