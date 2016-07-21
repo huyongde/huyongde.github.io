@@ -41,6 +41,51 @@ tags: sublime package
 
 >其中，右上方提示了具体的错误信息，左下方红点表示错误发生的位置， 红点上方的绿色的加好是Vcs Gutter显示的代码基于当前版本所做的修改。
 
+
+* sublime linter 安装完成之后，可以再安装，sublimeLinter-phpcs以及sublimeLinter-phpmd, 分别是php的code sniffer以及mess detector
+    * phpcs 根据PHP代码标准(PSR: PHP Standards Recommendations )来检查代码是否符合标准, 详细的各种php代码标准参考[psr](http://www.php-fig.org/psr/).
+    * phpmd 是根据某些规则来检查你的代码是否符合规则，比如说函数和变量的命名是否合理，if else 使用是否合理，定义的变量是否使用等的规则，详情请参考[phpmd.org](https://phpmd.org/rules/index.html).
+
+* package control 安装了sublimeLinter-phpcs 以及sublimeLinter-phpmd之后，需要用pear来安装它们所以依赖的php相关的可执行文件，phpcs以及phpmd， 安装命令如下:
+    * 安装phpmd: 
+    
+    ```
+    pear channel-discover pear.phpmd.org
+    pear channel-discover pear.pdepend.org
+    pear install --alldeps phpmd/PHP_PMD
+    ```
+    
+    * 安装phpcs： `pear install --alldeps PHP_CodeSniffer`
+
+* phpcs和phpmd搞定之后，好多不符合规范的提示，如下图，闹心啊!!!
+![](/image/phpcs-phpmd.png)
+
+> 太多格式不符合要求了。闹心啊闹心，最后把phpcs直接禁止了，只留了phpmd的一些规则检查，相关的linter配置如下（是sublimeLinter的配置，phpcs和phpmd貌似没有单独的配置）:
+
+```
+  "linters": {
+            "php": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
+            "phpcs": {
+                "@disable": true,
+                "args": [],
+                "cmd": "C:\\pear\\phpcs.bat",
+                "excludes": [],
+                "standard": "PSR1"
+            },
+            "phpmd": {
+                "@disable": false,
+                "args": [],
+                "cmd": "C:\\pear\\phpmd.bat",
+                "excludes": [],
+                "rulesets": "naming,unusedcode"
+            }
+        },
+```
+
 ### SublimeCodeIntel
 
 * 此插件是sublime 用来做代码补全的, codeIntel 全称code intelligence 代码智能的意思 
