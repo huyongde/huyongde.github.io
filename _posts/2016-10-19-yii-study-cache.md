@@ -112,3 +112,4 @@ if(isset($cache,$cacheKey))
 
 ### 参考
 * [Yii 官网文档](http://www.yiiframework.com/doc/api/1.1/)
+* [stack overflow ](http://stackoverflow.com/questions/23466159/the-schema-caching-in-yii)
