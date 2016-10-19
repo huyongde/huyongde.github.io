@@ -3,6 +3,9 @@ layout: post
 title: yii table schema cache and query result cache
 tags: schema cache query 
 ---
+### 简介
+
+本文主要介绍YII框架性能优化相关的两个方法：数据库表元信息cache以及数据库查询结果cache。
 
 ### Yii db schema cache 相关： 
 * Yii框架可能比较慢的原因: 
@@ -106,3 +109,6 @@ if(isset($cache,$cacheKey))
 ```
 
 
+
+### 参考
+* [Yii 官网文档](http://www.yiiframework.com/doc/api/1.1/)
