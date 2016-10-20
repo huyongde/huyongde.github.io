@@ -105,7 +105,7 @@ if(isset($cache,$cacheKey))
 ```
     $sql = '执行比较耗时的sql';
     $dependency = new CDbCacheDependency('比较简单的会影响到比较耗时sql的sql');
-    $rows = Mod::app()->db->cache(1000, $dependency)->createCommand($sql)->queryAll();
+    $rows = Yii::app()->db->cache(1000, $dependency)->createCommand($sql)->queryAll();
 ```
 
 
