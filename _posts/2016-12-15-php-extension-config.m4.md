@@ -43,7 +43,7 @@ if test "$PHP_EXAMPLE" != "no"; then
       dnl 添加所需的扩展库及扩展库所在目录
       PHP_EVAL_LIBLINE($EXAMPLE_LIBS, EXAMPLE_SHARED_LIBADD)
     ],[
-      dnl 跳出
+      dnl 打印错误信息，并推出./configure
       AC_MSG_ERROR([example library not found. Check config.log for more information.])
     ],[$EXAMPLE_LIBS]
     )
@@ -100,3 +100,4 @@ fi
 
 ### 参考
 * [PHP骇客 之 与UNIX构建系统交互: config.m4](http://php.net/manual/zh/internals2.buildsys.configunix.php)
+* [autoconf manual](https://www.gnu.org/software/autoconf/manual/autoconf-2.60/autoconf.html)
