@@ -88,9 +88,9 @@ fi
 
 * dnl 表示注释
 * PHP_ARG_WITH | PHP_ARG_ENABLE： 有三个参数，第一个参数是我们的扩展名(注意不用加引号)，第二个参数是当我们运行./configure脚本时显示的内容，最后一个参数则是我们在调用./configure --help时显示的帮助信息
-* AC_MSG_*: AC 是autoconf的缩写，* 可以为：checking, result, notice, error, failure, warn。AC_MSG_* 均为autoconf宏。
+* AC_MSG_\*: AC 是autoconf的缩写，\* 可以为：checking, result, notice, error, failure, warn。AC_MSG_* 均为autoconf宏。
     *  AC_MSG_CHECKING()，一个 autoconf 宏，输出一行标准的如 "checking for ..." 的信息
-    * AC_MSG_* 每个宏的具体用处可以参考[autoconf printing messages](https://www.gnu.org/software/autoconf/manual/autoconf-2.60/autoconf.html)
+    * AC_MSG_\* 每个宏的具体用处可以参考[autoconf printing messages](https://www.gnu.org/software/autoconf/manual/autoconf-2.60/autoconf.html)
 
 * PHP_ADD_INCLUDE: PHP_ADD_INCLUDE() 和 PHP_ADD_LIBRARY_WITH_PATH() 用于构建额外功能所需的头文件路径、库文件路径和库标志
 * PHP_CHECK_LIBRARY，这是 PHP 构建系统提供的一个宏，包装了 autoconf 的 AC_CHECK_LIB() 函数， 用来检查扩展库是否正常工作。PHP_CHECK_LIBRARY()尝试编译、链接和执行程序，在第一个参数指定的库中调用由第二个参数指定的符号，使用第五个参数给出的字符串作为额外的链接选项。如果尝试成功了，则运行第三个参数所给出的脚本。此脚本从 example-config 所提供的原始的选项字符串中取出头文件路径、库文件路径和库名称，告诉 PHP 构建系统。如果尝试失败，脚本则运行第四个参数中的脚本。此时调用 AC_MSG_ERROR() 来中断程序执行
@@ -99,4 +99,4 @@ fi
 * PHP_NEW_EXTENSION: 告诉构建系统去构建扩展本身和被其用到的文件, 第一个参数是扩展的名称，也就是config.m4所在的目录名称, 第二个参数是做为扩展的一部分的所有源文件的列表。参见 PHP_ADD_BUILD_DIR() 以获取将在子目录中源文件添加到构建过程的相关信息。第三个参数总是 $ext_shared， 当为了 --with-example[=FILE] 而调用 PHP_ARG_WITH()时，由 configure 决定参数的值。第四个参数指定一个“SAPI 类”，仅用于专门需要 CGI 或 CLI SAPI 的扩展。其他情况下应留空。第五个参数指定了构建时要加入 CFLAGS 的标志列表。第六个参数是一个布尔值，为 "yes" 时会强迫整个扩展使用 $CXX 代替 $CC 来构建。第三个以后的所有参数都是可选的
 
 ### 参考
-* [php.net 之 与UNIX构建系统交互: config.m4](http://php.net/manual/zh/internals2.buildsys.configunix.php)
+* [PHP骇客 之 与UNIX构建系统交互: config.m4](http://php.net/manual/zh/internals2.buildsys.configunix.php)
