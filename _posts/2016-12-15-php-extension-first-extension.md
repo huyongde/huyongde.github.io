@@ -7,12 +7,14 @@ tags: php extension
 ### 开发PHP第一个扩展
 #### 1 使用ext_skel 生成扩展的骨架
 下载php源码，源码的ext目录下有个shell脚本`ext_skel`, 此脚本是用来生成PHP扩展框架的， 使用示例：
+
 ```
 cd ./ext/ ;
 ./ext_skel --extname=myext // 生成名为myext的扩展
 ```
 
 生成之后目录结构如下：
+
 ```
 $ tree .
 .
@@ -29,6 +31,7 @@ $ tree .
 1 directory, 8 files
 
 ```
+
 #### 2 修改配置文件config.m4
 需要把配置文件中相关的注释去掉，去掉注释的地方如下:
 ```
