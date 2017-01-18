@@ -26,7 +26,12 @@ public function missingAction($actionID)
 
 actionID 变量直接返回可能会导致xss攻击
 比如下列请求， 
-`http://yourhost/api/albumPic/getClassPhotoList<a hREF=feed:javascript&colon;prompt(972840)>` 直接用actionID变量组成异常信息抛出到前端的话，可能会带来xss攻击， 可以对actionid做一下处理，会避免xss攻击
+
+```
+http://yourhost/api/albumPic/getClassPhotoList<a hREF=feed:javascript&colon;prompt(972840)>
+```
+
+直接用actionID变量组成异常信息抛出到前端的话，可能会带来xss攻击， 可以对actionid做一下处理，会避免xss攻击
  代码修改为：
 
 ```php
@@ -44,7 +49,7 @@ throw new CHttpException(404,Yii::t('yii','The system is unable to find the requ
 预防策略： 对用户输入使用函数strip_tags(), htmlspecialchars()以及htmlentities()进行过滤。
 
 #### 2. mysql数据注入
-预防策略： 
+预防策略：
 
 * addslashes() 对字符串进行特殊字符的处理，
 * mysql_escape_string(), mysql_real_escape_string()对sql语句进行特殊字符转义处理， mysql_real_escape_string转义sql字符串中特殊字符时还会考虑到当前链接的字符集， php 4.3版本以后引入的。
