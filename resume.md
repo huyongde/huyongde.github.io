@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 简历
-permalink: /about.me
+permalink: /resume
 ---
 
 #### 胡永德 | 男 | 1989年1月
