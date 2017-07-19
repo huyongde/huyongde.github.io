@@ -145,3 +145,53 @@ static inline void php_search_array(INTERNAL_FUNCTION_PARAMETERS, int behavior)
 
 
 从源码可以看到in_array时间复杂度确实是O(n)。
+
+#### isset 和 in_array性能比较
+
+简单的测试代码如下： 
+
+```php
+function testInArray($arr) {
+    for($i=0; $i<10000; $i++) {
+        $rand = rand(0, 10000);
+        in_array($rand, $arr);
+
+    }
+
+}
+function testIsset($arr) {
+    for($i=0; $i<10000; $i++) {
+        $rand = rand(0, 10000);
+        isset($arr[$rand]);
+
+    }
+
+}
+$arr = array();
+for($i=0; $i<10000; $i++) {
+    array_push($arr, $i);
+}
+$arr2 = array();
+for($i=0; $i<10000; $i++) {
+    $arr2[$i] = 1;
+}
+
+$start = microtime(true);
+testInArray($arr);
+$start2 = microtime(true);
+testIsset($arr2);
+$end = microtime(true);
+echo "in_array time: " . ($start2 - $start) * 1000 . "\n";
+echo "isset time: " . ($end - $start2) * 1000 . "\n";
+
+```
+
+测试结果输出结果如下： 
+
+```
+in_array time: 717.60702133179
+isset time: 44.092893600464
+```
+
+
+时间单位毫秒， 差别还是挺明显的。
