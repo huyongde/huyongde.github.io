@@ -10,9 +10,6 @@ tags: php in_array isset
 工作中通过xhprof分析接口性能，在xhprof产生的结果中发现如下一条
 
 Function Name |  Calls |  Calls% | Incl. Wall Time(microsec) | IWall% | Excl. Wall Time(microsec)
-
---|--|--|--|--|--
-
 in_array  |  6,115  | 36.9%  | 1,857,818  | 43.6%  | 1,857,818 |
 
 
