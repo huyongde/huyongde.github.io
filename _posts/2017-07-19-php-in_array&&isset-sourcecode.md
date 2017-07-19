@@ -29,13 +29,13 @@ in_array  |  6,115  | 36.9%  | 1,857,818  | 43.6%  | 1,857,818 |
 ##### 函数实现入口在`php-src/ext/standard/array.c`如下：
 
 ```c
-/* {{{ proto bool in_array(mixed needle, array haystack [, bool strict])
+/* proto bool in_array(mixed needle, array haystack [, bool strict])
    Checks if the given value exists in the array */
 PHP_FUNCTION(in_array)
 {
     php_search_array(INTERNAL_FUNCTION_PARAM_PASSTHRU, 0);
 }
-/* }}} */
+
 
 ```
 ##### 主要实现逻辑都在php_search_array中， 代码如下：
@@ -138,7 +138,7 @@ static inline void php_search_array(INTERNAL_FUNCTION_PARAMETERS, int behavior) 
 
     RETURN_FALSE;
 }
-/* }}} */
+
 ```
 
 ##### php_search_array 中一些主要的宏或者函数介绍如下
