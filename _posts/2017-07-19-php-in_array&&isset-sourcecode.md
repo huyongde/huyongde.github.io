@@ -45,7 +45,7 @@ PHP_FUNCTION(in_array)
  * 0 = return boolean  in_array时 behavior为0
  * 1 = return key array_search 时behavior为1
  */
-static inline void php_search_array(INTERNAL_FUNCTION_PARAMETERS, int behavior) /* {{{ */
+static inline void php_search_array(INTERNAL_FUNCTION_PARAMETERS, int behavior)
 {
     zval *value,                /* value to check for */
          *array,                /* array to check in */
