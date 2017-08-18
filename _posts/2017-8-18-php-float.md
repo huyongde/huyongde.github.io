@@ -262,5 +262,6 @@ PHP Notice:  printf(): Requested precision of 55 digits was truncated to PHP max
 2. i 为1时，输出的是0.58四舍五入为只有一位小数的值，
 3. i 为17时才出现了0.57， 说明从16位之前2位之后的所有位四舍五入之后都是0.58
 
+printf在输出浮点数时，会根据设定的位数来做四舍五入。
 
 > 代码仅仅演示使用，文章内容不保证没有问题， 仅供参考。 欢迎交流指正。
