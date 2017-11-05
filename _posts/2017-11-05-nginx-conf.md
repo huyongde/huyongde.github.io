@@ -9,10 +9,13 @@ tags: nginx
 
 > 学习连接： http://openresty.org/cn/ebooks.html
 
-###  nginx 变量
 
 #### 0. 变量分类： 
-    用户自定义变量， 内建变量
+
+* 用户自定义变量
+* 内建变量
+
+
 #### 1. nginx变量创建赋值作用域
 
 nginx配置里面的变量是nginx服务启动时创建，   请求到达时进行赋值， 每个请求都有一个变量的副本， 请求内部跳转时变量可以跨location使用。也就是说变量的生命期是和请求绑定的， 可以跨多个location。
@@ -24,11 +27,14 @@ nginx配置里面的变量是nginx服务启动时创建，   请求到达时进�
 
 > echo_location 或者echo_location_async 发起的子请求， 主请求和子请求都会有自己的变量副本， 不会共用。
 > auth_request 发起的子请求， 主请求和子请求会公用变量副本， 共享变量空间。
+
 #### 2.  内建变量
+
 * $request_uri 包含参数的url,
 * $uri 不包含参数
 
 #### 2.1 xxxx变量群
+
 * $arg_xxxx 表示xxxx参数，  xxxx字符串不区分大小写
 * $http_xxxx, xxxx不区分大小写 用来获取请求头中的xxxx header, 
 * $cookie_xxxx ， 不区分大小写 用来获取请求中的cookie xxxx的值
@@ -39,6 +45,7 @@ nginx配置里面的变量是nginx服务启动时创建，   请求到达时进�
 设置和读取变量都封装相应的handler
 
 #### 3 nginx配置中指令执行顺序
+
 3.1 nginx对处理请求分为十几个阶段(phase)
 指令执行顺序依赖于指令属于哪个阶段， nginx 请求的三个主要阶段，先后顺序是rewrite, access, content
 
@@ -47,23 +54,22 @@ nginx配置里面的变量是nginx服务启动时创建，   请求到达时进�
 3.3 content阶段存在三个垫底的静态资源服务模块ngx_index, ngx_autoindex 以及ngx_static。
 
 3.4 Nginx处理请求的11个阶段： 
-1. post-read 阶段， 此阶段存在的指令有ngx_realip模块的指令： set_real_ip_from, 以及 real_ip_header, 这两个指令配合使用， 使用示例：
 
-```
-set_real_ip_from 127.0.0.1;
-real_ip_header X-Real-ip;
-```
+1. post-read 阶段， 此阶段存在的指令有ngx_realip模块的指令： set_real_ip_from, 以及 real_ip_header, 这两个指令配合使用， 使用示例：
+` set_real_ip_from 127.0.0.1; real_ip_header X-Real-ip; `
 把来自127.0.0.1的请求的remote_addr 设置为header x-real-ip的值。 后续的阶段或者后端CGI读取的remote_addr都是post-read修改之后的值。 
->注意 只有在x-real-ip header的值是合法ip时， 才会在post_read阶段替换remote_addr
+""注意 只有在x-real-ip header的值是合法ip时， 才会在post_read阶段替换remote_addr""
 
 2. server-rewrite 阶段， ngx_rewrite模块的指令直接在server模块中调用就属于server-rewrite阶段， 比如set, rewrite指令
 3. find-config阶段， 此阶段会完成请求和location的配对。
-* rewrite阶段， 请求和某个location配对之后， 便是rewrite阶段， ngx_rewrite模块的指令运行在location中便是在rewrite阶段， 以及ngx_lua的set_by_lua， rewrite_by_lua。
-4. post-rewrite阶段， rewrite之后是post-rewrite阶段，来做内部跳转，内部跳转的本质是把请求回退到find-config阶段， 对重写后的请求继续和location进行配对
-5. preaccess阶段， post-rewrite 之后便是preaccess 阶段， ngx_limit_req和ngx_limit_zone模块的指令就运行在preaccessJ阶段
-6. access 阶段， preaccess之后便是access阶段
-7. post-access阶段，satisfy 作用于post-access阶段， satisfy指令用来配合access阶段的控制命令来使用。
-8. try-files阶段，此阶段主要是来实现try-files指令， 
+4. rewrite阶段， 请求和某个location配对之后， 便是rewrite阶段， ngx_rewrite模块的指令运行在location中便是在rewrite阶段， 以及ngx_lua的set_by_lua， rewrite_by_lua。
+5. post-rewrite阶段， rewrite之后是post-rewrite阶段，来做内部跳转，内部跳转的本质是把请求回退到find-config阶段， 对重写后的请求继续和location进行配对
+6. preaccess阶段， post-rewrite 之后便是preaccess 阶段， ngx_limit_req和ngx_limit_zone模块的指令就运行在preaccessJ阶段
+7. access 阶段， preaccess之后便是access阶段
+8. post-access阶段，satisfy 作用于post-access阶段， satisfy指令用来配合access阶段的控制命令来使用。
+9. try-files阶段，此阶段主要是来实现try-files指令， 
+10. content
+11. log
 
 > try_files 指令接受两个以上任意数量的参数，每个参数都指定了一个 URI. 这里假设配置了 N 个参数，则 Nginx 会在 try-files 阶段，依次把前 N-1 个参数映射为文件系统上的对象（文件或者目录（/结尾会查找目录， 非/结尾会查找文件），然后检查这些对象是否存在。一旦 Nginx 发现某个文件系统对象存在，就会在 try-files 阶段把当前请求的 URI 改写为该对象所对应的参数 URI（但不会包含末尾的斜杠字符，也不会发生 “内部跳转”）。如果前 N-1 个参数所对应的文件系统对象都不存在，try-files 阶段就会立即发起“内部跳转”到最后一个参数（即第 N 个参数）所指定的 URI.
 
