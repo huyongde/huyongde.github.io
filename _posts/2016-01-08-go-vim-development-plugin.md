@@ -134,5 +134,21 @@ let g:tagbar_type_go = {
 
 ```
 
+### godef遇到的问题
+
+##### 问题内容：
+
+```
+Error detected while processing function GodefUnderCursor[10]..Godef:
+line   21:
+E926: Current location list was changed
+```
+
+##### 解决方法：
+
+> 升级syntastic 到最新代码， 设置，let g:syntastic_check_on_open = 0 为0 可以解决vim中golang代码跳转的问题
+
+
 **暂时这么多，后续再补充**
+
 
