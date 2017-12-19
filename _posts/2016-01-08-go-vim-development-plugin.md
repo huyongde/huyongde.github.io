@@ -4,18 +4,18 @@ title: vim go 开发环境配置
 tags: go vim plugin
 ---
 
-##参考
+## 参考
 * [goweb 编程-go开发工具](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.4.md)
 * [配置vim go 开发环境](http://blog.kissdata.com/2014/06/18/vim-golang.html)
 
 
-##简介
+## 简介
     搭建vim 开发golang的环境,作为一个初级vimer，慢慢向高级迈进。
 
-####0.vim插件管理工具 vundle
+#### 0.vim插件管理工具 vundle
 vundle 安装和使用，参考[vundle 管理vim插件](http://huyongde.github.io/2016/01/02/vim-plugin-bundler-vundle.html)
 
-####0.1 go相关tools安装
+#### 0.1 go相关tools安装
 
 
 通过vim中`:GoInstallBinaries` 来安装go开发相关的tools, （GoInstallBinaries 依赖mercurial需要先命令行安装mercurial, mercurial是google开发的类似于svn，git的代码托管服务）
@@ -34,7 +34,7 @@ rwxr-xr-x  1 huyongde  staff   3.6M  1  8 10:27 gotags
 -rwxr-xr-x  1 huyongde  staff    10M  1  8 10:18 gocode
 -rwxr-xr-x  1 huyongde  staff   5.0M  1  8 02:48 goimports
 ```
-##1.vim go 插件
+## 1.vim go 插件
 * [vim-godef github 详细介绍](https://github.com/dgryski/vim-godef)  此插件依赖GoInstallBinaries安装的godef, vimrc需要加的配置 `Bundle 'dgryski/vim-godef'` ,之后可以打开go文件，把光标移动到指定函数就可以使用vim normal模式下的gd命令查看对应函数的定义了。
 godef显示方式配置，在vimrc中加入:
 
@@ -83,7 +83,7 @@ let g:tagbar_type_go = {
     \ }
 ```
 
-####目前我的vim为go的配置如下:
+#### 目前我的vim为go的配置如下:
 
 ```
 """"""set for go start
