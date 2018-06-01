@@ -37,7 +37,7 @@ permalink: /plan/
 
 ### Cache 
 * [redisbook](http://redisbook.readthedocs.org/en/latest/index.html)
-* [memcache cas(check and save)](http://blog.csdn.net/ywh147/article/details/9385137)
+* [memcache cas(compare and swap)](http://blog.csdn.net/ywh147/article/details/9385137)
 
 ### 其他
 * IP 查询地域运营商的实现
