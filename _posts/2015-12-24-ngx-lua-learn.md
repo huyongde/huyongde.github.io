@@ -7,7 +7,7 @@ tags: shell program nginx lua
 [**参考**](http://www.ttlsa.com/nginx/nginx-lua/)
 
 
-###1.1. 介绍
+### 1.1. 介绍
 
 * ngx_lua – 把lua语言嵌入nginx中,使其支持lua来快速开发基于nginx下的业务逻辑
 该模块不在nginx源码包中，需自行下载编译安装。使用lua 5.1（目前不支持lua 5.2） 或 luajit 2.0 。
@@ -20,8 +20,8 @@ chaoslawful Taobao, Alibaba Grp.
 agentzh CloudFlare
 https://github.com/chaoslawful/lua-nginx-module
 
-###1.2. 安装
-####1.2.1. 安装JIT平台
+### 1.2. 安装
+#### 1.2.1. 安装JIT平台
 
 通常，程序有两种运行方式：静态编译与动态直译。
 静态编译的程序在执行前全部被翻译为机器码，而动态直译执行的则是一句一句边运行边翻译。
@@ -33,7 +33,7 @@ JAVA、.NET 实现都使用即时编译以提供高速的代码执行。
 
 *** 在nginx.conf中添加"lua_code_cache on/off"，来开启是否将代码缓存，所以每次变更".lua"文件时，必须reload nginx才可生效。仅针对"set_by_lua_file, content_by_lua_file, rewrite_by_lua_file, and access_by_lua_file"有效, 因为其他为写在配置文件中，更改代码也必须reload nginx。在生产环境下，不能禁用cache。同时在lua代码中使用"dofile" 或 "loadfie" 来加载外部lua脚本将不会对它进行缓存，应该使用"require"来代替。禁用cache，当且仅当在调式代码下。 ***
 
-#####LuaJIT
+##### LuaJIT
 luajit 是一个利用JIT编译技术把Lua脚本直接编译成机器码由CPU运行
 版本：2.0 与 2.1
 当前稳定版本为 2.0。
@@ -56,7 +56,7 @@ export LUAJIT_LIB=/usr/local/luajit/lib
 export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
 
 ```
-####1.2.2. NDK与Lua_module
+#### 1.2.2. NDK与Lua_module
 
 NDK(Nginx Development Kit)模块是一个拓展Nginx服务器核心功能的模块
 第三方模块开发可以基于它来快速实现
@@ -69,7 +69,7 @@ tar xzvf v0.2.18
 tar xzvf v0.8.6
 
 ```
-####1.2.3. 编译安装Nginx
+#### 1.2.3. 编译安装Nginx
 
 ```
 wget -c http://nginx.org/download/nginx-1.4.2.tar.gz
@@ -79,8 +79,8 @@ cd nginx-1.4.2
 make
 make install
 ```
-###1.3. 嵌入Lua后
-####1.3.1. 检测版本
+### 1.3. 嵌入Lua后
+#### 1.3.1. 检测版本
 自己编译官方的 nginx 源码包，只需事前指定 LUAJIT_INC 和 LUAJIT_LIB 这两个环境变量。
 验证你的 LuaJIT 是否生效，可以通过下面这个接口：
 
@@ -106,7 +106,7 @@ libluajit-5.1.so.2 => /usr/local/luajit/lib/libluajit-5.1.so.2 (0x00007f48e408b0
 [root@limq5 sbin]#
 
 ```
-####1.3.2. Hello,World
+#### 1.3.2. Hello,World
 在nginx.conf中的service添加一个location。
 
 ```
@@ -149,7 +149,7 @@ lua_package_path ‘/opt/17173/nginx-ds/conf/lua/?.lua;;’
 lua_package_cpath ‘/opt/17173/nginx-ds/conf/lua/lib/?.so;/usr/local/lib/?.?;;’;
 其中”;;”代表原先查找范围。
 ```
-####1.3.3. 同步形式，异步执行
+#### 1.3.3. 同步形式，异步执行
 我们假定,同时要访问多个数据源，而且,查询是没有依赖关系,那我们就可以同时发出请求
 这样我总的延时, 是我所有请求中最慢的一个所用时间,而不是原先的所有请求用时的叠加
 
@@ -166,8 +166,8 @@ location = /api {
 ```
 `ngx.location.capture` 无法跨server进行处理, 只能在同一个server下的不同location。
 
-###1.4. Nginx与Lua执行顺序
-####1.4.1. Nginx顺序
+### 1.4. Nginx与Lua执行顺序
+#### 1.4.1. Nginx顺序
 Nginx 处理每一个用户请求时，都是按照若干个不同阶段（phase）依次处理的，而不是根据配置文件上的顺序。
 Nginx 处理请求的过程一共划分为 11 个阶段，按照执行顺序依次是
 
@@ -221,7 +221,7 @@ http://tengine.taobao.org/book/
 作者的google论坛：
 https://groups.google.com/forum/#!forum/openresty
 
-####1.4.2. Lua顺序
+#### 1.4.2. Lua顺序
 Nginx下Lua处理阶段与使用范围：
 
 ```
