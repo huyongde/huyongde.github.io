@@ -90,17 +90,19 @@ var jiathis_config = {data_track_clickback:'true'};
 </section>
 
 <section id="comments">
-    <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-   <!-- <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141991"></script> -->
-   <!--高速版-->
-<div id="SOHUCS" sid="codecc"></div>
-<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-window.changyan.api.config({
-appid: 'cytJQBOGQ',
-conf: 'prod_4100522535c432810f100994a630bb36'
-});
+    <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '<%= page.date %>', // 可选。默认为 location.href
+  owner: 'huyongde',
+  repo: 'gitcomment',
+  oauth: {
+    client_id: 'f307adeeda36375f022c',
+    client_secret: 'c924dd7a6d707a281d634c006f1c995582da8bc1',
+  },
+})
+gitment.render('container')
 </script>
-    <!-- UY END -->
 </section>
