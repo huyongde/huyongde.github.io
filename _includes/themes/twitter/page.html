@@ -13,8 +13,18 @@
 </section>
 
 <section id="comments">
-    <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141991"></script>
-    <!-- UY END -->
+    <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'huyongde',
+  repo: 'gitcomment',
+  oauth: {
+    client_id: 'f307adeeda36375f022c',
+    client_secret: 'c924dd7a6d707a281d634c006f1c995582da8bc1',
+  },
+})
+gitment.render('container')
+</script>
 </section>
