@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "两个链表相交，求交点, leetcode 160"
+title:  "leetcode 160 两个链表相交，求交点"
 tags: leetcode list 
 ---
 
