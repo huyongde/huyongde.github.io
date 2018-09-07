@@ -28,7 +28,7 @@ B:     b1 → b2 → b3
 * 可假定整个链表结构中没有循环。
 * 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
 
-#### 分析
+#### 解法1
 题目拆解为2步
 1. 判断是否有交点
 2. 有交点的话，计算出来长度差m，较长链表先走m, 然后一起走，第一个相同的节点即是交点
@@ -86,7 +86,27 @@ public:
 };
 
 ```
+#### 解法2
+分四种情况来解析解法2(先看下代码，再来看分析)
 
+1. A B链表长度相同，不想交，直接遍历到最后，p1==p2==NULL 返回NULL
+2. A B链表长度相同，相交, 直接遍历到p1==p2!=NULL 返回
+3. A B链表长度不同,长度分别为l1, l2，不想交，第一次遍历，比如A链表长，则B链表p2先==NULL, 
+p2跳到A链表头开始遍历，此时p1,p2均在遍历A链表，再遍历l1-l2次, p1==NULL, p1跳到B链表头，
+此时p1, p2 后面的链表长度相等，重回1，2两个case.
 
-
-
+#### 代码(c++)
+```
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *p1 = headA;
+        ListNode *p2 = headB;
+        while(p1!=p2){
+            p1 = (p1==NULL ? headB : p1->next);
+            p2 = (p2==NULL ? headA : p2->next);
+        }
+        return p1;
+    }
+};
+```
