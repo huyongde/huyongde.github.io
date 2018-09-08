@@ -9,7 +9,7 @@ tags: leetcode list
 
 例如，下面的两个链表：
 
-```C
+```
 A:          a1 → a2
                    ↘
                      c1 → c2 → c3
@@ -35,7 +35,7 @@ B:     b1 → b2 → b3
 
 #### 代码(c++)
 
-```
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -97,7 +97,7 @@ p2跳到A链表头开始遍历，此时p1,p2均在遍历A链表，再遍历l1-l2
 
 #### 代码(c++)
 
-```C
+```cpp
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
