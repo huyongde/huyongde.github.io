@@ -1,11 +1,10 @@
 ---
 layout: post
 title: "leetcode 2 两数相加"
-tags: leetcode list
+tags: leetcode mid_list
 ---
 
 ### 题目信息
-
 
 给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。
 
