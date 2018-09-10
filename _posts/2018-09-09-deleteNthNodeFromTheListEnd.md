@@ -1,6 +1,6 @@
 ---
 layout: post
-titile: "leetcode 19. 删除链表的倒数第N个节点"
+title: "leetcode 19. 删除链表的倒数第N个节点"
 tags: mid_list leetcode
 ---
 
