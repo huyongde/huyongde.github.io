@@ -31,8 +31,7 @@ Context:    http, server, location
 
 ```
 Syntax: proxy_next_upstream_timeout time;
-Default:    
-proxy_next_upstream_timeout 0;
+Default:    proxy_next_upstream_timeout 0;
 Context:    http, server, location
 This directive appeared in version 1.7.5.
 ```
@@ -42,8 +41,7 @@ proxy_next_upstream_timeout用来设定重试时的超时时间，默认值时0�
 
 ```
 Syntax: proxy_next_upstream_tries number;
-Default:    
-proxy_next_upstream_tries 0;
+Default:    proxy_next_upstream_tries 0;
 Context:    http, server, location
 This directive appeared in version 1.7.5.
 ```
