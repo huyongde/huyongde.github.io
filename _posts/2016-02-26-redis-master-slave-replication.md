@@ -4,7 +4,7 @@ title: redis主从复制介绍
 tags: redis replication
 ---
 
-###简介
+### 简介
 Redis的replication机制允许slave从master那里通过网络传输拷贝到完整的数据备份。具有以下特点：
 
 1. 异步复制。从2.8版本开始，slave能不时地从master那里获取到数据。
@@ -18,7 +18,7 @@ Redis的replication机制允许slave从master那里通过网络传输拷贝到�
 不过需要注意的是，在这个用例中，必须确保master不会自动启动,具体原因请继续看下面的内容。
 
 
-###redis master关闭持久化可能存在的问题
+### redis master关闭持久化可能存在的问题
 
 > 当有需要使用到replication机制时，一般都会强烈建议把master的持久化开关打开。即使为了避免持久化带来的延迟影响，不把持久化开关打开，那么也应该把master配置为不会自动启动的。
 
@@ -37,7 +37,7 @@ Redis的replication机制允许slave从master那里通过网络传输拷贝到�
 ```
 **当数据的安全很重要、持久化开关被关闭并且有replication发生的时候，那么应该禁止实例的自启动。**
 
-###redis主从复制(replication)的原理
+### redis主从复制(replication)的原理
 
 1. 如果你为master配置了一个slave，不管这个slave是否是第一次连接上Master，它都会发送一个SYNC命令给master请求复制数据。
 
@@ -50,7 +50,7 @@ Redis的replication机制允许slave从master那里通过网络传输拷贝到�
 
 4. 当master和slave断开重连后，一般都会对整份数据进行复制。但从redis2.8版本开始，支持部分复制。
 
-###master slave的部分复制
+### master slave的部分复制
 
 ```
 从2.8版本开始，slave与master能够在网络连接断开重连后只进行部分数据复制。
@@ -63,7 +63,7 @@ master和它所有的slave都维护了复制的数据下标和master的进程id�
 
 ```
 
-###不需要持久化的replication
+### 不需要持久化的replication
 
 ```
 一般情况下，一次复制需要将内存的数据写到硬盘中，再将数据从硬盘读进内存，再发送给slave。
@@ -73,13 +73,13 @@ Redis2.8版本开始，实验性地加上了无硬盘复制的功能。
 这个功能能将数据从内存中直接发送到slave，而不用经过硬盘的存储。
 不过这个功能目前处于实验阶段，还未正式发布。
 ```
-###其他
+### 其他
 
 1. slaveof master_ip master_Port 来配置slave的master
 2. repl-diskless-sync 来配置不需要持久化的replication
 3. slave-read-only 来配置slave只读
 
 
-###参考
+### 参考
 [深入剖析Redis主从复制](http://daoluan.net/blog/2014/04/22/decode-redis-replication/)
 

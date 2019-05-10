@@ -4,11 +4,11 @@ title: php扩展操作相关的函数
 tags: php extension
 ---
 
-###简介
+### 简介
 
 > 介绍PHP中操作扩展的 相关的函数如dl(), get_loaded_extensions(), get_extension_funcs()等
 
-###函数学习
+### 函数学习
 
 #### 1. dl() 
 
