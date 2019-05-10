@@ -41,11 +41,14 @@ error_page 500 502 503 504 /50x.html;
 
 并且error_page支持通过=号来修改返回码，
 示例:
->error_page 404 =200 /empty.gif;
-
+```
+error_page 404 =200 /empty.gif;
+```
 error_page还支持把uri返回的状态码返回给用户
 示例:
->error_page 404 = /404.php;
+```
+error_page 404 = /404.php;
+```
 
 error_page 允许出现错误时，把请求内部重定向到另一个location, 并且把新location的状态码返回给用户
 示例:
