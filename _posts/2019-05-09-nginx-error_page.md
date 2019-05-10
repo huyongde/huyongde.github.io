@@ -33,8 +33,11 @@ error_page的作用是当请求返回特定状态码时可以通过uri来容错�
 error_page 可以用在http ,server ,location配置块中，以及location的if配置块中
 
 示例:
-> error_page 404             /404.html;
-  error_page 500 502 503 504 /50x.html;
+
+```
+error_page 404             /404.html;
+error_page 500 502 503 504 /50x.html;
+```
 
 并且error_page支持通过=号来修改返回码，
 示例:
@@ -46,7 +49,7 @@ error_page还支持把uri返回的状态码返回给用户
 
 error_page 允许出现错误时，把请求内部重定向到另一个location, 并且把新location的状态码返回给用户
 示例:
->
+```
 location / {
     error_page 404 = @fallback;
 }
@@ -54,9 +57,12 @@ location / {
 location @fallback {
     proxy_pass http://backend;
 }
+```
 
 error_page 同样支持在出错时对请求做跳转
 示例:
-> error_page 403      http://example.com/forbidden.html;
+```
+error_page 403      http://example.com/forbidden.html;
 error_page 404 =301 http://example.com/notfound.html;
+```
 
