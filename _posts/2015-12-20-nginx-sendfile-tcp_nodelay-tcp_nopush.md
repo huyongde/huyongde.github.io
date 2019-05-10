@@ -4,13 +4,13 @@ title: nginx 的 sendfile tcp_nodelay  tcp_nopush 配置详解
 tags: shell  nginx program protocol
 ---
 
-##sendfile
+## sendfile
 
 现在流行的web 服务器里面都提供 sendfile 选项用来提高服务器性能，那到底 sendfile是什么，怎么影响性能的呢？
 
 sendfile实际上是 Linux2.0+以后的推出的一个系统调用，web服务器可以通过调整自身的配置来决定是否利用 sendfile这个系统调用。
 
-####先来看一下不用 sendfile的传统网络传输过程：
+#### 先来看一下不用 sendfile的传统网络传输过程：
 
 ```
 read(file,tmp_buf, len);
@@ -29,7 +29,7 @@ write(socket,tmp_buf, len);
 
 **上面4个步骤有4次上下文切换，有4次拷贝，我们发现如果能减少切换次数和拷贝次数将会有效提升性能。在kernel2.0+ 版本中，系统调用 sendfile() 就是用来简化上面步骤提升性能的。sendfile() 不但能减少切换次数而且还能减少拷贝次数。**
 
-####再来看一下用 sendfile()来进行网络传输的过程：
+#### 再来看一下用 sendfile()来进行网络传输的过程：
 
 ```
 sendfile(socket,file, len);
@@ -43,7 +43,7 @@ sendfile(socket,file, len);
 
 **步骤减少了，切换减少了，拷贝减少了，自然性能就提升了。**
  
-##tcp_nopush
+## tcp_nopush
 官方文档:
 
 ```
@@ -80,7 +80,7 @@ tcp_cork是linux下tcp/ip传输的一个标准了，这个标准的大概的意�
 
 ***对于nginx配置文件中的tcp_nopush，默认就是tcp_nopush,不需要特别指定，这个选项对于www，ftp等大文件很有帮助。***
  
-##tcp_nodelay
+## tcp_nodelay
 
 `TCP_NODELAY`和`TCP_CORK(tcp_nopush)`基本上控制了包的`nagle化`，agle化在这里的含义是采用Nagle算法把较小的包组装为更大的帧。
 
@@ -107,7 +107,7 @@ tcp_cork是linux下tcp/ip传输的一个标准了，这个标准的大概的意�
 应用 Nagle算法在这种情况下就会产生问题。但是，如果你正在发送大量数据，你可以设置TCP_CORK选项禁用Nagle化，其方式正好同 TCP_NODELAY相反（TCP_CORK和 TCP_NODELAY是互相排斥的）。 
 
 
-##参考
+## 参考
 
 [*nginx sendfile tcp_onpush tcp_nodelay 详解*](http://www.2cto.com/os/201306/222745.html)
 

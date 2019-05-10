@@ -52,5 +52,5 @@ proxy_next_upstream_tries 设置可以重试的次数，默认值为0， 表示�
 
 
 ### 参考
-[proxy_next_upstream]: http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_next_upstream 
+[proxy_next_upstream](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_next_upstream)
 
