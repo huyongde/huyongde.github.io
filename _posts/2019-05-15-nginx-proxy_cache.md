@@ -1,5 +1,5 @@
 ---
-title: nginx proxy_cache指令详解
+title: nginx proxy_cache指令集详解
 layout: post
 tags: nginx
 ---
