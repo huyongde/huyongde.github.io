@@ -69,3 +69,5 @@ error_page 403      http://example.com/forbidden.html;
 error_page 404 =301 http://example.com/notfound.html;
 ```
 
+### 参考
+[ngx_http_core_module](http://nginx.org/en/docs/http/ngx_http_core_module.html#error_page)
