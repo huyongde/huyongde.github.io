@@ -11,8 +11,8 @@ tags: nginx
 ### proxy_next_upstream
 ```
 Syntax: proxy_next_upstream error | timeout | invalid_header | http_500 | http_502 | http_503 | http_504 | http_403 | http_404 | http_429 | non_idempotent | off ...;
-Default:    proxy_next_upstream error timeout;
-Context:    http, server, location
+Default: proxy_next_upstream error timeout;
+Context: http, server, location
 
 ```
 1. 当通过proxy模块转发请求时，若后端出现` error | timeout | invalid_header | http_500 | http_502 | http_503 | http_504 | http_403 | http_404 | http_429 | non_idempotent`错误时可以重试到upstream配置的下一个后端上，
@@ -31,8 +31,8 @@ Context:    http, server, location
 
 ```
 Syntax: proxy_next_upstream_timeout time;
-Default:    proxy_next_upstream_timeout 0;
-Context:    http, server, location
+Default: proxy_next_upstream_timeout 0;
+Context: http, server, location
 This directive appeared in version 1.7.5.
 ```
 proxy_next_upstream_timeout用来设定重试时的超时时间，默认值时0，没有超时时间；只在1.7.5以及以后的版本支持
@@ -41,8 +41,8 @@ proxy_next_upstream_timeout用来设定重试时的超时时间，默认值时0�
 
 ```
 Syntax: proxy_next_upstream_tries number;
-Default:    proxy_next_upstream_tries 0;
-Context:    http, server, location
+Default: proxy_next_upstream_tries 0;
+Context: http, server, location
 This directive appeared in version 1.7.5.
 ```
 
