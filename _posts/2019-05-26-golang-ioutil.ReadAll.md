@@ -18,6 +18,6 @@ ctx.Request.Body = rdr
 ```
 
 ### 参考
-[reading-body-of-http-request-without-modifying-request-state)[https://stackoverflow.com/questions/23070876/reading-body-of-http-request-without-modifying-request-state)
+[reading-body-of-http-request-without-modifying-request-state](https://stackoverflow.com/questions/23070876/reading-body-of-http-request-without-modifying-request-state)
 
 [httputil](https://golang.org/src/net/http/httputil/dump.go#L26)
