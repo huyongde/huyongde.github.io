@@ -7,7 +7,7 @@ tags: program go
 
 [***参考***](http://www.cnblogs.com/yjf512/archive/2012/06/14/2549929.html)
 
-###1. 数组 array
+### 1. 数组 array
 
 array是固定长度的数组，这个和C语言中的数组是一样的，使用前必须确定数组长度。
 
@@ -22,7 +22,7 @@ array是固定长度的数组，这个和C语言中的数组是一样的，使�
 
  
 
-#####array的结构如下:
+##### array的结构如下:
 
 len|int|int|
 ----| ---| ---|
@@ -30,13 +30,13 @@ len|int|int|
 
 **len表示数组的长度，后面是存储的实际数据**
 
-###2. 切片 slice
+### 2. 切片 slice
 
 可以参考本站另一个博文  [*slice 学习*](http://huyongde.github.io/2015/12/25/go-slice.html).
 
 这里再介绍两点：
 
-####2.1 slice长度可变
+#### 2.1 slice长度可变
 
 定义完一个slice变量之后，不需要为它的容量而担心，你随时可以往slice里面加数据
 
@@ -52,7 +52,7 @@ m:=[]string{"s","s"} //这个是slice
 
 要记住：array 定长slice不定长,array 定长slice不定长,array 定长slice不定长....  ，重要的事情说多变。
 
-####2.2slice是引用传递, 是指针
+#### 2.2slice是引用传递, 是指针
 
 指针比值可就小多了，因此，我们将slice作为函数参数传递比将array作为函数参数传递会更有性能。
 slice是一个指针，它指向的是一个array结构，它有两个基本函数len和cap。
@@ -62,7 +62,7 @@ slice是一个带有point（指向数组的指针），Len（数组中实际有�
 append函数就理解为往slice中加入一个值，如果未达到容量（len<cap）那么就直接往数组中加值，
 如果达到容量（len = cap）那么就新增一倍的新元素空间，再赋值。
 
-###3. map 结构
+### 3. map 结构
 
 map结构也经常常用，它和php中的`array（）`几乎一模一样，是一个`key-value`的hash结构。
 
