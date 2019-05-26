@@ -6,7 +6,7 @@ permalink: /about
 
 熟悉的
 
-* php lua shell python golang
+* php go lua shell python 
 * nginx
 * memcache redis
 * mysql
@@ -17,6 +17,3 @@ permalink: /about
 正在学习的
 
 [plan](/plan/)
-
-
-
