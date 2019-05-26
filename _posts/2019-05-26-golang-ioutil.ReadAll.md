@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [golang踩的坑] ioutil.ReadAll 会清空对应Reader
+title: "[golang踩的坑] ioutil.ReadAll 会清空对应Reader"
 tags: go
 ---
 ### 问题
