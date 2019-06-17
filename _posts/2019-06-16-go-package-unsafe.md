@@ -1,5 +1,5 @@
 ---
-title: go unsafe包 注释翻译
+title: go unsafe 源码学习和实践
 layout: post
 tags: go 翻译
 ---
@@ -80,7 +80,7 @@ Pointer 表示指向任意类型的指针。Pointer 有四种特殊操作，这�
 //	}
 //
 // (2) Conversion of a Pointer to a uintptr (but not back to Pointer).
-(2) Pointer转换为uintptr
+(2) Pointer转换为uintptr, 但不转换回Pointer
 //
 // Converting a Pointer to a uintptr produces the memory address of the value
 // pointed at, as an integer. The usual use for such a uintptr is to print it.
@@ -230,17 +230,23 @@ reflect.SliceHeader或者reflect.StringHeader的Data字段转换到Pointer或者
 //	s := *(*string)(unsafe.Pointer(&hdr)) // p possibly already lost
 //
 type Pointer *ArbitraryType
+go的任意类型 Pointer
 
 // Sizeof takes an expression x of any type and returns the size in bytes
 // of a hypothetical variable v as if v was declared via var v = x.
 // The size does not include any memory possibly referenced by x.
 // For instance, if x is a slice, Sizeof returns the size of the slice
 // descriptor, not the size of the memory referenced by the slice.
+Sizeof 返回任意表达式x的大小，单位字节, 大小不包括表达式所指向的内存大小，
+如果x是个切片，Sizeof返回的是切片描述符的大小，不是切片所指向内存的大小。
+
 func Sizeof(x ArbitraryType) uintptr
 
 // Offsetof returns the offset within the struct of the field represented by x,
 // which must be of the form structValue.field. In other words, it returns the
 // number of bytes between the start of the struct and the start of the field.
+返回结构体内某个字段的偏移量，参数x必须是structValue.field这中格式。也就是说，
+Offsetof返回了结构体开始位置和某个字段开始位置的偏移量， 单位字节
 func Offsetof(x ArbitraryType) uintptr
 
 // Alignof takes an expression x of any type and returns the required alignment
@@ -251,8 +257,33 @@ func Offsetof(x ArbitraryType) uintptr
 // within that struct, then Alignof(s.f) will return the required alignment
 // of a field of that type within a struct. This case is the same as the
 // value returned by reflect.TypeOf(s.f).FieldAlign().
+返回表达式x需要的对齐大小，单位字节
 func Alignof(x ArbitraryType) uintptr
 ```
+
+> 如上是基于源码中的注释进行的部分理解和翻译
+
+### 示例
+Sizeof, Offsetof, Alignof 示例
+> 64位系统，注释部分为对应语句的输出结果
+
+```
+type X struct {
+        a bool
+        b int16
+        c []int
+}
+x := X{}
+fmt.Println(unsafe.Sizeof(x), unsafe.Alignof(x))
+// 32 8
+fmt.Println(unsafe.Sizeof(x.a), unsafe.Alignof(x.a), unsafe.Offsetof(x.a))
+//  1, 1, 0
+fmt.Println(unsafe.Sizeof(x.b), unsafe.Alignof(x.b), unsafe.Offsetof(x.b))
+// 2, 2, 2
+fmt.Println(unsafe.Sizeof(x.c), unsafe.Alignof(x.c), unsafe.Offsetof(x.c))
+// 24, 8, 8
+```
+
 
 ### 说明
 水平有限，翻译仅供参考，有问题欢迎交流。
