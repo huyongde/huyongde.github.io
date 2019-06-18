@@ -289,5 +289,5 @@ fmt.Println(unsafe.Sizeof(x.c), unsafe.Alignof(x.c), unsafe.Offsetof(x.c))
 水平有限，翻译仅供参考，有问题欢迎交流。
 
 ### 参考
-[unsafe source code ](https://golang.org/src/unsafe/unsafe.go)
-[go 语言圣经](https://www.kancloud.cn/hartnett/gopl-zh/126066)
+* [unsafe source code ](https://golang.org/src/unsafe/unsafe.go)
+* [go 语言圣经](https://www.kancloud.cn/hartnett/gopl-zh/126066)
