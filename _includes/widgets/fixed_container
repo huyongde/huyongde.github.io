@@ -1,11 +1,5 @@
 <div id="fixed-container">
   <section>
-    {% include widgets/contacts_list %}
-  </section>
-  <section>
-    {% include widgets/repos_list %}
-  </section>
-  <section>
     {% include widgets/links_list %}
   </section>
   <section>
