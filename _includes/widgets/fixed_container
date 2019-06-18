@@ -6,9 +6,6 @@
     {% include widgets/repos_list %}
   </section>
   <section>
-  {% include widgets/related_posts_list %}
-  </section>
-  <section>
     {% include widgets/links_list %}
   </section>
   <section>
