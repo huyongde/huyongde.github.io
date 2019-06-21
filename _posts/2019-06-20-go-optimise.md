@@ -60,7 +60,90 @@ b2的预期值应该是个空对象，所以在put之前需要把对象归零。
 ```
 符合预期
 
-### 技巧2: 
+### 技巧2: 避免用带有指针的结构体对象做大map的key
+用带指针的对象做map的key, 在gc时会耗费更多的时间，因为gc需要根据指针去遍历所有的数据。
+比如`map[string]int` string 做map的可以，string在go里用如下结构体实现:
+
+```
+type StringHeader struct {
+    Data uintptr
+    Len  int
+}
+```
+详细介绍在[StringHeader](https://golang.org/src/reflect/value.go?s=56526:56578#L1873)
+string中是包含指针的，所以相比用无指针的对象做key，gc会更耗时。
+#### 示例:
+```
+package main
+
+import (
+    "fmt"
+    "runtime"
+    "strconv"
+    "time"
+)
+
+const numElements = 1000000
+
+var foo = map[string]int{}
+
+func case1() {
+    for i := 0; i < numElements; i++ {
+        foo[strconv.Itoa(i)] = i
+    }
+
+}
+
+var foo2 = map[int]int{}
+
+func case2() {
+    for i := 0; i < numElements; i++ {
+        foo2[i] = i
+    }
+}
+func timeGC() {
+    t := time.Now()
+    runtime.GC()
+    fmt.Println("gc took time:", time.Since(t))
+}
+func main() {
+    case1()
+    //case2()
+    for {
+        timeGC()
+        time.Sleep(1 * time.Second)
+    }
+
+}
+
+```
+注释case2()， 打开case1()时，输出如下:
+```
+gc took time: 689.009µs
+gc took time: 123.342µs
+gc took time: 139.036µs
+gc took time: 115.834µs
+gc took time: 119.697µs
+```
+
+注释case1(), 打开case2()时，输出如下:
+```
+gc took time: 348.206µs
+gc took time: 168.322µs
+gc took time: 175.602µs
+gc took time: 165.996µs
+gc took time: 166.349µs
+```
+
+gc耗时差别巨大。
+
+所以在使用大map时，尽量避免使用带指针的结构体对象做可以。
+
+### 技巧3: 
+
+
+
+
 ### 参考
 * [Simple techniques to optimise Go programs](https://stephen.sh/posts/quick-go-performance-improvements)
 
