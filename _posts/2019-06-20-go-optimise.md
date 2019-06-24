@@ -119,20 +119,23 @@ func main() {
 ```
 注释case2()， 打开case1()时，输出如下:
 ```
-gc took time: 689.009µs
-gc took time: 123.342µs
-gc took time: 139.036µs
-gc took time: 115.834µs
-gc took time: 119.697µs
+gc took time: 40.927788ms
+gc took time: 40.265383ms
+gc took time: 40.235497ms
+gc took time: 40.562543ms
+gc took time: 41.379995ms
+gc took time: 40.582498ms
+gc took time: 42.926792ms
 ```
 
 注释case1(), 打开case2()时，输出如下:
 ```
-gc took time: 348.206µs
-gc took time: 168.322µs
-gc took time: 175.602µs
-gc took time: 165.996µs
-gc took time: 166.349µs
+gc took time: 285.715µs
+gc took time: 159.778µs
+gc took time: 158.922µs
+gc took time: 168.993µs
+gc took time: 159.776µs
+gc took time: 175.365µs
 ```
 
 gc耗时差别巨大。
