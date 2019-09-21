@@ -27,6 +27,7 @@
 
   <!-- Scripts -->
   <script type="text/javascript" src="{{ ASSET_PATH }}/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="{{ ASSET_PATH }}/js/toc.js"></script>
   <!--[if lt IE 9]><script src="{{ ASSET_PATH }}/js/html5shiv.min.js"></script><![endif]-->
   
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -119,6 +120,7 @@
           {{ content }}
         </div>
       </div>
+      {% include widgets/toc %}
 
       {% include widgets/back_top_button %}
 
@@ -141,7 +143,8 @@
       $('code, pre').css('font-family', 'Courier, monospace');
     }
   </script>
-  {% include JB/analytics %}
+<!--  {% include JB/analytics %}
+-->
 
   
 </body>
