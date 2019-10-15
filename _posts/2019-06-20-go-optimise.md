@@ -225,9 +225,79 @@ PASS
 Builder 在提前通过 `Grow()` 提前预分配空间的情况下性能提升到普通字符串拼接的5倍，即使不提前预分配空间也能提升一倍多。
 
 
+### 技巧4:  使用strconv包替代fmt包
+在把整数转为字符串时，`strconv.Itoa`性能会比`fmt.Sprintf`好很多，`fmt.Sprintf` 使用接口interface{}作为参数，存在如下缺点:
+* 失去了类型安全
+* 变量转为interface{}时会进行内存申请
 
+接下来， 通过基准测试对比两种把整数转为字符串的方法
 
+```
+package main
 
+import (
+	"fmt"
+	"strconv"
+)
+
+func strconvFmt(b int) string {
+	return strconv.Itoa(b)
+}
+func fmtFmt(a string, b int) string {
+	return fmt.Sprintf("%d", b)
+}
+func main(){}
+```
+
+test文件:
+
+```
+func BenchmarkFmt(b *testing.B) {
+	big := 10000
+	small := 10
+	b.Run("strconv_small", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			strconvFmt(small)
+		}
+	})
+	b.Run("strconv_big", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			strconvFmt(big)
+		}
+	})
+	b.Run("fmt.Sprintf_small", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			fmtFmt(small)
+		}
+	})
+	b.Run("fmt.Sprintf_big", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			fmtFmt(big)
+		}
+	})
+
+}
+```
+执行`go test -bench=BenchmarkFmt -benchmem`得到如下结果
+```
+goos: darwin
+goarch: amd64
+BenchmarkFmt/strconv_small-4         	305850991	         3.92 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFmt/strconv_big-4           	30948387	        32.7 ns/op	       5 B/op	       1 allocs/op
+BenchmarkFmt/fmt.Sprintf_small-4     	10915570	       105 ns/op	      16 B/op	       2 allocs/op
+BenchmarkFmt/fmt.Sprintf_big-4       	10358809	       113 ns/op	      16 B/op	       2 allocs/op
+PASS
+```
+
+`strconv.Itoa`的性能是`fmt.Sprintf`的3倍多，并且`strconv.Itoa`在处理绝对值小于100的整数时做了优化，
+不需要进行alloc操作，性能更高。详情可以看`src/strconv/itoa.go`中的代码。
+
+### 说明
+go 的版本信息为:
+```
+$ go version
+go version go1.13 darwin/amd64
+```
 ### 参考
 * [Simple techniques to optimise Go programs](https://stephen.sh/posts/quick-go-performance-improvements)
 
