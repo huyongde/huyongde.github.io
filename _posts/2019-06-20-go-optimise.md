@@ -222,7 +222,7 @@ BenchmarkBuildStr/builder-0-4     	 7817630	       176 ns/op	     120 B/op	     
 BenchmarkBuildStr/builder-1-4     	17136417	        67.4 ns/op	      64 B/op	       1 allocs/op
 PASS
 ```
-Builder 在提前通过 `Grow()` 提前预分配空间的情况下性能提升到普通字符串拼接的5倍，即使不提前预分配空间也能提升一倍多。
+在通过 `Builder.Grow()` 提前预分配空间的情况下性能提升了4倍, 即使不提前预分配空间也能提升一倍多。
 
 
 ### 技巧4:  使用strconv包替代fmt包
@@ -243,7 +243,7 @@ import (
 func strconvFmt(b int) string {
 	return strconv.Itoa(b)
 }
-func fmtFmt(a string, b int) string {
+func fmtFmt(b int) string {
 	return fmt.Sprintf("%d", b)
 }
 func main(){}
