@@ -142,7 +142,88 @@ gc耗时差别巨大。
 
 所以在使用大map时，尽量避免使用带指针的结构体对象做可以。
 
-### 技巧3: 
+### 技巧3:  使用 strings.Builder 来构拼接字符串
+Go 1.10 版本, 提供了`strings.Builder` 来更高效的进行字符串的拼接，
+Builder 底层实现是向一个byte 的 buffer 中不断写入数据.
+Builder 实现在`src/string/builder.go` 中
+
+通过例子对比下性能差异
+
+```
+// main.go
+package main
+
+import "strings"
+
+var strs = []string{
+	"here's",
+	"a",
+	"some",
+	"long",
+	"list",
+	"of",
+	"strings",
+	"for",
+	"you",
+}
+
+func buildStrNaive() string {
+	var s string
+
+	for _, v := range strs {
+		s += v
+	}
+
+	return s
+}
+func buildStrBuilder(grow bool) string {
+	b := strings.Builder{}
+	if grow {
+		b.Grow(60)
+	}
+	for _, v := range strs {
+		b.WriteString(v)
+	}
+	return b.String()
+}
+```
+```
+// main_test.go
+package main
+
+import "testing"
+
+func BenchmarkBuildStr(b *testing.B) {
+	b.Run("Naive", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			buildStrNaive()
+		}
+	})
+	b.Run("builder-0", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			buildStrBuilder(false)
+		}
+	})
+	b.Run("builder-1", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			buildStrBuilder(true)
+		}
+	})
+}
+```
+
+通过`go test -bench=. -benchmem`进行基准测试，结果如下
+
+```
+goos: darwin
+goarch: amd64
+BenchmarkBuildStr/Naive-4         	 3424706	       374 ns/op	     216 B/op	       8 allocs/op
+BenchmarkBuildStr/builder-0-4     	 7817630	       176 ns/op	     120 B/op	       4 allocs/op
+BenchmarkBuildStr/builder-1-4     	17136417	        67.4 ns/op	      64 B/op	       1 allocs/op
+PASS
+```
+Builder 在提前通过 `Grow()` 提前预分配空间的情况下性能提升到普通字符串拼接的5倍，即使不提前预分配空间也能提升一倍多。
+
 
 
 
