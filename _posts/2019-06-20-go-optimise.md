@@ -292,11 +292,36 @@ PASS
 `strconv.Itoa`的性能是`fmt.Sprintf`的3倍多，并且`strconv.Itoa`在处理绝对值小于100的整数时做了优化，
 不需要进行alloc操作，性能更高。详情可以看`src/strconv/itoa.go`中的代码。
 
-### 技巧5 []byte 转 string 时，用 unsafe 包
+### 技巧5: []byte 转 string 时，用 unsafe 包
 
 `string(byteSlice)` 把`[]byte` 转为 `string` 对应的是`OARRAYBYTESTR`操作 (`src/cmd/compile/internal/gc/walk.go`,`src/cmd/compile/internal/gc/syntax.go`)，
-此操作在编译阶段会映射成运行时函数`slicebytetostring`,  此函数定义在`src/runtime/string.go` 中，
-需要进行内存申请，性能会有影响。
+此操作在编译阶段会映射成运行时函数`slicebytetostring`,  此函数定义在`src/runtime/string.go` 中， 函数中需要进行内存申请，性能会有影响。
+
+```
+// Buf is a fixed-size buffer for the result,
+// it is not nil if the result does not escape.
+func slicebytetostring(buf *tmpBuf, b []byte) (str string) {
+    l := len(b)
+    if l == 0 {
+        // Turns out to be a relatively common case.
+        // Consider that you want to parse out data between parens in "foo()bar",
+        // you find the indices and convert the subslice to string.
+        return ""
+    }
+
+    var p unsafe.Pointer
+    if buf != nil && len(b) <= len(buf) {
+        p = unsafe.Pointer(buf)
+    } else {
+        p = mallocgc(uintptr(len(b)), nil, false)
+    }
+    stringStructOf(&str).str = p
+    stringStructOf(&str).len = len(b)
+    memmove(p, (*(*slice)(unsafe.Pointer(&b))).array, uintptr(len(b)))
+    return
+}
+```
+
 下面通过基准测试对比下:
 
 ```
