@@ -62,7 +62,7 @@ b2的预期值应该是个空对象，所以在put之前需要把对象归零。
 
 ### 技巧2: 避免用带有指针的结构体对象做大map的key
 用带指针的对象做map的key, 在gc时会耗费更多的时间，因为gc需要根据指针去遍历所有的数据。
-比如`map[string]int` string 做map的可以，string在go里用如下结构体实现:
+比如`map[string]int` string 做map的key，string在go里用如下结构体实现:
 
 ```
 type StringHeader struct {
@@ -145,7 +145,14 @@ gc耗时差别巨大。
 ### 技巧3:  使用 strings.Builder 来构拼接字符串
 Go 1.10 版本, 提供了`strings.Builder` 来更高效的进行字符串的拼接，
 Builder 底层实现是向一个byte 的 buffer 中不断写入数据.
-Builder 实现在`src/string/builder.go` 中
+Builder 实现在`src/string/builder.go` 中, 结构定义如下:
+
+```
+type Builder struct {
+    addr *Builder // of receiver, to detect copies by value
+    buf  []byte
+}
+```
 
 通过例子对比下性能差异
 
