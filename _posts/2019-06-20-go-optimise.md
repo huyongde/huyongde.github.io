@@ -142,7 +142,7 @@ gc耗时差别巨大。
 
 所以在使用大map时，尽量避免使用带指针的结构体对象做key。
 
-### 技巧3:  使用 strings.Builder 来构拼接字符串
+### 技巧3:  使用 strings.Builder 来拼接字符串
 Go 1.10 版本, 提供了`strings.Builder` 来更高效的进行字符串的拼接，
 Builder 底层实现是向一个byte 的 buffer 中不断写入数据.
 Builder 实现在`src/string/builder.go` 中, 结构定义如下:
