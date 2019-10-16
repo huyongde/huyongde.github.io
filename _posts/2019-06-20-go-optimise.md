@@ -292,6 +292,46 @@ PASS
 `strconv.Itoa`的性能是`fmt.Sprintf`的3倍多，并且`strconv.Itoa`在处理绝对值小于100的整数时做了优化，
 不需要进行alloc操作，性能更高。详情可以看`src/strconv/itoa.go`中的代码。
 
+### 技巧5 []byte 转 string 时，用 unsafe 包
+
+`string(byteSlice)` 把`[]byte` 转为 `string` 对应的是`OARRAYBYTESTR`操作 (`src/cmd/compile/internal/gc/walk.go`,`src/cmd/compile/internal/gc/syntax.go`)，
+此操作在编译阶段会映射成运行时函数`slicebytetostring`,  此函数定义在`src/runtime/string.go` 中，
+需要进行内存申请，性能会有影响。
+下面通过基准测试对比下:
+
+```
+func BenchmarkTostr(b *testing.B) {
+	bs := []byte("hello go")
+	var str string
+	b.Run("unsafe", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			str = *(*string)(unsafe.Pointer(&bs))
+		}
+
+	})
+	b.Run("normal", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			str = string(bs)
+		}
+
+	})
+	fmt.Println(str)
+}
+```
+基准测试结果:
+
+```
+goos: darwin
+goarch: amd64
+BenchmarkTostr/unsafe-4         	1000000000	         0.789 ns/op	       0 B/op	       0 allocs/op
+BenchmarkTostr/normal-4         	64188240	        16.3 ns/op	       8 B/op	       1 allocs/op
+hello go
+PASS
+```
+从测试结果看，多了一次内存分配，性能差了20多倍
+所以在某些情况下，可以考虑使用 unsafe 包实现`[]byte` 转为`string`
+
+
 ### 说明
 go 的版本信息为:
 ```
