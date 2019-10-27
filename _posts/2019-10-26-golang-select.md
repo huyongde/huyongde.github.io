@@ -5,9 +5,9 @@ tags: go
 ---
 
 #### 下图概括了make 和 new 关键字的实现:
-![select](/image/golang-select.png)
+![select](/image/go-select.png)
 
-i## select
+## select
 在go中，通过select可以实现等待多个channel达到就绪状态，select中的case都要关联到channel相关的读写操作。
 
 select 中每个case都会生成一个对应的scase结构体，结构体定义如下
