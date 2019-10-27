@@ -4,7 +4,7 @@ title: golang中 select 关键字的实现
 tags: go
 ---
 
-#### 下图概括了make 和 new 关键字的实现:
+#### 下图概括了select关键字的实现:
 ![select](/image/go-select.png)
 
 ## select
